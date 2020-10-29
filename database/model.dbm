@@ -110,12 +110,15 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</customidxs>
 </table>
 
-<table name="personel" layer="0" collapse-mode="2" max-obj-count="8">
+<table name="personel" layer="0" collapse-mode="2" max-obj-count="9">
 	<schema name="public"/>
 	<role name="postgres"/>
 	<position x="860" y="540"/>
 	<column name="personel_id" not-null="true">
 		<type name="uuid" length="0"/>
+	</column>
+	<column name="username" not-null="true">
+		<type name="text" length="0"/>
 	</column>
 	<column name="name1" not-null="true">
 		<type name="text" length="0"/>
@@ -137,6 +140,9 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</column>
 	<constraint name="personel_pk" type="pk-constr" table="public.personel">
 		<columns names="personel_id" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="username_uq" type="uq-constr" table="public.personel">
+		<columns names="username" ref-type="src-columns"/>
 	</constraint>
 </table>
 

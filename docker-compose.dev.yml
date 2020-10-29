@@ -1,0 +1,11 @@
+version: '3'
+services:
+
+  postgresql:
+    image: postgres:12-alpine
+    volumes:
+      - ./volume/pgdata:/var/lib/postgresql/data
+    env_file:
+      - ./development.env
+    ports:
+      - '5001:5432'

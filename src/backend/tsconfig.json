@@ -6,7 +6,8 @@
         ],
         "module": "CommonJS",
         "allowSyntheticDefaultImports": true,
-        "esModuleInterop": true
+        "esModuleInterop": true,
+        "noImplicitAny": true
     },
     "exclude": [
         "../frontend"

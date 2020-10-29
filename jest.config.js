@@ -1,9 +1,12 @@
 module.exports = {
     preset: "ts-jest",
     testEnvironment: "node",
+    setupFiles: [
+        "<rootDir>/.jest/setEnvVars.js"
+    ],
     globals: {
         "ts-jest": {
-            tsConfig: "tsconfig.test.json"
+            tsconfig: "tsconfig.test.json"
         }
     }
 };
