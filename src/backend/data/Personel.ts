@@ -1,9 +1,6 @@
 import db from "../db";
-import * as yup from "yup";
-import {user_regex, uuid_regex} from "../../regex";
+import {username_yup, uuid_yup} from "../../regex";
 import {PersonelT} from "../../data/Personel";
-import {ValidationError} from "yup";
-import {ParameterError} from "../../lib/error";
 
 const Personel = () => {
     return db<PersonelT>("personel")
@@ -11,12 +8,8 @@ const Personel = () => {
 
 export default Personel;
 
-const schema = yup.string().matches(user_regex);
-
 export async function getOnePersonelById(personel_id: string): Promise<PersonelT | null> {
-    if (!uuid_regex.test(personel_id)) {
-        throw new ParameterError(getOnePersonelById, 'personel_id', personel_id);
-    }
+    personel_id = await uuid_yup.validate(personel_id);
 
     const [personel] = await Personel().where('personel_id', personel_id).limit(1);
 
@@ -24,6 +17,7 @@ export async function getOnePersonelById(personel_id: string): Promise<PersonelT
 }
 
 export async function getOnePersonelByUsername(username: string): Promise<PersonelT | null> {
+    username = await username_yup.validate(username);
 
     const [personel] = await Personel().where('username', username).limit(1);
 

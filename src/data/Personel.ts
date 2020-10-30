@@ -1,5 +1,5 @@
 import {string, object, boolean} from "yup";
-import {user_regex, uuid_regex} from "../regex";
+import {username_regex, uuid_regex} from "../regex";
 
 export interface PersonelT {
     personel_id: string;
@@ -14,7 +14,7 @@ export interface PersonelT {
 
 export const PersonelY = object<PersonelT>({
     personel_id: string().matches(uuid_regex).required(),
-    username: string().matches(user_regex).required(),
+    username: string().matches(username_regex).required(),
     name1: string().required(),
     name2: string().required(),
     name3: string().nullable(),

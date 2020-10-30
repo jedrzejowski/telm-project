@@ -25,5 +25,12 @@ app.post("/login",
         res.send({status: "ok", data: req.user});
     });
 
+app.post("/logout",
+    (req, res) => {
+        req.logOut();
+        res.send({status: "ok"});
+    });
+
 app.use('/api', api);
 
+app.listen(8080);
