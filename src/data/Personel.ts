@@ -17,8 +17,8 @@ export const PersonelY = object<PersonelT>({
     username: string().matches(username_regex).required(),
     name1: string().required(),
     name2: string().required(),
-    name3: string().nullable(),
-    pwz: string().nullable(),
-    password: string().nullable(),
+    name3: string().nullable().default(null).required(),
+    pwz: string().nullable().default(null).required(),
+    password: string().nullable().default(null).required(),
     is_admin: boolean().required()
 });

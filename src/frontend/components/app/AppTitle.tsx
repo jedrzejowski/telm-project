@@ -25,7 +25,7 @@ export function AppTitleProvider(props: {
 
 export default function AppTitle(props: {
     title: string
-}): React.ReactElement {
+}): React.ReactNode {
     const title_context = useContext(TitleContext);
 
     useEffect(() => {
