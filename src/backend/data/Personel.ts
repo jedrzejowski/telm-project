@@ -2,11 +2,6 @@ import database from "../database";
 import {username_yup, uuid_yup} from "../../regex";
 import {PersonelT} from "../../data/personel";
 
-const Personel = () => {
-    return database<PersonelT>("personel")
-};
-
-export default Personel;
 
 export async function getOnePersonelById(personel_id: string): Promise<PersonelT | null> {
     personel_id = await uuid_yup.validate(personel_id);

@@ -31,6 +31,6 @@ app.post("/logout",
         res.send({status: "ok"});
     });
 
-app.use('/api', api);
+app.use("/api", api);
 
 app.listen(8080);

@@ -1,7 +1,6 @@
 import React from "react";
 import {PatientT, PatientY} from "../../../data/patient";
 import Box from "@material-ui/core/Box";
-import Typography from "@material-ui/core/Typography";
 import noop from "../../../lib/noop";
 import {Form} from "react-final-form";
 import {Select, TextField, DatePicker, makeValidate, makeRequired} from "mui-rff";
@@ -30,16 +29,6 @@ export default function PatientEditor(props: {
         validate={validate}
         render={({handleSubmit, submitting, errors}) => (
             <form onSubmit={handleSubmit} noValidate={true}>
-
-                <Box>
-                    <Typography component="span" variant="h6">
-                        Pacjent
-                    </Typography>
-
-                    <Typography component="span" variant="caption">
-                        #
-                    </Typography>
-                </Box>
 
                 <TextField
                     label="Nazwisko"

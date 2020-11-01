@@ -68,7 +68,7 @@ export default function PatientList(props: {
                 tooltip: 'Edytuj',
                 onClick: (event, rowData) => {
                     if (!Array.isArray(rowData)) {
-                        // history.push(`/people/${rowData.uid}`);
+                        history.push(`/patients/${rowData.patient_id}`);
                     }
                 }
             }
