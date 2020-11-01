@@ -10,7 +10,7 @@ export default function (
         req: express.Request,
         res: express.Response,
         next: express.NextFunction
-    ) => void
+    ) => Promise<void>
 ) {
     return async (
         req: express.Request,
@@ -24,18 +24,18 @@ export default function (
             if (error instanceof ValidationError) {
 
                 res.status(400);
-                res.json({error});
+                res.json({status: "error", error});
                 return;
             }
 
             if (error instanceof NotFoundError) {
                 res.status(404);
-                res.json({error: error.message});
+                res.json({status: "error", error: error.message});
                 return;
             }
 
             res.status(500);
-            res.json({error});
+            res.json({status: "error", error});
             console.error(error);
         }
     }

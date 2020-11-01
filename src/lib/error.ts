@@ -7,3 +7,7 @@ export class ParameterError extends Error {
         super(`ParameterError: function's ${func.name} param ${param_name} has illegal value='${param_value}'`);
     }
 }
+
+export class DatabaseError extends Error {
+
+}

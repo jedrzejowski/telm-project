@@ -1,9 +1,9 @@
-import db from "../db";
+import database from "../database";
 import {username_yup, uuid_yup} from "../../regex";
-import {PersonelT} from "../../data/Personel";
+import {PersonelT} from "../../data/personel";
 
 const Personel = () => {
-    return db<PersonelT>("personel")
+    return database<PersonelT>("personel")
 };
 
 export default Personel;

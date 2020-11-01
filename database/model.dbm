@@ -3,9 +3,11 @@
 CAUTION: Do not modify this file unless you know what you are doing.
          Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="0.9.2" last-position="0,0" last-zoom="1" max-obj-count="6"
+<dbmodel pgmodeler-ver="0.9.2" author="Adam Jędrzejowski" last-position="0,0" last-zoom="1" max-obj-count="6"
 	 default-schema="public" default-owner="postgres">
-<database name="telm" is-template="false" allow-conns="true">
+<database name="telm" encoding="UTF8" is-template="false" allow-conns="true">
+	<appended-sql><![CDATA[
+]]></appended-sql>
 </database>
 
 <schema name="public" layer="0" fill-color="#e1e1e1" sql-disabled="true">
@@ -15,19 +17,19 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="public"/>
 	<role name="postgres"/>
 	<position x="400" y="180"/>
-	<column name="patient_id" not-null="true">
+	<column name="patient_id" not-null="true" default-value="uuid_generate_v4()">
 		<type name="uuid" length="0"/>
 	</column>
 	<column name="name1" not-null="true">
 		<type name="text" length="0"/>
-		<comment><![CDATA[imie]]></comment>
+		<comment><![CDATA[nazwisko]]></comment>
 	</column>
 	<column name="name2" not-null="true">
 		<type name="text" length="0"/>
-		<comment><![CDATA[nazwisko]]></comment>
+		<comment><![CDATA[imie]]></comment>
 	</column>
 	<column name="name3">
-		<type name="smallint" length="0"/>
+		<type name="text" length="0"/>
 		<comment><![CDATA[imie2]]></comment>
 	</column>
 	<column name="pesel">
@@ -48,7 +50,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		<columns names="patient_id" ref-type="src-columns"/>
 	</constraint>
 	<constraint name="sex" type="ck-constr" table="public.patients">
-			<expression><![CDATA[sex='F' or sex = 'M']]></expression>
+			<expression><![CDATA[sex in ('O', 'F', 'M')]]></expression>
 	</constraint>
 </table>
 
@@ -126,7 +128,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="name2" not-null="true">
 		<type name="text" length="0"/>
 	</column>
-	<column name="name3" not-null="true">
+	<column name="name3">
 		<type name="text" length="0"/>
 	</column>
 	<column name="pwz">
@@ -246,5 +248,9 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		<position x="-85.0512" y="0.21434"/>
 	</label>
 </relationship>
+
+<extension name="uuid-ossp">
+	<schema name="public"/>
+</extension>
 
 </dbmodel>

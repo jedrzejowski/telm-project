@@ -7,7 +7,6 @@ import DateFnsUtils from "@date-io/date-fns";
 import {MuiPickersUtilsProvider} from '@material-ui/pickers';
 
 import App from "./App";
-import AppStoreProvider from "./redux";
 import AppThemeProvider from "./components/app/AppThemeProvider";
 import {AppTitleProvider} from "./components/app/AppTitle";
 
@@ -15,20 +14,17 @@ const app = document.createElement("div");
 app.id = "app";
 document.body.append(app);
 
-
 ReactDOM.render(
     <Router>
-        <AppStoreProvider>
-            <AppThemeProvider>
-                <AppTitleProvider>
-                    <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                        <SnackbarProvider maxSnack={3}>
-                            <CssBaseline/>
-                            <App/>
-                        </SnackbarProvider>
-                    </MuiPickersUtilsProvider>
-                </AppTitleProvider>
-            </AppThemeProvider>
-        </AppStoreProvider>
+        <AppThemeProvider>
+            <AppTitleProvider>
+                <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                    <SnackbarProvider maxSnack={3}>
+                        <CssBaseline/>
+                        <App/>
+                    </SnackbarProvider>
+                </MuiPickersUtilsProvider>
+            </AppTitleProvider>
+        </AppThemeProvider>
     </Router>,
     app);

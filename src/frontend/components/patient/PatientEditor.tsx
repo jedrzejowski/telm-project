@@ -1,5 +1,5 @@
 import React from "react";
-import {PatientT, PatientY} from "../../../data/Patient";
+import {PatientT, PatientY} from "../../../data/patient";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import noop from "../../../lib/noop";
@@ -8,35 +8,28 @@ import {Select, TextField, DatePicker, makeValidate, makeRequired} from "mui-rff
 import MenuItem from "@material-ui/core/MenuItem";
 import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
-import empty_uuid from "../../../lib/empty_uuid";
 
 const validate = makeValidate(PatientY);
 const required = makeRequired(PatientY);
 
-// @ts-ignore
-global.PatientY = PatientY;
-
 export default function PatientEditor(props: {
-    patient: PatientT | null
-    onChange?: (patient: PatientT) => void
+    patient: PatientT
     onSave?: (patient: PatientT) => void
     onCancel?: () => void
 }) {
     const {
         patient,
-        onChange = noop
+        onSave = noop
     } = props;
 
-    console.log(patient ?? {patient_id: empty_uuid});
-
     return <Form
-        initialValues={patient ?? {patient_id: empty_uuid}}
-        onSubmit={(values, e) => console.log("submit", values)}
-        subscription={{
-            submitting: true
+        initialValues={patient}
+        onSubmit={(values) => {
+            return PatientY.validate(values).then(patient => onSave(patient))
         }}
-        render={({values, handleSubmit, submitting, errors}) => (
-            <form onSubmit={handleSubmit}>
+        validate={validate}
+        render={({handleSubmit, submitting, errors}) => (
+            <form onSubmit={handleSubmit} noValidate={true}>
 
                 <Box>
                     <Typography component="span" variant="h6">
@@ -54,25 +47,26 @@ export default function PatientEditor(props: {
                     variant="outlined"
                     margin="dense"
                     size="small"
+                    required={required.name1}
                 />
 
-                <Box>
-                    <TextField
-                        label="Imię"
-                        name="name2"
-                        variant="outlined"
-                        margin="dense"
-                        size="small"
-                    />
+                <TextField
+                    label="Imię"
+                    name="name2"
+                    variant="outlined"
+                    margin="dense"
+                    size="small"
+                    required={required.name2}
+                />
 
-                    <TextField
-                        label="Drugie imię"
-                        name="name3"
-                        variant="outlined"
-                        margin="dense"
-                        size="small"
-                    />
-                </Box>
+                <TextField
+                    label="Drugie imię"
+                    name="name3"
+                    variant="outlined"
+                    margin="dense"
+                    size="small"
+                    required={required.name3}
+                />
 
                 <TextField
                     label="PESEL"
@@ -80,11 +74,13 @@ export default function PatientEditor(props: {
                     variant="outlined"
                     margin="dense"
                     size="small"
+                    required={required.pesel}
                 />
 
                 <Select
                     name="sex"
                     label="Płeć"
+                    required={required.sex}
                     formControlProps={{
                         margin: "dense",
                         variant: "outlined"
@@ -98,6 +94,7 @@ export default function PatientEditor(props: {
                 <DatePicker
                     label="Data urodzenia"
                     name="date_of_birth"
+                    required={required.date_of_birth}
                     format={"yyyy-MM-dd"}
                     inputVariant="outlined"
                     margin="dense"
@@ -107,6 +104,7 @@ export default function PatientEditor(props: {
                 <DatePicker
                     label="Data śmierci"
                     name="date_of_death"
+                    required={required.date_of_death}
                     format={"yyyy-MM-dd"}
                     clearable
                     inputVariant="outlined"
@@ -114,15 +112,22 @@ export default function PatientEditor(props: {
                     size="small"
                 />
 
-                <pre>HERE:{JSON.stringify(values)}{console.log("qwe",values)}</pre>
-
                 <Toolbar>
-                    <Button type="button" variant="contained" disabled={submitting}>
-                        Anuluj
-                    </Button>
-                    <Button variant="contained" color="primary" type="submit" disabled={submitting}>
-                        Zapisz
-                    </Button>
+
+                    <Box flexGrow={1}/>
+
+                    <Box ml={2}>
+                        <Button type="button" variant="contained" disabled={submitting}>
+                            Anuluj
+                        </Button>
+                    </Box>
+
+                    <Box ml={2}>
+                        <Button variant="contained" color="primary" type="submit" disabled={submitting}>
+                            Zapisz
+                        </Button>
+                    </Box>
+
                 </Toolbar>
             </form>
         )}
