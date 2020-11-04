@@ -1,6 +1,6 @@
 import {BasicStrategy} from "passport-http";
 import passport from "passport";
-import {getOnePersonelById} from "./data/Personel";
+import {getOnePersonelById} from "./data/personel";
 
 passport.use(new BasicStrategy(
     async function(username, password, done) {

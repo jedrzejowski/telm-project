@@ -1,25 +1,25 @@
-import {PatientShortT, PatientShortY, PatientT, PatientWithIdT} from "../../data/patient";
+import {PatientShortT, PatientShortY, PatientT, PatientRowT} from "../../data/patient";
 import axios from "axios";
 import {QueryCache, QueryResult, useQuery} from "react-query";
 import {AppQueryFilter, AppQueryResult} from "../../lib/query";
 
-export function usePatient(patient_id: string): QueryResult<PatientWithIdT>;
+export function usePatient(patient_id: string): QueryResult<PatientRowT>;
 export function usePatient(patient_id: null): QueryResult<null>;
-export function usePatient(patient_id: string | null): QueryResult<PatientWithIdT | null>;
-export function usePatient(patient_id: string | null): QueryResult<PatientWithIdT | null> {
+export function usePatient(patient_id: string | null): QueryResult<PatientRowT | null>;
+export function usePatient(patient_id: string | null): QueryResult<PatientRowT | null> {
     return useQuery(["patients", patient_id], ($1, patient_id) => {
         if (typeof patient_id === "string") {
-            return fetchPatient(patient_id)
+            return fetchSelectPatient(patient_id)
         } else {
             return null
         }
     });
 }
 
-export async function fetchPatient(patient_id: string) {
+export async function fetchSelectPatient(patient_id: string) {
     const response = await axios.get<{
         status: string
-        patient: PatientWithIdT
+        patient: PatientRowT
     }>(`/api/patients/${patient_id}`);
 
     if (
@@ -32,7 +32,7 @@ export async function fetchPatient(patient_id: string) {
     throw response;
 }
 
-export async function fetchPatients(query: AppQueryFilter<PatientShortT>) {
+export async function fetchSelectPatients(query: AppQueryFilter<PatientShortT>) {
     const response = await axios.get<{
         status: string,
         result: AppQueryResult<PatientShortT>
@@ -48,10 +48,10 @@ export async function fetchPatients(query: AppQueryFilter<PatientShortT>) {
     throw response;
 }
 
-export async function insertPatient(patient: PatientT): Promise<PatientWithIdT> {
+export async function fetchInsertPatient(patient: PatientT): Promise<PatientRowT> {
     const response = await axios.post<{
         status: string
-        patient: PatientWithIdT
+        patient: PatientRowT
     }>("/api/patients", patient);
 
     if (
@@ -64,10 +64,10 @@ export async function insertPatient(patient: PatientT): Promise<PatientWithIdT> 
     throw response;
 }
 
-export async function updatePatient(patient_id: string, patient: PatientT, cache?: QueryCache): Promise<PatientWithIdT> {
+export async function fetchUpdatePatient(patient_id: string, patient: PatientT, cache?: QueryCache): Promise<PatientRowT> {
     const response = await axios.put<{
         status: string
-        patient: PatientWithIdT
+        patient: PatientRowT
     }>(`/api/patients/${patient_id}`, patient);
 
     if (

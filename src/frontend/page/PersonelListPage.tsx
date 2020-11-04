@@ -1,5 +1,4 @@
 import React from "react";
-import PatientList from "../components/patient/PatientList";
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -9,12 +8,13 @@ import AddIcon from "@material-ui/icons/Add";
 import Tooltip from "@material-ui/core/Tooltip";
 import {useHistory} from "react-router-dom";
 import PageContainer from "../components/layout/PageContainer";
+import PersonelList from "../components/personel/PersonelList";
 
-export default function PatientListPage() {
+export default function PersonelListPage() {
     const history = useHistory();
 
-    function handleNewPatient(){
-        history.push("/patients/new");
+    function handleNewPersonel() {
+        history.push("/personel/new");
     }
 
     return (
@@ -25,20 +25,20 @@ export default function PatientListPage() {
                 <Toolbar>
 
                     <Typography variant="h4">
-                        List pacjentów
+                        List pracowników
                     </Typography>
 
                     <Box flexGrow={1}/>
 
                     <Tooltip title="Dodaj pacjenta">
-                        <IconButton onClick={handleNewPatient}>
+                        <IconButton onClick={handleNewPersonel}>
                             <AddIcon fontSize="large"/>
                         </IconButton>
                     </Tooltip>
 
                 </Toolbar>
 
-                <PatientList/>
+                <PersonelList/>
 
             </Paper>
 

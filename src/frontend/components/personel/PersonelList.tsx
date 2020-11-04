@@ -3,10 +3,10 @@ import MaterialTable, {MaterialTableProps} from "material-table";
 import Box from "@material-ui/core/Box";
 import {useHistory} from "react-router-dom";
 import {materialTableLocalization, materialTableWrapFetch} from "../../lib/materialTable";
-import {fetchSelectPatients} from "../../data/patients";
-import {PatientShortT} from "../../../data/patient";
+import {PersonelShortT} from "../../../data/personel";
+import {fetchSelectPersonel} from "../../data/personel";
 
-export default function PatientList(props: {
+export default function PersonelList(props: {
     padding?: "default" | "dense"
     editBtn?: boolean
 }) {
@@ -18,7 +18,7 @@ export default function PatientList(props: {
     const history = useHistory();
     const table_ref = React.useRef<MaterialTableProps<any>>();
 
-    return <MaterialTable<PatientShortT>
+    return <MaterialTable<PersonelShortT>
         components={{
             Container: Box
         }}
@@ -26,10 +26,6 @@ export default function PatientList(props: {
         title="Lista poświadczeń"
         localization={materialTableLocalization}
         columns={[{
-            title: "Pesel",
-            field: "pesel",
-            type: "string",
-        }, {
             title: "Nazwisko",
             field: "name1",
             type: "string"
@@ -37,12 +33,8 @@ export default function PatientList(props: {
             title: "Imię",
             field: "name2",
             type: "string"
-        }, {
-            title: "Data urodzenia",
-            field: "date_of_birth",
-            type: "string",
         }]}
-        data={materialTableWrapFetch(fetchSelectPatients)}
+        data={materialTableWrapFetch(fetchSelectPersonel)}
         actions={[
             {
                 hidden: !editBtn,
@@ -50,7 +42,7 @@ export default function PatientList(props: {
                 tooltip: 'Edytuj',
                 onClick: (event, rowData) => {
                     if (!Array.isArray(rowData)) {
-                        history.push(`/patients/${rowData.patient_id}`);
+                        history.push(`/personel/${rowData.personel_id}`);
                     }
                 }
             }

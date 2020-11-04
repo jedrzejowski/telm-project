@@ -1,4 +1,4 @@
-import {getOnePersonelById} from "./Personel";
+import {getOnePersonelById} from "./personel";
 
 describe('Personel', function () {
     it('getOnePersonel', async function () {

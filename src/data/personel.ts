@@ -1,24 +1,25 @@
-import {string, object, boolean} from "yup";
-import {username_regex, uuid_regex} from "../regex";
+import {string, object, boolean, InferType} from "yup";
+import {username_regex} from "../regex";
 
-export interface PersonelT {
-    personel_id: string;
-    username: string;
-    name1: string;
-    name2: string;
-    name3: string | null;
-    pwz: string | null;
-    password: string | null;
-    is_admin: boolean;
-}
+export const PersonelY = object({
+    username: string().matches(username_regex).defined().required(),
+    name1: string().defined().required(),
+    name2: string().defined().required(),
+    name3: string().nullable().default(null).defined(),
+    pwz: string().nullable().default(null).defined(),
+    is_admin: boolean().default(false).defined()
+}).defined().required();
 
-export const PersonelY = object<PersonelT>({
-    personel_id: string().matches(uuid_regex).required(),
-    username: string().matches(username_regex).required(),
-    name1: string().required(),
-    name2: string().required(),
-    name3: string().nullable().default(null).required(),
-    pwz: string().nullable().default(null).required(),
-    password: string().nullable().default(null).required(),
-    is_admin: boolean().required()
-});
+export const PersonelRowY = object({
+    personel_id: string().uuid().defined().required(),
+}).concat(PersonelY).defined().required();
+
+export const PersonelShortY = object({
+    personel_id: string().uuid().defined().required(),
+    name1: string().defined().required(),
+    name2: string().defined().required(),
+}).defined().required();
+
+export type PersonelT = InferType<typeof PersonelY>;
+export type PersonelRowT = InferType<typeof PersonelRowY>;
+export type PersonelShortT = InferType<typeof PersonelShortY>;

@@ -11,6 +11,7 @@ import useTheme from "@material-ui/core/styles/useTheme";
 import Hidden from "@material-ui/core/Hidden";
 import Drawer from "@material-ui/core/Drawer";
 import CssBaseline from "@material-ui/core/CssBaseline";
+import {useHistory} from "react-router-dom";
 
 const drawer_width = 260;
 
@@ -96,6 +97,9 @@ export default function AppLayout(props: {
 }) {
     const classes = useStyles();
 
+    const history = useHistory();
+    console.log(history);
+
     return (
         <Box className={classes.root}>
             <CssBaseline/>
@@ -179,6 +183,8 @@ function AppDrawer(props: {
     hasBottomBar?: boolean
     children: React.ReactNode
 }) {
+    const {children} = props;
+
     const classes = useStyles();
     const theme = useTheme();
     const [mobile_open, setMobileOpen] = React.useState(false);
@@ -186,6 +192,7 @@ function AppDrawer(props: {
     function handleDrawerToggle() {
         setMobileOpen(!mobile_open)
     }
+
 
     return (
         <Box className={classes.drawer}>

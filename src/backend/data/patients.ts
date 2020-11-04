@@ -1,20 +1,16 @@
-import {PatientT, PatientWithIdT} from "../../data/patient";
+import {PatientT, PatientRowT} from "../../data/patient";
 import database from "../database";
-import {DatabaseError} from "../../lib/error";
 import {AppQueryFilter, AppQueryResult, createQueryFilterY} from "../../lib/query";
+import {oneOrNull, oneOrDbErr} from "../../lib/one_or";
 
-export async function selectPatient(patient_id: string): Promise<PatientWithIdT | null> {
-    const response = await database.query(`
+export async function querySelectPatient(patient_id: string) {
+    const response = await database.query<PatientRowT>(`
         select * 
         from patients
         where patient_id = $1::uuid
     `, [patient_id]);
 
-    if (response.rows.length !== 1) {
-        return null;
-    }
-
-    return response.rows[0];
+    return oneOrNull(response.rows)
 }
 
 
@@ -22,7 +18,7 @@ export const patientQueryY = createQueryFilterY<PatientT>([
     "name1", "name2", "name3"
 ]);
 
-export async function selectPatients(query: AppQueryFilter<{}>): Promise<AppQueryResult<PatientWithIdT>> {
+export async function querySelectPatients(query: AppQueryFilter<{}>): Promise<AppQueryResult<PatientRowT>> {
     const response = await database.query(`
         select *, count(*) over() as _full_count
         from patients
@@ -45,8 +41,8 @@ export async function selectPatients(query: AppQueryFilter<{}>): Promise<AppQuer
     };
 }
 
-export async function insertPatient(patient: PatientT): Promise<PatientWithIdT> {
-    const response = await database.query(`
+export async function queryInsertPatient(patient: PatientT) {
+    const response = await database.query<PatientRowT>(`
         insert into patients(
             name1, name2, name3, 
             pesel, sex,
@@ -64,16 +60,12 @@ export async function insertPatient(patient: PatientT): Promise<PatientWithIdT> 
         patient.date_of_birth, patient.date_of_death,
     ]);
 
-    if (response.rows.length !== 1) {
-        throw new DatabaseError();
-    }
-
-    return response.rows[0];
+    return oneOrDbErr(response.rows);
 }
 
 
-export async function updatePatient(patient_id: string, patient: PatientT): Promise<PatientWithIdT> {
-    const response = await database.query(`
+export async function queryUpdatePatient(patient_id: string, patient: PatientT) {
+    const response = await database.query<PatientRowT>(`
         update patients
         set 
             name1 = $1::text, name2 = $2::text, name3 = $3::text, 
@@ -88,9 +80,5 @@ export async function updatePatient(patient_id: string, patient: PatientT): Prom
         patient_id
     ]);
 
-    if (response.rows.length !== 1) {
-        throw new DatabaseError();
-    }
-
-    return response.rows[0];
+    return oneOrDbErr(response.rows);
 }
