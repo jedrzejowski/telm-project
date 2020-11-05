@@ -5,7 +5,7 @@ import {
     querySelectHospitalization,
     querySelectHospitalizations,
     queryUpdateHospitalization
-} from "../data/hospitalization";
+} from "../data/hospitalizations";
 import {string} from "yup";
 
 const hospitalizations = createQueryRouter("patients", {

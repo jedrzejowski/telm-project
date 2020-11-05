@@ -2,12 +2,7 @@ import database from "../database";
 import {oneOrDbErr, oneOrNull} from "../../lib/one_or";
 import {AppQueryFilter, AppQueryResult} from "../../lib/query";
 import {yupMap} from "../../lib/yupUtils";
-import {
-    HospitalizationShortT,
-    HospitalizationShortY,
-    HospitalizationT,
-    HospitalizationY
-} from "../../data/hospitalization";
+import {HospitalizationT, HospitalizationY} from "../../data/hospitalization";
 
 
 export async function querySelectHospitalization(hospitalization_id: string) {
@@ -26,12 +21,14 @@ export async function querySelectHospitalization(hospitalization_id: string) {
     return oneOrNull(response.rows, HospitalizationY)
 }
 
-export async function querySelectHospitalizations(query: AppQueryFilter<{}>): Promise<AppQueryResult<HospitalizationShortT>> {
+export async function querySelectHospitalizations(query: AppQueryFilter<{}>): Promise<AppQueryResult<HospitalizationT>> {
     const response = await database.query(`
-        select 
+        select
             hospitalization_id as "id",
             patient_id,
-            time_start::text,
+            time_start::text, time_end::text,
+            personel_id_start, personel_id_end,
+            comment_start, comment_end,
             count(*) over() as _full_count
         from hospitalizations
         where true
@@ -42,7 +39,7 @@ export async function querySelectHospitalizations(query: AppQueryFilter<{}>): Pr
 
     return {
         totalCount: parseInt(response.rows[0]?._full_count ?? "0"),
-        rows: await yupMap(response.rows, HospitalizationShortY),
+        rows: await yupMap(response.rows, HospitalizationY),
         query
     };
 }

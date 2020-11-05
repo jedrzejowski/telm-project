@@ -1,8 +1,8 @@
 import database from "../database";
-import {PersonelShortT, PersonelShortY, PersonelT} from "../../data/personel";
+import {PersonelT, PersonelY} from "../../data/personel";
 import {oneOrDbErr, oneOrNull} from "../../lib/one_or";
 import {ParameterError} from "../../lib/error";
-import {AppQueryFilter, AppQueryResult, createQueryFilterY} from "../../lib/query";
+import {AppQueryFilter, AppQueryResult} from "../../lib/query";
 import {yupMap} from "../../lib/yupUtils";
 
 
@@ -19,7 +19,7 @@ export async function querySelectPersona(selector: string, field: "username" | "
                 where personel_id = $1::uuid
             `, [selector]);
 
-            return oneOrNull(response.rows, PersonelShortY)
+            return oneOrNull(response.rows, PersonelY)
         }
         case "username": {
 
@@ -32,7 +32,7 @@ export async function querySelectPersona(selector: string, field: "username" | "
                 where username = $1::uuid
             `, [selector]);
 
-            return oneOrNull(response.rows, PersonelShortY)
+            return oneOrNull(response.rows, PersonelY)
         }
 
         default:
@@ -40,12 +40,13 @@ export async function querySelectPersona(selector: string, field: "username" | "
     }
 }
 
-export async function querySelectPersonel(query: AppQueryFilter<{}>): Promise<AppQueryResult<PersonelShortT>> {
+export async function querySelectPersonel(query: AppQueryFilter<{}>): Promise<AppQueryResult<PersonelT>> {
     const response = await database.query(`
         select 
-             personel_id as "id",
-             name1, name2, 
-             count(*) over() as _full_count
+            personel_id as "id", username,
+            name1, name2,
+            pwz, is_admin,
+            count(*) over() as _full_count
         from personel
         where true
         limit $1::bigint OFFSET $2::bigint
@@ -55,7 +56,7 @@ export async function querySelectPersonel(query: AppQueryFilter<{}>): Promise<Ap
 
     return {
         totalCount: parseInt(response.rows[0]?._full_count ?? "0"),
-        rows: await yupMap(response.rows, PersonelShortY),
+        rows: await yupMap(response.rows, PersonelY),
         query
     };
 }
@@ -83,7 +84,7 @@ export async function queryCreatePersonel(personel: PersonelT): Promise<[id: str
         personel.pwz, personel.is_admin
     ]);
 
-    const personel_db = await oneOrDbErr(response.rows, PersonelShortY);
+    const personel_db = await oneOrDbErr(response.rows, PersonelY);
     return [personel_db.id, personel_db];
 }
 
@@ -108,5 +109,5 @@ export async function queryUpdatePersonel(personel_id: string, personel: Persone
         personel_id
     ]);
 
-    return await oneOrDbErr(response.rows, PersonelShortY);
+    return await oneOrDbErr(response.rows, PersonelY);
 }

@@ -10,16 +10,7 @@ export const PatientY = object({
     sex: string<'M' | 'F' | 'O'>().matches(/^(O|F|M)$/).defined().required(),
     date_of_birth: string().transform(yup_date_transform).defined().required(),
     date_of_death: string().transform(yup_date_transform).nullable().defined(),
-}).defined();
-
-export const PatientShortY = object({
-    id: string().uuid().required().defined(),
-    name1: string().defined().required(),
-    name2: string().defined().required(),
-    pesel: string().nullable().transform(value => value ?? null).defined(),
-    date_of_birth: string().transform(yup_date_transform).defined().required(),
-}).defined().strip(true);
+}).defined().required();
 
 export type PatientT = InferType<typeof PatientY>;
-export type PatientShortT = InferType<typeof PatientShortY>;
 

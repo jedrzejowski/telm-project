@@ -13,7 +13,7 @@ import {PatientT, PatientY} from "../../../data/patient";
 const validate = makeValidate(PatientY);
 const required = makeRequired(PatientY);
 
-export default function PatientEdit(props: Parameters<typeof Edit>[0]) {
+export default function PatientsEdit(props: Parameters<typeof Edit>[0]) {
 
     return (
         <Edit {...props}>

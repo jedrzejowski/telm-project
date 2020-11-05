@@ -1,7 +1,7 @@
 import React from "react";
 import {PatientT} from "../../../data/patient";
 
-export default function PatientField(props: {
+export default function PatientsField(props: {
     record?: PatientT
 }) {
     const {record: patient} = props;

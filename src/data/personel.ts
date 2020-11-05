@@ -11,11 +11,4 @@ export const PersonelY = object({
     is_admin: boolean().default(false).defined()
 }).defined().required();
 
-export const PersonelShortY = object({
-    id: string().uuid(),
-    name1: string().defined().required(),
-    name2: string().defined().required(),
-}).defined().required();
-
 export type PersonelT = InferType<typeof PersonelY>;
-export type PersonelShortT = InferType<typeof PersonelShortY>;

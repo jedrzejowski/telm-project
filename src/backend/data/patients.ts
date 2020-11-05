@@ -1,6 +1,6 @@
-import {PatientShortT, PatientShortY, PatientT, PatientY} from "../../data/patient";
+import {PatientT, PatientY} from "../../data/patient";
 import database from "../database";
-import {AppQueryFilter, AppQueryResult, createQueryFilterY} from "../../lib/query";
+import {AppQueryFilter, AppQueryResult} from "../../lib/query";
 import {oneOrNull, oneOrDbErr} from "../../lib/one_or";
 import {yupMap} from "../../lib/yupUtils";
 
@@ -19,12 +19,13 @@ export async function querySelectPatient(patient_id: string) {
 }
 
 
-export async function querySelectPatients(query: AppQueryFilter<{}>): Promise<AppQueryResult<PatientShortT>> {
+export async function querySelectPatients(query: AppQueryFilter<{}>): Promise<AppQueryResult<PatientT>> {
     const response = await database.query(`
         select 
-            patient_id as id, 
-            name1, name2,
-            pesel, date_of_birth,
+            patient_id as id,
+            name1, name2, name3, 
+            pesel, sex,
+            date_of_birth, date_of_death,
             count(*) over() as _full_count
         from patients
         where true
@@ -35,7 +36,7 @@ export async function querySelectPatients(query: AppQueryFilter<{}>): Promise<Ap
 
     return {
         totalCount: parseInt(response.rows[0]?._full_count ?? "0"),
-        rows: await yupMap(response.rows, PatientShortY),
+        rows: await yupMap(response.rows, PatientY),
         query
     };
 }

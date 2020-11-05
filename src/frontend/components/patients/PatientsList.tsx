@@ -1,7 +1,7 @@
 import React from "react";
 import {List, Datagrid, TextField, EditButton} from "react-admin";
 
-export default function PatientList(props: Parameters<typeof List>[0]) {
+export default function PatientsList(props: Parameters<typeof List>[0]) {
 
     return (
         <List {...props}>

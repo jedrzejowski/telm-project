@@ -2,8 +2,8 @@ import React from "react";
 import {Admin, Resource} from "react-admin";
 import simpleRestProvider from "ra-data-simple-rest";
 
-import PatientList from "./components/patient/PatientList";
-import PatientEdit, {PatientCreate} from "./components/patient/PatientEdit";
+import PatientsList from "./components/patients/PatientsList";
+import PatientsEdit, {PatientCreate} from "./components/patients/PatientsEdit";
 import PatientIcon from "@material-ui/icons/Accessibility";
 
 import PersonelList from "./components/personel/PersonelList";
@@ -11,8 +11,8 @@ import PersonelEdit, {PersonelCreate} from "./components/personel/PersonelEditor
 import PersonelIcon from "@material-ui/icons/Person";
 
 import HospitalizationIcon from "mdi-material-ui/HospitalBuilding";
-import HospitalizationEdit, {HospitalizationCreate} from "./components/hospitalization/HospitalizationEdit";
-import HospitalizationList from "./components/hospitalization/HospitalizationList";
+import HospitalizationsEdit, {HospitalizationsCreate} from "./components/hospitalizations/HospitalizationsEdit";
+import HospitalizationsList from "./components/hospitalizations/HospitalizationsList";
 
 export default function App() {
     return (
@@ -20,17 +20,17 @@ export default function App() {
 
             <Resource
                 name="patients"
-                list={PatientList}
-                edit={PatientEdit}
+                list={PatientsList}
+                edit={PatientsEdit}
                 create={PatientCreate}
                 icon={PatientIcon}
             />
 
             <Resource
                 name="hospitalizations"
-                list={HospitalizationList}
-                edit={HospitalizationEdit}
-                create={HospitalizationCreate}
+                list={HospitalizationsList}
+                edit={HospitalizationsEdit}
+                create={HospitalizationsCreate}
                 icon={HospitalizationIcon}
             />
 

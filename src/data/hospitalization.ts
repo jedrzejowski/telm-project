@@ -12,11 +12,4 @@ export const HospitalizationY = object({
     comment_end: string().nullable().default(null).defined(),
 }).defined().required();
 
-export const HospitalizationShortY = object({
-    id: string().uuid(),
-    patient_id: string().uuid().defined().required(),
-    time_start: string().transform(yup_timestamp_transform).required().defined(),
-}).defined().required();
-
 export type HospitalizationT = InferType<typeof HospitalizationY>;
-export type HospitalizationShortT = InferType<typeof HospitalizationShortY>;
