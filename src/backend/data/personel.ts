@@ -1,31 +1,38 @@
 import database from "../database";
-import {PersonelRowT, PersonelT} from "../../data/personel";
+import {PersonelShortT, PersonelShortY, PersonelT} from "../../data/personel";
 import {oneOrDbErr, oneOrNull} from "../../lib/one_or";
 import {ParameterError} from "../../lib/error";
 import {AppQueryFilter, AppQueryResult, createQueryFilterY} from "../../lib/query";
+import {yupMap} from "../../lib/yupUtils";
 
 
 export async function querySelectPersona(selector: string, field: "username" | "id" = "id") {
     switch (field) {
         case "id": {
 
-            const response = await database.query<PersonelRowT>(`
-                select * 
+            const response = await database.query(`
+                select 
+                    personel_id as "id", username,
+                    name1, name2,
+                    pwz, is_admin
                 from personel
                 where personel_id = $1::uuid
             `, [selector]);
 
-            return oneOrNull(response.rows)
+            return oneOrNull(response.rows, PersonelShortY)
         }
         case "username": {
 
-            const response = await database.query<PersonelRowT>(`
-                select * 
+            const response = await database.query(`
+                select 
+                    personel_id as "id", username,
+                    name1, name2,
+                    pwz, is_admin
                 from personel
                 where username = $1::uuid
             `, [selector]);
 
-            return oneOrNull(response.rows)
+            return oneOrNull(response.rows, PersonelShortY)
         }
 
         default:
@@ -33,13 +40,12 @@ export async function querySelectPersona(selector: string, field: "username" | "
     }
 }
 
-export const personelQueryY = createQueryFilterY<PersonelT>([
-    "name1", "name2", "name3"
-]);
-
-export async function querySelectPersonel(query: AppQueryFilter<{}>): Promise<AppQueryResult<PersonelRowT>> {
+export async function querySelectPersonel(query: AppQueryFilter<{}>): Promise<AppQueryResult<PersonelShortT>> {
     const response = await database.query(`
-        select *, count(*) over() as _full_count
+        select 
+             personel_id as "id",
+             name1, name2, 
+             count(*) over() as _full_count
         from personel
         where true
         limit $1::bigint OFFSET $2::bigint
@@ -47,22 +53,15 @@ export async function querySelectPersonel(query: AppQueryFilter<{}>): Promise<Ap
         query.limit, query.offset
     ]);
 
-    let totalCount = parseInt(response.rows[0]?._full_count ?? "0");
-
-    for (const row of response.rows) {
-        // @ts-ignore
-        delete row._full_count;
-    }
-
     return {
-        rows: response.rows,
-        totalCount,
+        totalCount: parseInt(response.rows[0]?._full_count ?? "0"),
+        rows: await yupMap(response.rows, PersonelShortY),
         query
     };
 }
 
-export async function queryInsertPersonel(personel: PersonelT) {
-    const response = await database.query<PersonelRowT>(`
+export async function queryCreatePersonel(personel: PersonelT): Promise<[id: string, personel: PersonelT]> {
+    const response = await database.query(`
         insert into personel(
             username,
             name1, name2, name3, 
@@ -73,26 +72,35 @@ export async function queryInsertPersonel(personel: PersonelT) {
             $2::text, $3::text, $4::text, 
             $5::char, $6::date
         )
-        returning *;
+        returning 
+            personel_id as id,
+            username,
+            name1, name2, name3, 
+            pwz, is_admin;
     `, [
         personel.username,
         personel.name1, personel.name2, personel.name3,
         personel.pwz, personel.is_admin
     ]);
 
-    return oneOrDbErr(response.rows);
+    const personel_db = await oneOrDbErr(response.rows, PersonelShortY);
+    return [personel_db.id, personel_db];
 }
 
 
 export async function queryUpdatePersonel(personel_id: string, personel: PersonelT) {
-    const response = await database.query<PersonelRowT>(`
+    const response = await database.query(`
         update personel
         set 
             username = $1::text,
             name1 = $2::text, name2 = $3::text, name3 = $4::text, 
-            pwz = $5::text, is_admin = $6::char, 
+            pwz = $5::text, is_admin = $6::bool
         where personel_id = $7
-        returning *;
+        returning
+            personel_id as id,
+            username,
+            name1, name2, name3, 
+            pwz, is_admin;
     `, [
         personel.username,
         personel.name1, personel.name2, personel.name3,
@@ -100,5 +108,5 @@ export async function queryUpdatePersonel(personel_id: string, personel: Persone
         personel_id
     ]);
 
-    return oneOrDbErr(response.rows);
+    return await oneOrDbErr(response.rows, PersonelShortY);
 }

@@ -1,10 +1,8 @@
 import {BasicStrategy} from "passport-http";
 import passport from "passport";
-import {getOnePersonelById} from "./data/personel";
 
 passport.use(new BasicStrategy(
     async function(username, password, done) {
-        getOnePersonelById(username)
         // User.findOne({ username: userid }, function (err, user) {
         //     if (err) { return done(err); }
         //     if (!user) { return done(null, false); }

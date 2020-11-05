@@ -1,29 +1,47 @@
 import React from "react";
-import {Route, Switch, Redirect} from "react-router-dom";
-import PatientEditPage from "./page/PatientEditPage";
-import PatientListPage from "./page/PatientListPage";
-import AppLayout from "./components/app/AppLayout";
-import Navigation from "./Navigation";
-import PersonelListPage from "./page/PersonelListPage";
+import {Admin, Resource} from "react-admin";
+import simpleRestProvider from "ra-data-simple-rest";
+
+import PatientList from "./components/patient/PatientList";
+import PatientEdit, {PatientCreate} from "./components/patient/PatientEdit";
+import PatientIcon from "@material-ui/icons/Accessibility";
+
+import PersonelList from "./components/personel/PersonelList";
+import PersonelEdit, {PersonelCreate} from "./components/personel/PersonelEditor";
+import PersonelIcon from "@material-ui/icons/Person";
+
+import HospitalizationIcon from "mdi-material-ui/HospitalBuilding";
+import HospitalizationEdit, {HospitalizationCreate} from "./components/hospitalization/HospitalizationEdit";
+import HospitalizationList from "./components/hospitalization/HospitalizationList";
 
 export default function App() {
-    return <>
-        <AppWhenLogged/>
-    </>
-}
+    return (
+        <Admin dataProvider={simpleRestProvider("/api")}>
 
-function AppWhenLogged() {
-    return <Switch>
-        <AppLayout
-            appName={"TELM Dashboard"}
-            navigation={<Navigation/>}
-        >
+            <Resource
+                name="patients"
+                list={PatientList}
+                edit={PatientEdit}
+                create={PatientCreate}
+                icon={PatientIcon}
+            />
 
-            <Route path="/patients/" exact render={() => <PatientListPage/>}/>
-            <Route path="/patients/:id" render={() => <PatientEditPage/>}/>
-            <Route path="/personel/" exact render={() => <PersonelListPage/>}/>
-            <Route path="/personel/:id" render={() => <PersonelEditPage/>}/>
+            <Resource
+                name="hospitalizations"
+                list={HospitalizationList}
+                edit={HospitalizationEdit}
+                create={HospitalizationCreate}
+                icon={HospitalizationIcon}
+            />
 
-        </AppLayout>
-    </Switch>
+            <Resource
+                name="personel"
+                list={PersonelList}
+                edit={PersonelEdit}
+                create={PersonelCreate}
+                icon={PersonelIcon}
+            />
+
+        </Admin>
+    )
 }

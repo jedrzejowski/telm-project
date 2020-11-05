@@ -1,0 +1,67 @@
+import React from "react";
+import {
+    Edit,
+    SimpleForm,
+    TextInput,
+    DateInput,
+    SelectInput,
+    Create
+} from 'react-admin';
+import {makeRequired, makeValidate} from "../../lib/yupUtils";
+import {PatientT, PatientY} from "../../../data/patient";
+
+const validate = makeValidate(PatientY);
+const required = makeRequired(PatientY);
+
+export default function PatientEdit(props: Parameters<typeof Edit>[0]) {
+
+    return (
+        <Edit {...props}>
+            <SimpleForm validate={validate}>
+                <TextInput source="name1" required={required.name1}/>
+                <TextInput source="name2" required={required.name2}/>
+                <TextInput source="name3" required={required.name3}/>
+                <TextInput source="pesel" required={required.pesel}/>
+                <SelectInput source="sex" choices={[
+                    {id: 'O', name: 'Inna'},
+                    {id: 'M', name: 'Mężczyzna'},
+                    {id: 'F', name: 'Kobieta'},
+                ]} required={required.sex}/>
+                <DateInput source="date_of_birth" required={required.date_of_birth}/>
+                <DateInput source="date_of_death" required={required.date_of_death}/>
+            </SimpleForm>
+        </Edit>
+    )
+}
+
+const new_patient: PatientT = {
+    name1: "",
+    name2: "",
+    name3: null,
+    pesel: null,
+    sex: "O",
+    date_of_birth: "",
+    date_of_death: null,
+}
+
+export function PatientCreate(props: Parameters<typeof Create>[0]) {
+
+    return (
+        <Create {...props} >
+            <SimpleForm validate={validate}
+                        initialValues={new_patient}>
+                <TextInput source="name1" required={required.name1}/>
+                <TextInput source="name2" required={required.name2}/>
+                <TextInput source="name3" required={required.name3}/>
+                <TextInput source="pesel" required={required.pesel}/>
+                <SelectInput source="sex" choices={[
+                    {id: 'O', name: 'Inna'},
+                    {id: 'M', name: 'Mężczyzna'},
+                    {id: 'F', name: 'Kobieta'},
+                ]} required={required.sex}/>
+                <DateInput source="date_of_birth" required={required.date_of_birth}/>
+                <DateInput source="date_of_death" required={required.date_of_death}/>
+            </SimpleForm>
+        </Create>
+    )
+}
