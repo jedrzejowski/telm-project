@@ -4,7 +4,7 @@ export interface AppQueryFilter<F extends object> {
     limit: number,
     sortField: string | null,
     sortOrder: "asc" | "desc" | null,
-    filter: F
+    filter?: F
 }
 
 export interface AppQueryResult<T extends object> {

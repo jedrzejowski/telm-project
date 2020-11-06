@@ -2,7 +2,8 @@ import database from "../database";
 import {oneOrDbErr, oneOrNull} from "../../lib/one_or";
 import {AppQueryFilter, AppQueryResult} from "../../lib/query";
 import {yupMap} from "../../lib/yupUtils";
-import {HospitalizationT, HospitalizationY} from "../../data/hospitalization";
+import {HospitalizationT, HospitalizationY} from "../../data/hospitalizations";
+import {InferType, object} from "yup";
 
 
 export async function querySelectHospitalization(hospitalization_id: string) {
@@ -21,7 +22,12 @@ export async function querySelectHospitalization(hospitalization_id: string) {
     return oneOrNull(response.rows, HospitalizationY)
 }
 
-export async function querySelectHospitalizations(query: AppQueryFilter<{}>): Promise<AppQueryResult<HospitalizationT>> {
+export const HospitalizationFilterY = object({}).defined().default({});
+
+export async function querySelectHospitalizations(
+    query: AppQueryFilter<InferType<typeof HospitalizationFilterY>>
+): Promise<AppQueryResult<HospitalizationT>> {
+
     const response = await database.query(`
         select
             hospitalization_id as "id",
@@ -74,7 +80,6 @@ export async function queryCreateHospitalization(hospitalization: Hospitalizatio
     const hospitalization_db = await oneOrDbErr(response.rows, HospitalizationY);
     return [hospitalization_db.id, hospitalization_db];
 }
-
 
 export async function queryUpdateHospitalization(hospitalization_id: string, hospitalization: HospitalizationT) {
     const response = await database.query(`

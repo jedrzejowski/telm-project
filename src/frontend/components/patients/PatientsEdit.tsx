@@ -8,7 +8,7 @@ import {
     Create
 } from 'react-admin';
 import {makeRequired, makeValidate} from "../../lib/yupUtils";
-import {PatientT, PatientY} from "../../../data/patient";
+import {PatientT, PatientY} from "../../../data/patients";
 
 const validate = makeValidate(PatientY);
 const required = makeRequired(PatientY);

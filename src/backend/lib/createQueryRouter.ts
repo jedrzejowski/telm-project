@@ -5,27 +5,26 @@ import {AppQueryFilter, AppQueryResult} from "../../lib/query";
 import eam from "../eam";
 import createQueryFilterY from "./createQueryFilterY";
 
-export default function <FullObj extends object, ShortObj extends object, Filter extends object>(name: string, opt: {
-    fullObjValidate: ObjectSchema<FullObj>,
-    shortObjValidate: ObjectSchema<ShortObj>,
-    filterValidate: ObjectSchemaDefinition<Filter>,
-    querySelectOne: (id: string) => Promise<FullObj | null>,
-    querySelectMany: (query: AppQueryFilter<Filter>) => Promise<AppQueryResult<ShortObj>>,
-    queryUpdate?: (id: string, obj: FullObj) => Promise<FullObj>,
-    queryCreate?: (obj: FullObj) => Promise<[id: string, obj: FullObj]>,
+export default function <Object extends object, Filter extends object>(name: string, opt: {
+    objectSchema: ObjectSchema<Object>,
+    filterSchema: ObjectSchema<Filter>,
+    querySelectOne: (id: string) => Promise<Object | null>,
+    querySelectMany: (query: AppQueryFilter<Filter>) => Promise<AppQueryResult<Object>>,
+    queryUpdate?: (id: string, obj: Object) => Promise<Object>,
+    queryCreate?: (obj: Object) => Promise<[id: string, obj: Object]>,
 }) {
     const router = express.Router();
 
     const {
-        fullObjValidate,
+        objectSchema,
         querySelectMany,
         querySelectOne,
-        filterValidate,
+        filterSchema,
         queryUpdate,
         queryCreate
     } = opt;
 
-    const queryFilterY = createQueryFilterY<Filter>(filterValidate);
+    const queryFilterY = createQueryFilterY<Filter>(filterSchema);
 
     router.get("/", eam(async (req, res) => {
         const query = await queryFilterY.validate(req.query);
@@ -53,14 +52,14 @@ export default function <FullObj extends object, ShortObj extends object, Filter
 
     queryUpdate && router.put("/:id", eam(async (req, res) => {
         const id = req.params.id as string;
-        let obj = await fullObjValidate.validate(req.body);
+        let obj = await objectSchema.validate(req.body);
         obj = await queryUpdate(id, obj);
 
         res.status(200).send(obj);
     }));
 
     queryCreate && router.post("/", eam(async (req, res) => {
-        let obj = await fullObjValidate.validate(req.body), id: string;
+        let obj = await objectSchema.validate(req.body), id: string;
 
         [id, obj] = await queryCreate(obj);
 

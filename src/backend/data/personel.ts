@@ -4,6 +4,7 @@ import {oneOrDbErr, oneOrNull} from "../../lib/one_or";
 import {ParameterError} from "../../lib/error";
 import {AppQueryFilter, AppQueryResult} from "../../lib/query";
 import {yupMap} from "../../lib/yupUtils";
+import {InferType, object} from "yup";
 
 
 export async function querySelectPersona(selector: string, field: "username" | "id" = "id") {
@@ -40,7 +41,12 @@ export async function querySelectPersona(selector: string, field: "username" | "
     }
 }
 
-export async function querySelectPersonel(query: AppQueryFilter<{}>): Promise<AppQueryResult<PersonelT>> {
+export const PersonelFilterY = object({}).defined().default({});
+
+export async function querySelectPersonel(
+    query: AppQueryFilter<InferType<typeof PersonelFilterY>>
+): Promise<AppQueryResult<PersonelT>> {
+
     const response = await database.query(`
         select 
             personel_id as "id", username,

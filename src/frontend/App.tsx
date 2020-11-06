@@ -14,6 +14,10 @@ import HospitalizationIcon from "mdi-material-ui/HospitalBuilding";
 import HospitalizationsEdit, {HospitalizationsCreate} from "./components/hospitalizations/HospitalizationsEdit";
 import HospitalizationsList from "./components/hospitalizations/HospitalizationsList";
 
+import ExaminationIcon from "mdi-material-ui/Needle";
+import ExaminationList from "./components/examinations/ExaminationList";
+import ExaminationEdit, {ExaminationCreate} from "./components/examinations/ExaminationEdit";
+
 export default function App() {
     return (
         <Admin dataProvider={simpleRestProvider("/api")}>
@@ -32,6 +36,14 @@ export default function App() {
                 edit={HospitalizationsEdit}
                 create={HospitalizationsCreate}
                 icon={HospitalizationIcon}
+            />
+
+            <Resource
+                name="examinations"
+                list={ExaminationList}
+                edit={ExaminationEdit}
+                create={ExaminationCreate}
+                icon={ExaminationIcon}
             />
 
             <Resource

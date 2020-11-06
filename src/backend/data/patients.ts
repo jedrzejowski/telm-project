@@ -1,8 +1,9 @@
-import {PatientT, PatientY} from "../../data/patient";
-import database from "../database";
+import {PatientT, PatientY} from "../../data/patients";
+import database, {knex} from "../database";
 import {AppQueryFilter, AppQueryResult} from "../../lib/query";
 import {oneOrNull, oneOrDbErr} from "../../lib/one_or";
 import {yupMap} from "../../lib/yupUtils";
+import {boolean, InferType, object, string} from "yup";
 
 export async function querySelectPatient(patient_id: string) {
     const response = await database.query(`
@@ -18,25 +19,56 @@ export async function querySelectPatient(patient_id: string) {
     return await oneOrNull(response.rows, PatientY);
 }
 
+export const PatientFilterY = object({
+    name: string(),
+    name1: string(),
+    name2: string(),
+    name3: string(),
+    has_ongoing_hospitalization: boolean()
+}).defined().default({});
 
-export async function querySelectPatients(query: AppQueryFilter<{}>): Promise<AppQueryResult<PatientT>> {
-    const response = await database.query(`
-        select 
-            patient_id as id,
-            name1, name2, name3, 
-            pesel, sex,
-            date_of_birth, date_of_death,
-            count(*) over() as _full_count
-        from patients
-        where true
-        limit $1::bigint OFFSET $2::bigint
-    `, [
-        query.limit, query.offset
-    ]);
+export async function querySelectPatients(
+    query: AppQueryFilter<InferType<typeof PatientFilterY>>
+): Promise<AppQueryResult<PatientT>> {
+
+
+    const builder = knex.from({patient: "patients"}).select({
+        id: "patient.patient_id",
+        name1: "patient.name1",
+        name2: "patient.name2",
+        name3: "patient.name3",
+        pesel: "patient.pesel",
+        sex: "patient.sex",
+        date_of_birth: "patient.date_of_birth",
+        date_of_death: "patient.date_of_death",
+    }).select(knex.raw("count(*) over() as _full_count"));
+
+    if (query.filter) {
+        const {
+            name, name1, name2, name3,
+            has_ongoing_hospitalization
+        } = query.filter;
+
+        name && builder.whereRaw(
+            `lower(concat(patient.name1, ' ', patient.name2, ' ', patient.name3)) like concat('%', ?::text, '%')`,
+            [name.toLowerCase()]
+        );
+
+        name1 && builder.whereRaw(`patient.name1 like concat('%', ?::text, '%')`, [name1]);
+
+        name2 && builder.whereRaw(`patient.name1 like concat('%', ?::text, '%')`, [name2]);
+
+        name3 && builder.whereRaw(`patient.name3 like concat('%', ?::text, '%')`, [name3]);
+    }
+
+    builder.offset(query.offset);
+    builder.limit(query.limit);
+
+    const rows = await builder.then();
 
     return {
-        totalCount: parseInt(response.rows[0]?._full_count ?? "0"),
-        rows: await yupMap(response.rows, PatientY),
+        totalCount: parseInt(rows[0]?._full_count ?? "0"),
+        rows: await yupMap(rows, PatientY),
         query
     };
 }

@@ -9,7 +9,7 @@ import {
     Edit
 } from "react-admin";
 import {makeRequired, makeValidate} from "../../lib/yupUtils";
-import {HospitalizationY} from "../../../data/hospitalization";
+import {HospitalizationY} from "../../../data/hospitalizations";
 import {Grid} from "@material-ui/core";
 
 const validate = makeValidate(HospitalizationY);
@@ -22,7 +22,7 @@ function Forms(props: {
 
     return <>
 
-        <Grid container spacing={3}>
+        <Grid container spacing={2}>
 
             <Grid item xs={12}>
                 <ReferenceInput {...ra} source="patient_id" reference="patients">
@@ -31,20 +31,29 @@ function Forms(props: {
             </Grid>
 
             <Grid item xs={12} md={6}>
-                <ReferenceInput {...ra} source="personel_id_start" reference="personel">
-                    <AutocompleteInput optionText="name1"/>
+                <ReferenceInput
+                    {...ra}
+                    source="personel_id_start"
+                    reference="personel"
+                    className="fixme"
+                >
+                    <AutocompleteInput
+                        optionText="name1"
+                        fullWidth
+                    />
                 </ReferenceInput>
             </Grid>
 
             <Grid item xs={12} md={6}>
-                <ReferenceInput {...ra} source="personel_id_end" reference="personel"
-                                style={{width: "100%"}}
-                                formClassName={"HUJU"}
-                                className={"HUJU"}>
+                <ReferenceInput
+                    {...ra}
+                    source="personel_id_end"
+                    reference="personel"
+                    className="fixme"
+                >
                     <AutocompleteInput
                         optionText="name1"
                         fullWidth
-                        style={{width: "100%"}}
                     />
                 </ReferenceInput>
             </Grid>

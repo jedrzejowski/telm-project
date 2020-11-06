@@ -3,7 +3,7 @@
 CAUTION: Do not modify this file unless you know what you are doing.
          Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="0.9.2" author="Adam Jędrzejowski" last-position="406,428" last-zoom="1.35" max-obj-count="7"
+<dbmodel pgmodeler-ver="0.9.2" author="Adam Jędrzejowski" last-position="426,148" last-zoom="1.35" max-obj-count="7"
 	 default-schema="public" default-owner="postgres">
 <database name="telm" encoding="UTF8" is-template="false" allow-conns="true">
 	<appended-sql><![CDATA[
@@ -54,48 +54,44 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</constraint>
 </table>
 
-<table name="examination" layer="0" collapse-mode="2" max-obj-count="14">
+<table name="examination" layer="0" collapse-mode="2" max-obj-count="13">
 	<schema name="public"/>
 	<role name="postgres"/>
 	<comment><![CDATA[pomiary]]></comment>
-	<position x="1320" y="140"/>
+	<position x="1300" y="160"/>
 	<column name="examination_id" not-null="true" default-value="uuid_generate_v4()">
 		<type name="uuid" length="0"/>
 	</column>
-	<column name="timestamp" not-null="true">
+	<column name="timestamp" not-null="true" default-value="current_timestamp">
 		<type name="timestamp" length="0"/>
 	</column>
-	<column name="pulse" not-null="true">
+	<column name="pulse">
 		<type name="numeric" length="4"/>
 		<comment><![CDATA[tętno]]></comment>
 	</column>
-	<column name="temperature" not-null="true">
-		<type name="numeric" length="2"/>
+	<column name="temperature">
+		<type name="numeric" length="4" precision="2"/>
 		<comment><![CDATA[temperatura]]></comment>
 	</column>
-	<column name="blood_pressure1" not-null="true">
-		<type name="numeric" length="3"/>
-		<comment><![CDATA[ciśnienie tętnicze 1]]></comment>
-	</column>
-	<column name="blood_pressure2" not-null="true">
-		<type name="numeric" length="2"/>
-		<comment><![CDATA[ciśnienie tętnicze 2]]></comment>
+	<column name="blood_pressure">
+		<type name="text" length="3"/>
+		<comment><![CDATA[ciśnienie tętnicze]]></comment>
 	</column>
 	<column name="stool">
-		<type name="numeric" length="6"/>
-		<comment><![CDATA[stolec]]></comment>
+		<type name="numeric" length="6" precision="4"/>
+		<comment><![CDATA[stolec (kg)]]></comment>
 	</column>
 	<column name="urine">
-		<type name="numeric" length="4"/>
-		<comment><![CDATA[mocz]]></comment>
+		<type name="numeric" length="6" precision="4"/>
+		<comment><![CDATA[mocz (litry)]]></comment>
 	</column>
 	<column name="comment">
-		<type name="smallint" length="0"/>
+		<type name="text" length="0"/>
 		<comment><![CDATA[zlecenie lekarskie]]></comment>
 	</column>
 	<column name="mass">
-		<type name="numeric" length="3"/>
-		<comment><![CDATA[masa ciała]]></comment>
+		<type name="numeric" length="6" precision="3"/>
+		<comment><![CDATA[masa ciała (kg)]]></comment>
 	</column>
 	<constraint name="examination_pk" type="pk-constr" table="public.examination">
 		<columns names="examination_id" ref-type="src-columns"/>
@@ -203,7 +199,8 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 custom-color="#21403c"
 	 src-table="public.hospitalizations"
 	 dst-table="public.examination"
-	 src-required="true" dst-required="false">
+	 src-required="true" dst-required="false"
+	del-action="CASCADE">
 	<label ref-type="name-label">
 		<position x="5.9235" y="-73.7648"/>
 	</label>

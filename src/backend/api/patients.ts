@@ -1,19 +1,16 @@
-import {PatientY, PatientShortY} from "../../data/patient";
+import {PatientY} from "../../data/patients";
 import {
+    PatientFilterY,
     queryCreatePatient,
     querySelectPatient,
     querySelectPatients,
     queryUpdatePatient
 } from "../data/patients";
 import createQueryRouter from "../lib/createQueryRouter";
-import {string} from "yup";
 
 const patients = createQueryRouter("patients", {
-    fullObjValidate: PatientY,
-    shortObjValidate: PatientShortY,
-    filterValidate: {
-        name1: string()
-    },
+    objectSchema: PatientY,
+    filterSchema: PatientFilterY,
     querySelectOne: querySelectPatient,
     querySelectMany: querySelectPatients,
     queryUpdate: queryUpdatePatient,

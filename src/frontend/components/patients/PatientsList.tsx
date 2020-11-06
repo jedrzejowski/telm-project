@@ -1,10 +1,16 @@
 import React from "react";
-import {List, Datagrid, TextField, EditButton} from "react-admin";
+import {List, Datagrid, TextField, EditButton, Filter, TextInput} from "react-admin";
+
+const ListFilter = (props: {}) => (
+    <Filter {...props}>
+        <TextInput label="Search" source="name" alwaysOn/>
+    </Filter>
+);
 
 export default function PatientsList(props: Parameters<typeof List>[0]) {
 
     return (
-        <List {...props}>
+        <List {...props} filters={<ListFilter/>}>
             <Datagrid>
                 <TextField source="pesel"/>
                 <TextField source="name1"/>

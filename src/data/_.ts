@@ -9,3 +9,5 @@ export function yup_timestamp_transform(value: any) {
     const date = dayjs(value);
     return date.isValid() ? date.toISOString() : null
 }
+
+export type WithId<T extends object> = T & { id: string };

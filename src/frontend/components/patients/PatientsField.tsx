@@ -1,5 +1,5 @@
 import React from "react";
-import {PatientT} from "../../../data/patient";
+import {PatientT} from "../../../data/patients";
 
 export default function PatientsField(props: {
     record?: PatientT
