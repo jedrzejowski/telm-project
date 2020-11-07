@@ -3,14 +3,14 @@ import {
     Create,
     SimpleForm,
     TextInput,
-    AutocompleteInput,
     DateTimeInput,
-    ReferenceInput,
     Edit
 } from "react-admin";
 import {makeRequired, makeValidate} from "../../lib/yupUtils";
 import {HospitalizationY} from "../../../data/hospitalizations";
 import {Grid} from "@material-ui/core";
+import {PatientReferenceInput} from "../patients/PatientReference";
+import {PersonelReferenceInput} from "../personel/PersonelReference";
 
 const validate = makeValidate(HospitalizationY);
 const required = makeRequired(HospitalizationY);
@@ -25,37 +25,27 @@ function Forms(props: {
         <Grid container spacing={2}>
 
             <Grid item xs={12}>
-                <ReferenceInput {...ra} source="patient_id" reference="patients">
-                    <AutocompleteInput optionText="name1"/>
-                </ReferenceInput>
+                <PatientReferenceInput
+                    {...ra}
+                    fullWidth
+                    source="patient_id"
+                />
             </Grid>
 
             <Grid item xs={12} md={6}>
-                <ReferenceInput
+                <PersonelReferenceInput
                     {...ra}
+                    fullWidth
                     source="personel_id_start"
-                    reference="personel"
-                    className="fixme"
-                >
-                    <AutocompleteInput
-                        optionText="name1"
-                        fullWidth
-                    />
-                </ReferenceInput>
+                />
             </Grid>
 
             <Grid item xs={12} md={6}>
-                <ReferenceInput
+                <PersonelReferenceInput
                     {...ra}
+                    fullWidth
                     source="personel_id_end"
-                    reference="personel"
-                    className="fixme"
-                >
-                    <AutocompleteInput
-                        optionText="name1"
-                        fullWidth
-                    />
-                </ReferenceInput>
+                />
             </Grid>
 
             <Grid item xs={12} md={6}>

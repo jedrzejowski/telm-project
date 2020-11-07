@@ -12,3 +12,7 @@ export const PersonelY = object({
 }).defined().required();
 
 export type PersonelT = InferType<typeof PersonelY>;
+
+export function personel2str(personel: PersonelT) {
+    return personel.name1 + " " + personel.name2;
+}

@@ -2,8 +2,8 @@
 export interface AppQueryFilter<F extends object> {
     offset: number,
     limit: number,
-    sortField: string | null,
-    sortOrder: "asc" | "desc" | null,
+    sortField: string,
+    sortOrder: "asc" | "desc",
     filter?: F
 }
 

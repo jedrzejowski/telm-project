@@ -14,3 +14,6 @@ export const PatientY = object({
 
 export type PatientT = InferType<typeof PatientY>;
 
+export function patient2str(patient: PatientT) {
+    return patient.name1 + " " + patient.name2;
+}

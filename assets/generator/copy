@@ -1,0 +1,3 @@
+
+\copy patients(name1,name2,name3,pesel,sex,date_of_birth) from 'data.csv' delimiter ',' csv
+\copy personel(username,name1,name2,name3,pwz) from 'data.csv' delimiter ',' csv

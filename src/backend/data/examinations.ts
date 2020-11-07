@@ -1,10 +1,10 @@
-import database from "../database";
+import database, {knex} from "../database";
 import {oneOrDbErr, oneOrNull} from "../../lib/one_or";
 import {ExaminationT, ExaminationY} from "../../data/examinations";
 import {AppQueryFilter, AppQueryResult} from "../../lib/query";
 import {yupMap} from "../../lib/yupUtils";
 import {HospitalizationT, HospitalizationY} from "../../data/hospitalizations";
-import {InferType, object} from "yup";
+import {InferType, object, string} from "yup";
 
 const select_fields = [
     `examination_id as "id"`,
@@ -31,25 +31,54 @@ export async function querySelectExamination(examination_id: string) {
     return oneOrNull(response.rows, ExaminationY)
 }
 
-export const ExaminationFilterY = object({}).defined();
+export const ExaminationFilterY = object({
+    timestamp: string(),
+    patient_id: string().uuid(),
+    hospitalization_id: string().uuid(),
+}).defined();
 
 export async function querySelectExaminations(
     query: AppQueryFilter<InferType<typeof ExaminationFilterY>>
 ): Promise<AppQueryResult<ExaminationT>> {
 
-    const response = await database.query(`
-        select ${select_fields.join(',')},
-            count(*) over() as _full_count
-        from examinations
-        where true
-        limit $1::bigint OFFSET $2::bigint
-    `, [
-        query.limit, query.offset
-    ]);
+    const builder = knex.from({examination: "examinations"}).select({
+        id: "examination.examination_id",
+        personel_id: "examination.personel_id",
+        hospitalization_id: "examination.hospitalization_id",
+        timestamp: knex.raw(`"examination"."timestamp"::text`),
+        pulse: "examination.pulse",
+        temperature: "examination.temperature",
+        blood_pressure: "examination.blood_pressure",
+        stool: "examination.stool",
+        urine: "examination.urine",
+        mass: "examination.mass",
+        comment: "examination.comment",
+    }).select(knex.raw("count(*) over() as _full_count"));
+
+
+    if (query.filter) {
+        const {
+            patient_id,
+            hospitalization_id
+        } = query.filter;
+
+        hospitalization_id && builder.whereRaw(`examination.examination_id = ??:uuid`, [hospitalization_id]);
+
+        patient_id && builder
+            .innerJoin({hosp: "hospitalizations"}, "hosp.hospitalization_id", "examination.hospitalization_id")
+            .innerJoin({pat: "patients"}, "pat.patient_id", "hosp.patient_id");
+
+    }
+
+    builder.offset(query.offset);
+    builder.limit(query.limit);
+    builder.orderBy("examination." + query.sortField, query.sortOrder);
+
+    const rows = await builder.then();
 
     return {
-        totalCount: parseInt(response.rows[0]?._full_count ?? "0"),
-        rows: await yupMap(response.rows, ExaminationY),
+        totalCount: parseInt(rows[0]?._full_count ?? "0"),
+        rows: await yupMap(rows, ExaminationY),
         query
     };
 }

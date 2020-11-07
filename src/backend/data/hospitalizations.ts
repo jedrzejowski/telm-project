@@ -1,9 +1,9 @@
-import database from "../database";
+import database, {knex} from "../database";
 import {oneOrDbErr, oneOrNull} from "../../lib/one_or";
 import {AppQueryFilter, AppQueryResult} from "../../lib/query";
 import {yupMap} from "../../lib/yupUtils";
 import {HospitalizationT, HospitalizationY} from "../../data/hospitalizations";
-import {InferType, object} from "yup";
+import {InferType, object, string} from "yup";
 
 
 export async function querySelectHospitalization(hospitalization_id: string) {
@@ -22,30 +22,45 @@ export async function querySelectHospitalization(hospitalization_id: string) {
     return oneOrNull(response.rows, HospitalizationY)
 }
 
-export const HospitalizationFilterY = object({}).defined().default({});
+export const HospitalizationFilterY = object({
+    time_start: string(),
+    patient_id: string().uuid(),
+}).defined().default({});
 
 export async function querySelectHospitalizations(
     query: AppQueryFilter<InferType<typeof HospitalizationFilterY>>
 ): Promise<AppQueryResult<HospitalizationT>> {
 
-    const response = await database.query(`
-        select
-            hospitalization_id as "id",
+    const builder = knex.from({hospitalization: "hospitalizations"}).select({
+        id: "hospitalization.patient_id",
+        patient_id: "hospitalization.patient_id",
+        time_start: "hospitalization.time_start",
+        time_end: "hospitalization.time_end",
+        personel_id_start: "hospitalization.personel_id_start",
+        personel_id_end: "hospitalization.personel_id_end",
+        comment_start: "hospitalization.comment_start",
+        comment_end: "hospitalization.comment_end",
+    }).select(knex.raw("count(*) over() as _full_count"));
+
+    if (query.filter) {
+        const {
             patient_id,
-            time_start::text, time_end::text,
-            personel_id_start, personel_id_end,
-            comment_start, comment_end,
-            count(*) over() as _full_count
-        from hospitalizations
-        where true
-        limit $1::bigint OFFSET $2::bigint
-    `, [
-        query.limit, query.offset
-    ]);
+        } = query.filter;
+
+        patient_id && builder.innerJoin({pat: "patients"},
+            "pat.patient_id", "hospitalization.patient_id");
+
+    }
+
+    builder.offset(query.offset);
+    builder.limit(query.limit);
+    builder.orderBy("hospitalization." + query.sortField, query.sortOrder);
+
+    const rows = await builder.then();
 
     return {
-        totalCount: parseInt(response.rows[0]?._full_count ?? "0"),
-        rows: await yupMap(response.rows, HospitalizationY),
+        totalCount: parseInt(rows[0]?._full_count ?? "0"),
+        rows: await yupMap(rows, HospitalizationY),
         query
     };
 }

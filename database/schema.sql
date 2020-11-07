@@ -2,36 +2,42 @@
 -- pgModeler  version: 0.9.2
 -- PostgreSQL version: 12.0
 -- Project Site: pgmodeler.io
--- Model Author: ---
+-- Model Author: Adam Jędrzejowski
 
 
 -- Database creation must be done outside a multicommand file.
 -- These commands were put in this file only as a convenience.
 -- -- object: telm | type: DATABASE --
 -- -- DROP DATABASE IF EXISTS telm;
--- CREATE DATABASE telm;
+-- CREATE DATABASE telm
+-- 	ENCODING = 'UTF8';
+-- -- ddl-end --
+-- 
+-- -- Appended SQL commands --
+-- 
+-- 
 -- -- ddl-end --
 -- 
 
 -- object: public.patients | type: TABLE --
 -- DROP TABLE IF EXISTS public.patients CASCADE;
 CREATE TABLE public.patients (
-	patient_id uuid NOT NULL,
+	patient_id uuid NOT NULL DEFAULT uuid_generate_v4(),
 	name1 text NOT NULL,
 	name2 text NOT NULL,
-	name3 smallint,
+	name3 text,
 	pesel text,
 	sex char NOT NULL,
 	date_of_birth date NOT NULL,
 	date_of_death date,
 	CONSTRAINT patients_pk PRIMARY KEY (patient_id),
-	CONSTRAINT sex CHECK (sex='F' or sex = 'M')
+	CONSTRAINT sex CHECK (sex in ('O', 'F', 'M'))
 
 );
 -- ddl-end --
-COMMENT ON COLUMN public.patients.name1 IS E'imie';
+COMMENT ON COLUMN public.patients.name1 IS E'nazwisko';
 -- ddl-end --
-COMMENT ON COLUMN public.patients.name2 IS E'nazwisko';
+COMMENT ON COLUMN public.patients.name2 IS E'imie';
 -- ddl-end --
 COMMENT ON COLUMN public.patients.name3 IS E'imie2';
 -- ddl-end --
@@ -42,57 +48,55 @@ COMMENT ON COLUMN public.patients.date_of_death IS E'data śmierci';
 -- ALTER TABLE public.patients OWNER TO postgres;
 -- ddl-end --
 
--- object: public.examination | type: TABLE --
--- DROP TABLE IF EXISTS public.examination CASCADE;
-CREATE TABLE public.examination (
-	examination_id uuid NOT NULL,
+-- object: public.examinations | type: TABLE --
+-- DROP TABLE IF EXISTS public.examinations CASCADE;
+CREATE TABLE public.examinations (
+	examination_id uuid NOT NULL DEFAULT uuid_generate_v4(),
 	personel_id uuid NOT NULL,
 	hospitalization_id uuid NOT NULL,
-	"timestamp" timestamp NOT NULL,
-	pulse numeric(4) NOT NULL,
-	temperature numeric(2) NOT NULL,
-	blood_pressure1 numeric(3) NOT NULL,
-	blood_pressure2 numeric(2) NOT NULL,
-	stool numeric(6),
-	urine numeric(4),
-	comment smallint,
-	mass numeric(3),
+	"timestamp" timestamp NOT NULL DEFAULT current_timestamp,
+	pulse text,
+	temperature numeric(4,2),
+	blood_pressure numeric(3),
+	stool numeric(6,4),
+	urine numeric(6,4),
+	comment text,
+	mass numeric(6,3),
 	CONSTRAINT examination_pk PRIMARY KEY (examination_id)
 
 );
 -- ddl-end --
-COMMENT ON TABLE public.examination IS E'pomiary';
+COMMENT ON TABLE public.examinations IS E'pomiary';
 -- ddl-end --
-COMMENT ON COLUMN public.examination.pulse IS E'tętno';
+COMMENT ON COLUMN public.examinations.pulse IS E'tętno';
 -- ddl-end --
-COMMENT ON COLUMN public.examination.temperature IS E'temperatura';
+COMMENT ON COLUMN public.examinations.temperature IS E'temperatura';
 -- ddl-end --
-COMMENT ON COLUMN public.examination.blood_pressure1 IS E'ciśnienie tętnicze 1';
+COMMENT ON COLUMN public.examinations.blood_pressure IS E'ciśnienie tętnicze [mmHg]';
 -- ddl-end --
-COMMENT ON COLUMN public.examination.blood_pressure2 IS E'ciśnienie tętnicze 2';
+COMMENT ON COLUMN public.examinations.stool IS E'stolec (kg)';
 -- ddl-end --
-COMMENT ON COLUMN public.examination.stool IS E'stolec';
+COMMENT ON COLUMN public.examinations.urine IS E'mocz (litry)';
 -- ddl-end --
-COMMENT ON COLUMN public.examination.urine IS E'mocz';
+COMMENT ON COLUMN public.examinations.comment IS E'zlecenie lekarskie';
 -- ddl-end --
-COMMENT ON COLUMN public.examination.comment IS E'zlecenie lekarskie';
+COMMENT ON COLUMN public.examinations.mass IS E'masa ciała (kg)';
 -- ddl-end --
-COMMENT ON COLUMN public.examination.mass IS E'masa ciała';
--- ddl-end --
--- ALTER TABLE public.examination OWNER TO postgres;
+-- ALTER TABLE public.examinations OWNER TO postgres;
 -- ddl-end --
 
 -- object: public.personel | type: TABLE --
 -- DROP TABLE IF EXISTS public.personel CASCADE;
 CREATE TABLE public.personel (
-	personel_id uuid NOT NULL,
+	personel_id uuid NOT NULL DEFAULT uuid_generate_v4(),
+	username text NOT NULL,
 	name1 text NOT NULL,
 	name2 text NOT NULL,
-	name3 text NOT NULL,
+	name3 text,
 	pwz text,
-	password text,
-	is_admin bool NOT NULL,
-	CONSTRAINT personel_pk PRIMARY KEY (personel_id)
+	is_admin bool NOT NULL DEFAULT false,
+	CONSTRAINT personel_pk PRIMARY KEY (personel_id),
+	CONSTRAINT username_uq UNIQUE (username)
 
 );
 -- ddl-end --
@@ -100,16 +104,16 @@ CREATE TABLE public.personel (
 -- ddl-end --
 
 -- object: personel_fk | type: CONSTRAINT --
--- ALTER TABLE public.examination DROP CONSTRAINT IF EXISTS personel_fk CASCADE;
-ALTER TABLE public.examination ADD CONSTRAINT personel_fk FOREIGN KEY (personel_id)
+-- ALTER TABLE public.examinations DROP CONSTRAINT IF EXISTS personel_fk CASCADE;
+ALTER TABLE public.examinations ADD CONSTRAINT personel_fk FOREIGN KEY (personel_id)
 REFERENCES public.personel (personel_id) MATCH FULL
 ON DELETE RESTRICT ON UPDATE CASCADE;
 -- ddl-end --
 
--- object: public.hospitalization | type: TABLE --
--- DROP TABLE IF EXISTS public.hospitalization CASCADE;
-CREATE TABLE public.hospitalization (
-	hospitalization_id uuid NOT NULL,
+-- object: public.hospitalizations | type: TABLE --
+-- DROP TABLE IF EXISTS public.hospitalizations CASCADE;
+CREATE TABLE public.hospitalizations (
+	hospitalization_id uuid NOT NULL DEFAULT uuid_generate_v4(),
 	patient_id uuid NOT NULL,
 	time_start timestamp NOT NULL,
 	time_end timestamp,
@@ -121,39 +125,67 @@ CREATE TABLE public.hospitalization (
 
 );
 -- ddl-end --
-COMMENT ON COLUMN public.hospitalization.time_start IS E'czas od';
+COMMENT ON COLUMN public.hospitalizations.time_start IS E'czas od';
 -- ddl-end --
-COMMENT ON COLUMN public.hospitalization.time_end IS E'czas do';
+COMMENT ON COLUMN public.hospitalizations.time_end IS E'czas do';
 -- ddl-end --
--- ALTER TABLE public.hospitalization OWNER TO postgres;
+-- ALTER TABLE public.hospitalizations OWNER TO postgres;
 -- ddl-end --
 
--- object: hospitalization_fk | type: CONSTRAINT --
--- ALTER TABLE public.examination DROP CONSTRAINT IF EXISTS hospitalization_fk CASCADE;
-ALTER TABLE public.examination ADD CONSTRAINT hospitalization_fk FOREIGN KEY (hospitalization_id)
-REFERENCES public.hospitalization (hospitalization_id) MATCH FULL
-ON DELETE RESTRICT ON UPDATE CASCADE;
+-- object: hospitalizations_fk | type: CONSTRAINT --
+-- ALTER TABLE public.examinations DROP CONSTRAINT IF EXISTS hospitalizations_fk CASCADE;
+ALTER TABLE public.examinations ADD CONSTRAINT hospitalizations_fk FOREIGN KEY (hospitalization_id)
+REFERENCES public.hospitalizations (hospitalization_id) MATCH FULL
+ON DELETE CASCADE ON UPDATE CASCADE;
 -- ddl-end --
 
 -- object: patients_fk | type: CONSTRAINT --
--- ALTER TABLE public.hospitalization DROP CONSTRAINT IF EXISTS patients_fk CASCADE;
-ALTER TABLE public.hospitalization ADD CONSTRAINT patients_fk FOREIGN KEY (patient_id)
+-- ALTER TABLE public.hospitalizations DROP CONSTRAINT IF EXISTS patients_fk CASCADE;
+ALTER TABLE public.hospitalizations ADD CONSTRAINT patients_fk FOREIGN KEY (patient_id)
 REFERENCES public.patients (patient_id) MATCH FULL
 ON DELETE RESTRICT ON UPDATE CASCADE;
 -- ddl-end --
 
 -- object: personel_start_fk | type: CONSTRAINT --
--- ALTER TABLE public.hospitalization DROP CONSTRAINT IF EXISTS personel_start_fk CASCADE;
-ALTER TABLE public.hospitalization ADD CONSTRAINT personel_start_fk FOREIGN KEY (personel_id_start)
+-- ALTER TABLE public.hospitalizations DROP CONSTRAINT IF EXISTS personel_start_fk CASCADE;
+ALTER TABLE public.hospitalizations ADD CONSTRAINT personel_start_fk FOREIGN KEY (personel_id_start)
 REFERENCES public.personel (personel_id) MATCH FULL
 ON DELETE RESTRICT ON UPDATE CASCADE;
 -- ddl-end --
 
 -- object: personel_end_fk | type: CONSTRAINT --
--- ALTER TABLE public.hospitalization DROP CONSTRAINT IF EXISTS personel_end_fk CASCADE;
-ALTER TABLE public.hospitalization ADD CONSTRAINT personel_end_fk FOREIGN KEY (personel_id_end)
+-- ALTER TABLE public.hospitalizations DROP CONSTRAINT IF EXISTS personel_end_fk CASCADE;
+ALTER TABLE public.hospitalizations ADD CONSTRAINT personel_end_fk FOREIGN KEY (personel_id_end)
 REFERENCES public.personel (personel_id) MATCH FULL
 ON DELETE SET NULL ON UPDATE CASCADE;
+-- ddl-end --
+
+-- object: "uuid-ossp" | type: EXTENSION --
+-- DROP EXTENSION IF EXISTS "uuid-ossp" CASCADE;
+CREATE EXTENSION "uuid-ossp"
+WITH SCHEMA public;
+-- ddl-end --
+
+-- object: public.basic_auth | type: TABLE --
+-- DROP TABLE IF EXISTS public.basic_auth CASCADE;
+CREATE TABLE public.basic_auth (
+	password text NOT NULL,
+	personel_id_personel uuid NOT NULL
+);
+-- ddl-end --
+-- ALTER TABLE public.basic_auth OWNER TO postgres;
+-- ddl-end --
+
+-- object: personel_fk | type: CONSTRAINT --
+-- ALTER TABLE public.basic_auth DROP CONSTRAINT IF EXISTS personel_fk CASCADE;
+ALTER TABLE public.basic_auth ADD CONSTRAINT personel_fk FOREIGN KEY (personel_id_personel)
+REFERENCES public.personel (personel_id) MATCH FULL
+ON DELETE RESTRICT ON UPDATE CASCADE;
+-- ddl-end --
+
+-- object: basic_auth_uq | type: CONSTRAINT --
+-- ALTER TABLE public.basic_auth DROP CONSTRAINT IF EXISTS basic_auth_uq CASCADE;
+ALTER TABLE public.basic_auth ADD CONSTRAINT basic_auth_uq UNIQUE (personel_id_personel);
 -- ddl-end --
 
 

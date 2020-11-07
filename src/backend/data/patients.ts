@@ -3,7 +3,7 @@ import database, {knex} from "../database";
 import {AppQueryFilter, AppQueryResult} from "../../lib/query";
 import {oneOrNull, oneOrDbErr} from "../../lib/one_or";
 import {yupMap} from "../../lib/yupUtils";
-import {boolean, InferType, object, string} from "yup";
+import {array, boolean, InferType, object, string} from "yup";
 
 export async function querySelectPatient(patient_id: string) {
     const response = await database.query(`
@@ -20,17 +20,18 @@ export async function querySelectPatient(patient_id: string) {
 }
 
 export const PatientFilterY = object({
-    name: string(),
     name1: string(),
     name2: string(),
     name3: string(),
+    name: string(),
+    id: array().of(string().uuid().defined()),
+    pesel: string().matches(/^\d{1,11}$/),
     has_ongoing_hospitalization: boolean()
 }).defined().default({});
 
 export async function querySelectPatients(
     query: AppQueryFilter<InferType<typeof PatientFilterY>>
 ): Promise<AppQueryResult<PatientT>> {
-
 
     const builder = knex.from({patient: "patients"}).select({
         id: "patient.patient_id",
@@ -45,24 +46,34 @@ export async function querySelectPatients(
 
     if (query.filter) {
         const {
+            id,
             name, name1, name2, name3,
-            has_ongoing_hospitalization
+            has_ongoing_hospitalization,
+            pesel,
         } = query.filter;
 
+        id && builder.whereRaw(id.map(id => `patient.patient_id = '${id}'::uuid`).join(" or "));
+
         name && builder.whereRaw(
-            `lower(concat(patient.name1, ' ', patient.name2, ' ', patient.name3)) like concat('%', ?::text, '%')`,
+            `lower(array_to_string(array [
+                    patient.pesel,
+                    patient.name1, patient.name2, patient.name3
+                  ], ' ', '')) like concat('%', ?::text, '%')`,
             [name.toLowerCase()]
         );
 
         name1 && builder.whereRaw(`patient.name1 like concat('%', ?::text, '%')`, [name1]);
-
         name2 && builder.whereRaw(`patient.name1 like concat('%', ?::text, '%')`, [name2]);
-
         name3 && builder.whereRaw(`patient.name3 like concat('%', ?::text, '%')`, [name3]);
+        pesel && builder.whereRaw(`patient.pesel like concat('%', ?::text, '%')`, [pesel]);
+
+        typeof has_ongoing_hospitalization === "boolean" &&
+        builder.innerJoin({oh: "hospitalizations"}, "oh.patient_id", "patient.patient_id");
     }
 
     builder.offset(query.offset);
     builder.limit(query.limit);
+    builder.orderBy("patient." + query.sortField, query.sortOrder);
 
     const rows = await builder.then();
 
