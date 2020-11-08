@@ -1,13 +1,21 @@
 import React from "react";
-import {Show, SimpleShowLayout, useGetList, CreateButton, Loading} from 'react-admin';
+import {Show, SimpleShowLayout, useGetList, CreateButton, Loading, useQueryWithStore} from 'react-admin';
 import TimestampField from "../lib/TimestampField";
 import {HospitalizationT} from "../../../data/hospitalizations";
-import ExaminationChart from "../examinations/ExaminationChart";
-import {Grid} from "@material-ui/core";
+import ExaminationChart from "../examinations/ExaminationsChart";
+import {Box, Grid, Tabs, Tab, Divider, useTheme} from "@material-ui/core";
 import {RaFieldProps} from "../../lib/ra-types";
 import {WithId} from "../../../data/_";
 import {ExaminationT} from "../../../data/examinations";
+import {makeStyles} from "@material-ui/core/styles";
+import ExaminationsTable from "../examinations/ExaminationsTable";
 
+const useStyles = makeStyles(theme => ({
+    expand: {
+        marginLeft: theme.spacing(-2),
+        marginRight: theme.spacing(-2),
+    }
+}))
 
 export default function HospitalizationShow(props: {}) {
 
@@ -18,10 +26,10 @@ export default function HospitalizationShow(props: {}) {
 
                 {/* @ts-ignore */}
                 <HeaderField/>
+
                 {/* @ts-ignore */}
                 <ExaminationsField/>
 
-                <CreateButton/>
 
             </SimpleShowLayout>
         </Show>
@@ -46,19 +54,29 @@ function HeaderField(props: RaFieldProps<HospitalizationT>) {
 
 function ExaminationsField(props: RaFieldProps<HospitalizationT>) {
     const {record: hospitalization, ...ra} = props;
+    const [tab, setTab] = React.useState("charts");
+    const classes = useStyles();
 
-    const {data, loading, error} = useGetList<WithId<ExaminationT>>("examinations",
-        {page: 1, perPage: 999},
-        {field: "timestamp", order: "asc"},
-        {hospitalization_id: hospitalization.id}
-    );
+    if (!hospitalization) {
+        throw new Error();
+    }
+
+    const {data, loading, error} = useQueryWithStore({
+        type: "getList",
+        resource: "examinations",
+        payload: {
+            pagination: {page: 1, perPage: 999},
+            sort: {field: "timestamp", order: "asc"},
+            filter: {hospitalization_id: hospitalization.id}
+        }
+    });
 
     const data_array = React.useMemo(() => {
         if (!data) {
             return [];
         }
 
-        return Object.entries(data)
+        return Object.entries(data as WithId<ExaminationT>[])
             .map(entry => entry[1])
             .sort((a, b) => {
                 if (a.timestamp < b.timestamp) {
@@ -79,6 +97,29 @@ function ExaminationsField(props: RaFieldProps<HospitalizationT>) {
         return <p>ERROR</p>;
     }
 
-    return <ExaminationChart examinations={data_array}/>;
+    return <Box>
+
+        <Tabs
+            value={tab}
+            onChange={(event, value) => setTab(value)}
+            indicatorColor="primary"
+            textColor="primary"
+            centered
+        >
+            <Tab value="charts" label="Wykresy"/>
+            <Tab value="tables" label="Dane tabelaryczne"/>
+        </Tabs>
+
+        <Divider className={classes.expand}/>
+
+        <Box display={tab === "charts" ? "block" : "none"}>
+            <ExaminationChart examinations={data_array}/>
+        </Box>
+
+        <Box display={tab === "tables" ? "block" : "none"} className={classes.expand}>
+            <ExaminationsTable examinations={data_array}/>
+        </Box>
+
+    </Box>;
 }
 

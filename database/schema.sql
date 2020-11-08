@@ -55,13 +55,14 @@ CREATE TABLE public.examinations (
 	personel_id uuid NOT NULL,
 	hospitalization_id uuid NOT NULL,
 	"timestamp" timestamp NOT NULL DEFAULT current_timestamp,
-	pulse text,
+	pulse numeric(3,0),
 	temperature numeric(4,2),
-	blood_pressure numeric(3),
-	stool numeric(6,4),
-	urine numeric(6,4),
-	comment text,
+	blood_pressure1 numeric(3,0),
+	blood_pressure2 numeric(3,0),
+	stool bool,
+	urine numeric(6,0),
 	mass numeric(6,3),
+	comment text,
 	CONSTRAINT examination_pk PRIMARY KEY (examination_id)
 
 );
@@ -72,15 +73,17 @@ COMMENT ON COLUMN public.examinations.pulse IS E'tętno';
 -- ddl-end --
 COMMENT ON COLUMN public.examinations.temperature IS E'temperatura';
 -- ddl-end --
-COMMENT ON COLUMN public.examinations.blood_pressure IS E'ciśnienie tętnicze [mmHg]';
+COMMENT ON COLUMN public.examinations.blood_pressure1 IS E'ciśnienie tętnicze, rozkurczowe [mmHg]';
 -- ddl-end --
-COMMENT ON COLUMN public.examinations.stool IS E'stolec (kg)';
+COMMENT ON COLUMN public.examinations.blood_pressure2 IS E'ciśnienie tętnicze,skurczowe [mmHg]';
 -- ddl-end --
-COMMENT ON COLUMN public.examinations.urine IS E'mocz (litry)';
+COMMENT ON COLUMN public.examinations.stool IS E'stolec';
 -- ddl-end --
-COMMENT ON COLUMN public.examinations.comment IS E'zlecenie lekarskie';
+COMMENT ON COLUMN public.examinations.urine IS E'mocz (mililitry)';
 -- ddl-end --
 COMMENT ON COLUMN public.examinations.mass IS E'masa ciała (kg)';
+-- ddl-end --
+COMMENT ON COLUMN public.examinations.comment IS E'zlecenie lekarskie';
 -- ddl-end --
 -- ALTER TABLE public.examinations OWNER TO postgres;
 -- ddl-end --

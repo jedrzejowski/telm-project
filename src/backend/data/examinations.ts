@@ -1,4 +1,4 @@
-import database, {knex} from "../database";
+import {knex} from "../database";
 import {oneOrDbErr, oneOrNull} from "../../lib/one_or";
 import {ExaminationT, ExaminationY} from "../../data/examinations";
 import {AppQueryFilter, AppQueryResult} from "../../lib/query";
@@ -30,7 +30,8 @@ export async function querySelectExamination(examination_id: string) {
         timestamp: knex.raw(`"examination"."timestamp"::text`),
         pulse: "examination.pulse",
         temperature: "examination.temperature",
-        blood_pressure: "examination.blood_pressure",
+        blood_pressure1: "examination.blood_pressure1",
+        blood_pressure2: "examination.blood_pressure2",
         stool: "examination.stool",
         urine: "examination.urine",
         mass: "examination.mass",
@@ -61,7 +62,8 @@ export async function querySelectExaminations(
         timestamp: knex.raw(`"examination"."timestamp"::text`),
         pulse: "examination.pulse",
         temperature: "examination.temperature",
-        blood_pressure: "examination.blood_pressure",
+        blood_pressure1: "examination.blood_pressure1",
+        blood_pressure2: "examination.blood_pressure2",
         stool: "examination.stool",
         urine: "examination.urine",
         mass: "examination.mass",
@@ -99,36 +101,35 @@ export async function queryCreateExamination(
     examination: ExaminationT
 ): Promise<[id: string, examination: ExaminationT]> {
 
-    const response = await database.query(`
-        insert into examinations (
-            personel_id, hospitalization_id,
-            pulse, temperature, 
-            blood_pressure, stool, urine, mass, "comment"
-        )
-        values (
-            $1::uuid, $2::uuid,
-            $3::text, 
-            $4::numeric(4,2), 
-            $5::numeric(4),
-            $6::numeric(6,4), 
-            $7::numeric(6,4), 
-            $8::numeric(6,3), 
-            $9::text
-        )
-        returning ${select_fields.join(',')};
-    `, [
-        examination.personel_id,
-        examination.hospitalization_id,
-        examination.pulse,
-        examination.temperature,
-        examination.blood_pressure,
-        examination.stool,
-        examination.urine,
-        examination.mass,
-        examination.comment
-    ]);
+    const rows = await knex("examinations")
+        .insert({
+            personel_id: examination.personel_id,
+            hospitalization_id: examination.hospitalization_id,
+            pulse: examination.pulse,
+            temperature: examination.temperature,
+            blood_pressure1: examination.blood_pressure1,
+            blood_pressure2: examination.blood_pressure2,
+            stool: examination.stool,
+            urine: examination.urine,
+            mass: examination.mass,
+            comment: examination.comment,
+        }).returning([
+            "examination_id as id",
+            "personel_id",
+            "hospitalization_id",
+            // @ts-ignore
+            knex.raw(`timestamp"::text`),
+            "pulse",
+            "temperature",
+            "blood_pressure1",
+            "blood_pressure2",
+            "stool",
+            "urine",
+            "mass",
+            "comment",
+        ]).then();
 
-    const examinations_db = await oneOrDbErr(response.rows, ExaminationY);
+    const examinations_db = await oneOrDbErr(rows, ExaminationY);
     return [examinations_db.id, examinations_db];
 }
 
@@ -137,28 +138,32 @@ export async function queryUpdateExamination(
     examination_id: string, examination: ExaminationT
 ): Promise<ExaminationT> {
 
-    const response = await database.query(`
-        update examinations
-        set 
-            pulse = $1::numeric(4),
-            temperature = $2::numeric(4),
-            blood_pressure = $3::text,
-            stool = $4::numeric(6,3),
-            urine = $5::numeric(6,3),
-            mass = $6::numeric(6,3),
-            comment = $7::text
-        where examinations_id = $8
-        returning ${select_fields.join(',')};
-    `, [
-        examination.pulse,
-        examination.temperature,
-        examination.blood_pressure,
-        examination.stool,
-        examination.urine,
-        examination.mass,
-        examination.comment,
-        examination_id
-    ]);
+    const rows = await knex("examinations")
+        .where("examinations_id", "=", examination_id)
+        .update({
+            pulse: examination.pulse,
+            temperature: examination.temperature,
+            blood_pressure1: examination.blood_pressure1,
+            blood_pressure2: examination.blood_pressure2,
+            stool: examination.stool,
+            urine: examination.urine,
+            mass: examination.mass,
+            comment: examination.comment,
+        }).returning([
+            "examination_id as id",
+            "personel_id",
+            "hospitalization_id",
+            // @ts-ignore
+            knex.raw(`timestamp"::text`),
+            "pulse",
+            "temperature",
+            "blood_pressure1",
+            "blood_pressure2",
+            "stool",
+            "urine",
+            "mass",
+            "comment",
+        ]).then();
 
-    return await oneOrDbErr(response.rows, HospitalizationY);
+    return await oneOrDbErr(rows, HospitalizationY);
 }

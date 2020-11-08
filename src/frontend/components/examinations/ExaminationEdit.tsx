@@ -5,10 +5,11 @@ import {
     TextInput,
     Edit,
     useDataProvider,
+    NullableBooleanInput,
 } from "react-admin";
 import {makeRequired, makeValidate} from "../../lib/yupUtils";
 import {HospitalizationT} from "../../../data/hospitalizations";
-import {Grid, InputAdornment} from "@material-ui/core";
+import {Grid, InputAdornment, Theme, useMediaQuery, useTheme} from "@material-ui/core";
 import {useField, useForm, useFormState} from "react-final-form";
 import {WithId} from "../../../data/_";
 import {ExaminationY} from "../../../data/examinations";
@@ -23,6 +24,12 @@ const useStyles = makeStyles(theme => ({
     gridItem: {
         paddingTop: '0!important',
         paddingBottom: '0!important',
+        "$ > *": {
+            width: "99% !important"
+        }
+    },
+    fullWidth: {
+        width: "99% !important"
     }
 }))
 
@@ -101,17 +108,7 @@ function Forms(props: {
                 />
             </Grid>
 
-            <Grid item xs={12} sm={6} md={4} classes={{root: classes.gridItem}}>
-                <TextInput
-                    {...ra}
-                    source="pulse"
-                    required={required.pulse}
-                    fullWidth
-                    className="fixme"
-                />
-            </Grid>
-
-            <Grid item xs={12} sm={6} md={4} classes={{root: classes.gridItem}}>
+            <Grid item xs={12} sm={6} classes={{root: classes.gridItem}}>
                 <TextInput
                     {...ra}
                     source="temperature"
@@ -119,51 +116,43 @@ function Forms(props: {
                     InputProps={{
                         endAdornment: <InputAdornment position="end">°C</InputAdornment>,
                     }}
-                    fullWidth
-                    className="fixme"
+                    className={classes.fullWidth}
                 />
             </Grid>
 
-            <Grid item xs={12} sm={6} md={4} classes={{root: classes.gridItem}}>
+            <Grid item xs={12} sm={6} classes={{root: classes.gridItem}}>
                 <TextInput
                     {...ra}
-                    source="blood_pressure"
-                    required={required.blood_pressure}
+                    source="pulse"
+                    required={required.pulse}
+                    className={classes.fullWidth}
+                />
+            </Grid>
+
+            <Grid item xs={12} sm={6} classes={{root: classes.gridItem}}>
+                <TextInput
+                    {...ra}
+                    source="blood_pressure1"
+                    required={required.blood_pressure1}
                     InputProps={{
                         endAdornment: <InputAdornment position="end">mmHg</InputAdornment>,
                     }}
-                    fullWidth
-                    className="fixme"
+                    className={classes.fullWidth}
                 />
             </Grid>
 
-            <Grid item xs={12} sm={6} md={4} classes={{root: classes.gridItem}}>
+            <Grid item xs={12} sm={6} classes={{root: classes.gridItem}}>
                 <TextInput
                     {...ra}
-                    source="stool"
-                    required={required.stool}
+                    source="blood_pressure2"
+                    required={required.blood_pressure2}
                     InputProps={{
-                        endAdornment: <InputAdornment position="end">kg</InputAdornment>,
+                        endAdornment: <InputAdornment position="end">mmHg</InputAdornment>,
                     }}
-                    fullWidth
-                    className="fixme"
+                    className={classes.fullWidth}
                 />
             </Grid>
-
-            <Grid item xs={12} sm={6} md={4} classes={{root: classes.gridItem}}>
-                <TextInput
-                    {...ra}
-                    source="urine"
-                    required={required.urine}
-                    InputProps={{
-                        endAdornment: <InputAdornment position="end">ml</InputAdornment>,
-                    }}
-                    fullWidth
-                    className="fixme"
-                />
-            </Grid>
-
-            <Grid item xs={12} sm={6} md={4} classes={{root: classes.gridItem}}>
+            <Grid item xs={12} sm={5} classes={{root: classes.gridItem}}>
                 <TextInput
                     {...ra}
                     source="mass"
@@ -171,10 +160,31 @@ function Forms(props: {
                     InputProps={{
                         endAdornment: <InputAdornment position="end">kg</InputAdornment>,
                     }}
-                    fullWidth
-                    className="fixme"
+                    className={classes.fullWidth}
                 />
             </Grid>
+
+            <Grid item xs={12} sm={5} classes={{root: classes.gridItem}}>
+                <TextInput
+                    {...ra}
+                    source="urine"
+                    required={required.urine}
+                    InputProps={{
+                        endAdornment: <InputAdornment position="end">ml</InputAdornment>,
+                    }}
+                    className={classes.fullWidth}
+                />
+            </Grid>
+
+
+            <Grid item xs={12} sm={2} classes={{root: classes.gridItem}}>
+                <NullableBooleanInput
+                    source="stool"
+                    required={required.stool}
+                    className={classes.fullWidth}
+                />
+            </Grid>
+
 
             <Grid item xs={12} classes={{root: classes.gridItem}}>
                 <TextInput
@@ -182,8 +192,7 @@ function Forms(props: {
                     source="comment"
                     required={required.comment}
                     multiline
-                    fullWidth
-                    className="fixme"
+                    className={classes.fullWidth}
                 />
             </Grid>
 

@@ -9,6 +9,6 @@ export default function PatientField(props: {
     if (patient) {
         return <span>{patient2str(patient)}</span>
     } else {
-        return <span>---</span>
+        return <span>{nullValue}</span>
     }
 }
