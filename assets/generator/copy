@@ -1,3 +1,30 @@
 
 \copy patients(name1,name2,name3,pesel,sex,date_of_birth) from 'data.csv' delimiter ',' csv
 \copy personel(username,name1,name2,name3,pwz) from 'data.csv' delimiter ',' csv
+
+
+insert into examinations (
+    "timestamp",
+    personel_id,
+    hospitalization_id,
+    pulse,
+    temperature,
+    blood_pressure,
+    stool,
+    urine,
+    mass,
+    "comment"
+)
+values (
+               timestamp '2014-01-10 20:00:00' +
+               random() * (timestamp '2014-01-30 20:00:00' - timestamp '2014-01-10 10:00:00'),
+               'a60825c1-280d-401f-92a2-4c1e223b6a0b',
+               '0332302c-035f-44bd-8f1e-e05861978118',
+               ((random() * 100 + 60)::int || '/' || (random() * 30 + 30)::int)::text,
+               (random() * 5 + 36)::numeric(4, 2),
+               (random() * 80 + 80)::numeric(4),
+               (random() * 1000)::numeric(6, 3),
+               (random() * 1000)::numeric(6, 3),
+               (random() * 10 + 65)::numeric(6, 3),
+               'komentarz'::text
+       );

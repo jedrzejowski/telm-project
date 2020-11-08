@@ -5,7 +5,7 @@ export const HospitalizationY = object({
     id: string().uuid(),
     patient_id: string().uuid().defined().required(),
     time_start: string().transform(yup_timestamp_transform).required().defined(),
-    time_end: string().transform(yup_timestamp_transform).nullable().default(null).defined(),
+    time_end: string().nullable().transform(yup_timestamp_transform).default(null).defined(),
     personel_id_start: string().uuid().defined().required(),
     personel_id_end: string().uuid().nullable().default(null).defined(),
     comment_start: string().nullable().default(null).defined(),

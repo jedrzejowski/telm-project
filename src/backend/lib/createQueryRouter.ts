@@ -4,6 +4,7 @@ import {ObjectSchema, ObjectSchemaDefinition} from "yup";
 import {AppQueryFilter, AppQueryResult} from "../../lib/query";
 import eam from "../eam";
 import createQueryFilterY from "./createQueryFilterY";
+import {populateDependencyGraph} from "ts-loader/dist/utils";
 
 export default function <Object extends object, Filter extends object>(name: string, opt: {
     objectSchema: ObjectSchema<Object>,
@@ -42,7 +43,6 @@ export default function <Object extends object, Filter extends object>(name: str
         const id = req.params.id as string;
 
         const row = await querySelectOne(id);
-
         if (!row) {
             res.status(404).send({status: "error", error: "not found"});
         } else {

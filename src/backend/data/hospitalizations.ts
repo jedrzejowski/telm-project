@@ -1,9 +1,10 @@
 import database, {knex} from "../database";
 import {oneOrDbErr, oneOrNull} from "../../lib/one_or";
 import {AppQueryFilter, AppQueryResult} from "../../lib/query";
-import {yupMap} from "../../lib/yupUtils";
+import {yupMap} from "../../lib/yup-utils";
 import {HospitalizationT, HospitalizationY} from "../../data/hospitalizations";
 import {InferType, object, string} from "yup";
+import clock = jasmine.clock;
 
 
 export async function querySelectHospitalization(hospitalization_id: string) {
@@ -32,7 +33,7 @@ export async function querySelectHospitalizations(
 ): Promise<AppQueryResult<HospitalizationT>> {
 
     const builder = knex.from({hospitalization: "hospitalizations"}).select({
-        id: "hospitalization.patient_id",
+        id: "hospitalization.hospitalization_id",
         patient_id: "hospitalization.patient_id",
         time_start: "hospitalization.time_start",
         time_end: "hospitalization.time_end",
@@ -65,7 +66,10 @@ export async function querySelectHospitalizations(
     };
 }
 
-export async function queryCreateHospitalization(hospitalization: HospitalizationT): Promise<[id: string, hospitalization: HospitalizationT]> {
+export async function queryCreateHospitalization(
+    hospitalization: HospitalizationT
+): Promise<[hospitalization_id: string, hospitalization: HospitalizationT]> {
+    console.log("HERE");
     const response = await database.query(`
         insert into hospitalizations (
             patient_id,
@@ -91,6 +95,8 @@ export async function queryCreateHospitalization(hospitalization: Hospitalizatio
         hospitalization.personel_id_start, hospitalization.personel_id_end,
         hospitalization.comment_start, hospitalization.comment_end,
     ]);
+
+    console.log(response.rows);
 
     const hospitalization_db = await oneOrDbErr(response.rows, HospitalizationY);
     return [hospitalization_db.id, hospitalization_db];

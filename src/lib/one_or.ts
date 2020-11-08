@@ -6,7 +6,7 @@ export function oneOrNull<T extends object>(array: T[],): T | null;
 export function oneOrNull<T extends object>(array: T[], schema?: Schema<T>) {
     const obj = array.length === 1 ? array[0] : null;
 
-    return schema ? schema.validate(obj) : obj;
+    return (schema && obj) ? schema.validate(obj) : obj;
 }
 
 export function oneOrDbErr<T extends object>(array: T[], schema: Schema<T>): Promise<T>;

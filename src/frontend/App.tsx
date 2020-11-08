@@ -13,6 +13,7 @@ import PersonelIcon from "@material-ui/icons/Person";
 import HospitalizationIcon from "mdi-material-ui/HospitalBuilding";
 import HospitalizationsEdit, {HospitalizationsCreate} from "./components/hospitalizations/HospitalizationsEdit";
 import HospitalizationsList from "./components/hospitalizations/HospitalizationsList";
+import HospitalizationShow from "./components/hospitalizations/HospitalizationShow";
 
 import ExaminationIcon from "mdi-material-ui/Needle";
 import ExaminationList from "./components/examinations/ExaminationList";
@@ -35,6 +36,7 @@ export default function App() {
                 list={HospitalizationsList}
                 edit={HospitalizationsEdit}
                 create={HospitalizationsCreate}
+                show={HospitalizationShow}
                 icon={HospitalizationIcon}
             />
 

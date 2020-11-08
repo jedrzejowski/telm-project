@@ -2,8 +2,8 @@ import database, {knex} from "../database";
 import {oneOrDbErr, oneOrNull} from "../../lib/one_or";
 import {ExaminationT, ExaminationY} from "../../data/examinations";
 import {AppQueryFilter, AppQueryResult} from "../../lib/query";
-import {yupMap} from "../../lib/yupUtils";
-import {HospitalizationT, HospitalizationY} from "../../data/hospitalizations";
+import {yupMap} from "../../lib/yup-utils";
+import {HospitalizationY} from "../../data/hospitalizations";
 import {InferType, object, string} from "yup";
 
 const select_fields = [
@@ -17,18 +17,30 @@ const select_fields = [
     `stool`,
     `urine`,
     `mass`,
-    `comment`
+    `"comment"`
 ]
 
 export async function querySelectExamination(examination_id: string) {
 
-    const response = await database.query(`
-        select ${select_fields.join(',')}
-        from examinations
-        where examination_id = $1::uuid
-    `, [examination_id]);
+    const rows = await knex({examination: "examinations"}).select({
+        id: "examination.examination_id",
+        personel_id: "examination.personel_id",
+        patient_id: "pat.patient_id",
+        hospitalization_id: "examination.hospitalization_id",
+        timestamp: knex.raw(`"examination"."timestamp"::text`),
+        pulse: "examination.pulse",
+        temperature: "examination.temperature",
+        blood_pressure: "examination.blood_pressure",
+        stool: "examination.stool",
+        urine: "examination.urine",
+        mass: "examination.mass",
+        comment: "examination.comment",
+    }).innerJoin({hosp: "hospitalizations"}, "hosp.hospitalization_id", "examination.hospitalization_id")
+        .innerJoin({pat: "patients"}, "pat.patient_id", "hosp.patient_id")
+        .where("examination_id", examination_id)
+        .then();
 
-    return oneOrNull(response.rows, ExaminationY)
+    return oneOrNull(rows, ExaminationY)
 }
 
 export const ExaminationFilterY = object({
@@ -44,6 +56,7 @@ export async function querySelectExaminations(
     const builder = knex.from({examination: "examinations"}).select({
         id: "examination.examination_id",
         personel_id: "examination.personel_id",
+        patient_id: "pat.patient_id",
         hospitalization_id: "examination.hospitalization_id",
         timestamp: knex.raw(`"examination"."timestamp"::text`),
         pulse: "examination.pulse",
@@ -53,8 +66,9 @@ export async function querySelectExaminations(
         urine: "examination.urine",
         mass: "examination.mass",
         comment: "examination.comment",
-    }).select(knex.raw("count(*) over() as _full_count"));
-
+    }).select(knex.raw("count(*) over() as _full_count"))
+        .innerJoin({hosp: "hospitalizations"}, "hosp.hospitalization_id", "examination.hospitalization_id")
+        .innerJoin({pat: "patients"}, "pat.patient_id", "hosp.patient_id");
 
     if (query.filter) {
         const {
@@ -62,11 +76,9 @@ export async function querySelectExaminations(
             hospitalization_id
         } = query.filter;
 
-        hospitalization_id && builder.whereRaw(`examination.examination_id = ??:uuid`, [hospitalization_id]);
+        hospitalization_id && builder.where("examination.hospitalization_id", hospitalization_id);
 
-        patient_id && builder
-            .innerJoin({hosp: "hospitalizations"}, "hosp.hospitalization_id", "examination.hospitalization_id")
-            .innerJoin({pat: "patients"}, "pat.patient_id", "hosp.patient_id");
+        patient_id && builder.where("pat.patient_id", patient_id);
 
     }
 
@@ -91,14 +103,13 @@ export async function queryCreateExamination(
         insert into examinations (
             personel_id, hospitalization_id,
             pulse, temperature, 
-            blood_pressure, stool, urine, mass, comment
+            blood_pressure, stool, urine, mass, "comment"
         )
         values (
             $1::uuid, $2::uuid,
-            current_timestamp(), 
-            $3::numeric(4), 
+            $3::text, 
             $4::numeric(4,2), 
-            $5::text,
+            $5::numeric(4),
             $6::numeric(6,4), 
             $7::numeric(6,4), 
             $8::numeric(6,3), 

@@ -3,7 +3,7 @@ import {PersonelT, PersonelY} from "../../data/personel";
 import {oneOrDbErr, oneOrNull} from "../../lib/one_or";
 import {ParameterError} from "../../lib/error";
 import {AppQueryFilter, AppQueryResult} from "../../lib/query";
-import {yupMap} from "../../lib/yupUtils";
+import {yupMap} from "../../lib/yup-utils";
 import {InferType, number, object, string} from "yup";
 
 export async function querySelectPersona(selector: string, field: "username" | "id" = "id") {
@@ -70,7 +70,7 @@ export async function querySelectPersonel(
 
         name && builder.whereRaw(
             `lower(array_to_string(array [
-                    personel.name1, personel.name2, personel.name3,
+                    personel.name1, personel.name2, personel.name3
                   ], ' ', '')) like concat('%', ?::text, '%')`,
             [name.toLowerCase()]
         );

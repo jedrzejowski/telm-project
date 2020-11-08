@@ -1,5 +1,5 @@
 import React from "react";
-import {List, Datagrid, EditButton, ReferenceField, DateField} from "react-admin";
+import {List, Datagrid, EditButton, ReferenceField, DateField, ShowButton} from "react-admin";
 import PatientField from "../patients/PatientField";
 
 export default function HospitalizationsList(props: Parameters<typeof List>[0]) {
@@ -13,6 +13,7 @@ export default function HospitalizationsList(props: Parameters<typeof List>[0]) 
                 <DateField source="time_start"/>
                 <DateField source="time_end"/>
                 <EditButton/>
+                <ShowButton/>
             </Datagrid>
         </List>
     )

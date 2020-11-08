@@ -8,23 +8,32 @@ import {
 } from "react-admin";
 import {makeRequired, makeValidate} from "../../lib/yupUtils";
 import {HospitalizationY} from "../../../data/hospitalizations";
-import {Grid} from "@material-ui/core";
+import {Grid, Typography} from "@material-ui/core";
 import {PatientReferenceInput} from "../patients/PatientReference";
 import {PersonelReferenceInput} from "../personel/PersonelReference";
+import {makeStyles} from "@material-ui/core/styles";
 
 const validate = makeValidate(HospitalizationY);
 const required = makeRequired(HospitalizationY);
+
+const useStyles = makeStyles(theme => ({
+    gridItem: {
+        paddingTop: '0!important',
+        paddingBottom: '0!important',
+    }
+}))
 
 function Forms(props: {
     isNew?: boolean
 }) {
     const {isNew = false, ...ra} = props;
+    const classes = useStyles();
 
     return <>
 
         <Grid container spacing={2}>
 
-            <Grid item xs={12}>
+            <Grid item xs={12} classes={{root: classes.gridItem}}>
                 <PatientReferenceInput
                     {...ra}
                     fullWidth
@@ -32,41 +41,22 @@ function Forms(props: {
                 />
             </Grid>
 
-            <Grid item xs={12} md={6}>
+            <Grid item xs={12} md={6} classes={{root: classes.gridItem}}>
+                <Typography>
+                    Rozpoczęcie
+                </Typography>
+
                 <PersonelReferenceInput
                     {...ra}
                     fullWidth
                     source="personel_id_start"
                 />
-            </Grid>
-
-            <Grid item xs={12} md={6}>
-                <PersonelReferenceInput
-                    {...ra}
-                    fullWidth
-                    source="personel_id_end"
-                />
-            </Grid>
-
-            <Grid item xs={12} md={6}>
                 <DateTimeInput
                     {...ra}
                     source="time_start"
                     required={required.time_start}
                     style={{width: "100%"}}
                 />
-            </Grid>
-
-            <Grid item xs={12} md={6}>
-                <DateTimeInput
-                    {...ra}
-                    source="time_end"
-                    required={required.time_end}
-                    style={{width: "100%"}}
-                />
-            </Grid>
-
-            <Grid item xs={12} md={6}>
                 <TextInput
                     source="comment_start"
                     required={required.comment_start}
@@ -75,7 +65,22 @@ function Forms(props: {
                 />
             </Grid>
 
-            <Grid item xs={12} md={6}>
+            <Grid item xs={12} md={6} classes={{root: classes.gridItem}}>
+                <Typography>
+                    Zakończenie
+                </Typography>
+
+                <PersonelReferenceInput
+                    {...ra}
+                    fullWidth
+                    source="personel_id_end"
+                />
+                <DateTimeInput
+                    {...ra}
+                    source="time_end"
+                    required={required.time_end}
+                    style={{width: "100%"}}
+                />
                 <TextInput
                     {...ra}
                     source="comment_end"
@@ -84,6 +89,7 @@ function Forms(props: {
                     style={{width: "100%"}}
                 />
             </Grid>
+
         </Grid>
     </>
 }

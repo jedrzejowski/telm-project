@@ -2,7 +2,7 @@ import {PatientT, PatientY} from "../../data/patients";
 import database, {knex} from "../database";
 import {AppQueryFilter, AppQueryResult} from "../../lib/query";
 import {oneOrNull, oneOrDbErr} from "../../lib/one_or";
-import {yupMap} from "../../lib/yupUtils";
+import {yupMap} from "../../lib/yup-utils";
 import {array, boolean, InferType, object, string} from "yup";
 
 export async function querySelectPatient(patient_id: string) {

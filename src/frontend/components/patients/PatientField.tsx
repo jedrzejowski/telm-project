@@ -7,7 +7,7 @@ export default function PatientField(props: {
     const {record: patient} = props;
 
     if (patient) {
-        return <span>{patient2str(patient)}dupa</span>
+        return <span>{patient2str(patient)}</span>
     } else {
         return <span>---</span>
     }

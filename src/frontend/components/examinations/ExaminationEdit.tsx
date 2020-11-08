@@ -3,28 +3,35 @@ import {
     Create,
     SimpleForm,
     TextInput,
-    AutocompleteInput,
-    DateTimeInput,
-    ReferenceInput,
     Edit,
     useDataProvider,
-    NumberInput,
-    useGetOne
 } from "react-admin";
 import {makeRequired, makeValidate} from "../../lib/yupUtils";
-import {HospitalizationT, HospitalizationY} from "../../../data/hospitalizations";
+import {HospitalizationT} from "../../../data/hospitalizations";
 import {Grid, InputAdornment} from "@material-ui/core";
-import {useField, useForm} from "react-final-form";
-import {PatientT} from "../../../data/patients";
+import {useField, useForm, useFormState} from "react-final-form";
 import {WithId} from "../../../data/_";
 import {ExaminationY} from "../../../data/examinations";
 import {PatientReferenceInput} from "../patients/PatientReference";
+import {makeStyles} from "@material-ui/core/styles";
+import {PersonelReferenceInput} from "../personel/PersonelReference";
 
 const validate = makeValidate(ExaminationY);
 const required = makeRequired(ExaminationY);
 
-function HospitalizationByPatientField(props: {}) {
-    const {...ra} = {};
+const useStyles = makeStyles(theme => ({
+    gridItem: {
+        paddingTop: '0!important',
+        paddingBottom: '0!important',
+    }
+}))
+
+
+function HospitalizationByPatientField(
+    props: Omit<Parameters<typeof PatientReferenceInput>[0], "source"> & {}
+) {
+
+    const {...ra} = props;
     const patient_id_field = useField("patient_id");
     const [hospitalization, setHospitalization] = React.useState<HospitalizationT | null>(null)
     const formApi = useForm();
@@ -75,32 +82,37 @@ function Forms(props: {
     isNew?: boolean
 }) {
     const {isNew = false, ...ra} = props;
+    const classes = useStyles();
 
     return <div>
 
         <Grid container spacing={2}>
 
-            <Grid item xs={12}>
-                <HospitalizationByPatientField {...ra}/>
+            <Grid item xs={12} sm={6} classes={{root: classes.gridItem}}>
+                <HospitalizationByPatientField {...ra} disabled={!isNew}/>
             </Grid>
 
-            <Grid item xs={12} sm={6} md={4} spacing={1}>
-                <NumberInput
+            <Grid item xs={12} sm={6} classes={{root: classes.gridItem}}>
+                <PersonelReferenceInput
+                    {...ra}
+                    disabled={!isNew}
+                    fullWidth
+                    source="personel_id"
+                />
+            </Grid>
+
+            <Grid item xs={12} sm={6} md={4} classes={{root: classes.gridItem}}>
+                <TextInput
                     {...ra}
                     source="pulse"
-                    parse={(pulse: number) => Number.isFinite(pulse) ? pulse / 1000 : null}
-                    format={(pulse: number) => Number.isFinite(pulse) ? pulse * 1000 : ""}
                     required={required.pulse}
-                    InputProps={{
-                        endAdornment: <InputAdornment position="end">mmHg</InputAdornment>,
-                    }}
                     fullWidth
                     className="fixme"
                 />
             </Grid>
 
-            <Grid item xs={12} sm={6} md={4}>
-                <NumberInput
+            <Grid item xs={12} sm={6} md={4} classes={{root: classes.gridItem}}>
+                <TextInput
                     {...ra}
                     source="temperature"
                     required={required.temperature}
@@ -112,37 +124,36 @@ function Forms(props: {
                 />
             </Grid>
 
-            <Grid item xs={12} sm={6} md={4}>
+            <Grid item xs={12} sm={6} md={4} classes={{root: classes.gridItem}}>
                 <TextInput
                     {...ra}
                     source="blood_pressure"
                     required={required.blood_pressure}
-                    fullWidth
-                    className="fixme"
-                />
-            </Grid>
-
-            <Grid item xs={12} sm={6} md={4}>
-                <NumberInput
-                    {...ra}
-                    source="stool"
-                    parse={(stool: number) => Number.isFinite(stool) ? stool / 1000 : null}
-                    format={(stool: number) => Number.isFinite(stool) ? stool * 1000 : ""}
-                    required={required.stool}
                     InputProps={{
-                        endAdornment: <InputAdornment position="end">mg</InputAdornment>,
+                        endAdornment: <InputAdornment position="end">mmHg</InputAdornment>,
                     }}
                     fullWidth
                     className="fixme"
                 />
             </Grid>
 
-            <Grid item xs={12} sm={6} md={4}>
-                <NumberInput
+            <Grid item xs={12} sm={6} md={4} classes={{root: classes.gridItem}}>
+                <TextInput
+                    {...ra}
+                    source="stool"
+                    required={required.stool}
+                    InputProps={{
+                        endAdornment: <InputAdornment position="end">kg</InputAdornment>,
+                    }}
+                    fullWidth
+                    className="fixme"
+                />
+            </Grid>
+
+            <Grid item xs={12} sm={6} md={4} classes={{root: classes.gridItem}}>
+                <TextInput
                     {...ra}
                     source="urine"
-                    parse={(urine: number) => Number.isFinite(urine) ? urine / 1000 : null}
-                    format={(urine: number) => Number.isFinite(urine) ? urine * 1000 : ""}
                     required={required.urine}
                     InputProps={{
                         endAdornment: <InputAdornment position="end">ml</InputAdornment>,
@@ -152,12 +163,10 @@ function Forms(props: {
                 />
             </Grid>
 
-            <Grid item xs={12} sm={6} md={4}>
-                <NumberInput
+            <Grid item xs={12} sm={6} md={4} classes={{root: classes.gridItem}}>
+                <TextInput
                     {...ra}
                     source="mass"
-                    parse={(mass: number) => Number.isFinite(mass) ? mass * 1000 : null}
-                    format={(mass: number) => Number.isFinite(mass) ? mass / 1000 : ""}
                     required={required.mass}
                     InputProps={{
                         endAdornment: <InputAdornment position="end">kg</InputAdornment>,
@@ -167,7 +176,7 @@ function Forms(props: {
                 />
             </Grid>
 
-            <Grid item xs={12}>
+            <Grid item xs={12} classes={{root: classes.gridItem}}>
                 <TextInput
                     {...ra}
                     source="comment"
@@ -195,6 +204,7 @@ export default function ExaminationEdit(props: Parameters<typeof Create>[0]) {
 }
 
 const new_hospitalization = {
+    timestamp: "1970-01-01T00:00:00.000Z",
     patient_id: "",
     time_start: null,
     time_end: null,
