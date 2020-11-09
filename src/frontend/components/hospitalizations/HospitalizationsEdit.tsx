@@ -116,13 +116,11 @@ const new_hospitalization = {
     comment_end: null
 }
 
-
 export function HospitalizationsCreate(props: Parameters<typeof Create>[0]) {
 
     return (
         <Create {...props} >
-            <SimpleForm validate={validate}
-                              initialValues={new_hospitalization}>
+            <SimpleForm validate={validate} initialValues={new_hospitalization}>
                 <Forms isNew/>
             </SimpleForm>
         </Create>

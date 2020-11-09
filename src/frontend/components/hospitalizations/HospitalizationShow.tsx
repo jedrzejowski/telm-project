@@ -1,9 +1,16 @@
 import React from "react";
-import {Show, SimpleShowLayout, RichTextField, ReferenceField, Loading, useQueryWithStore, Labeled} from "react-admin";
+import {
+    Show,
+    RichTextField,
+    ReferenceField,
+    Loading,
+    useQueryWithStore,
+    SimpleShowLayout, Labeled,
+} from "react-admin";
 import TimestampField from "../lib/TimestampField";
 import {HospitalizationT} from "../../../data/hospitalizations";
 import ExaminationChart from "../examinations/ExaminationsChart";
-import {Box, Grid, Tabs, Tab, Divider, Typography, Toolbar} from "@material-ui/core";
+import {Box, Grid, Tabs, Tab, Divider, Typography, Toolbar, useTheme,} from "@material-ui/core";
 import {RaFieldProps} from "../../lib/ra-types";
 import {WithId} from "../../../data/_";
 import {ExaminationT} from "../../../data/examinations";
@@ -21,25 +28,19 @@ const useStyles = makeStyles(theme => ({
 
 export default function HospitalizationShow(props: {}) {
 
-
     return (
-        <Show {...props}>
+        <Show  {...props}>
             <SimpleShowLayout>
 
-                {/* @ts-ignore */}
                 <HeaderField/>
-
-                {/* @ts-ignore */}
                 <ExaminationsField/>
-
 
             </SimpleShowLayout>
         </Show>
     );
 }
 
-function HeaderField(props: RaFieldProps<WithId<HospitalizationT>>) {
-    const {record: hospitalization} = props;
+function HeaderField(props: Omit<RaFieldProps<WithId<HospitalizationT>>, "source">) {
 
     return <Grid container spacing={2}>
 
@@ -53,7 +54,7 @@ function HeaderField(props: RaFieldProps<WithId<HospitalizationT>>) {
 
             <Toolbar disableGutters>
 
-                <Typography>
+                <Typography variant="h6">
                     Rozpoczęcie
                 </Typography>
 
@@ -63,15 +64,15 @@ function HeaderField(props: RaFieldProps<WithId<HospitalizationT>>) {
             </Toolbar>
 
             <Box>
-                <RichTextField {...props} source="comment_start"/>
-            </Box>
-
-            <Box>
                 <PersonelReferenceField
                     {...props}
                     fullWidth
                     source="personel_id_start"
                 />
+            </Box>
+
+            <Box>
+                <RichTextField {...props} source="comment_start"/>
             </Box>
         </Grid>
 
@@ -79,7 +80,7 @@ function HeaderField(props: RaFieldProps<WithId<HospitalizationT>>) {
 
             <Toolbar disableGutters>
 
-                <Typography>
+                <Typography variant="h6">
                     Zakończenie
                 </Typography>
 
@@ -90,10 +91,6 @@ function HeaderField(props: RaFieldProps<WithId<HospitalizationT>>) {
             </Toolbar>
 
             <Box>
-                <RichTextField {...props} source="comment_end"/>
-            </Box>
-
-            <Box>
                 <PersonelReferenceField
                     {...props}
                     fullWidth
@@ -101,13 +98,17 @@ function HeaderField(props: RaFieldProps<WithId<HospitalizationT>>) {
                 />
             </Box>
 
+            <Box>
+                <RichTextField {...props} source="comment_end"/>
+            </Box>
+
         </Grid>
 
     </Grid>
 }
 
-function ExaminationsField(props: RaFieldProps<HospitalizationT>) {
-    const {record: hospitalization, ...ra} = props;
+function ExaminationsField(props: Omit<RaFieldProps<HospitalizationT>, "source">) {
+    const {record: hospitalization} = props;
     const [tab, setTab] = React.useState("charts");
     const classes = useStyles();
 

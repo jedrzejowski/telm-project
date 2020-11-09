@@ -1,23 +1,19 @@
-import React from "react";
+import React, {FC} from "react";
 import {patient2str, PatientT} from "../../../data/patients";
 import NullValue from "../lib/NullValue";
-import {Typography} from "@material-ui/core";
+import {RaFieldProps} from "../../lib/ra-types";
+import {WithId} from "../../../data/_";
+import {Variant as TypoVariant} from "@material-ui/core/styles/createTypography";
 
-interface Props {
-    basePath: string
-    className: string
-    disabled: boolean
-    // input: undefined
-    record: PatientT
-    resource: string
-    translateChoice: boolean
+interface Props extends RaFieldProps<WithId<PatientT>> {
+    className?: string
+    disabled?: boolean
+    variant?: TypoVariant;
 }
 
-export default function PatientField(props: {
-    record?: PatientT
-}) {
-    const {record: patient} = props as Props;
-    console.log(props);
+const PatientField: FC<Props> = ({
+                                     record: patient
+                                 }) => {
 
     if (patient) {
         return <span>{patient2str(patient)}</span>
@@ -25,3 +21,5 @@ export default function PatientField(props: {
         return <NullValue/>
     }
 }
+
+export default PatientField;

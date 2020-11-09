@@ -1,5 +1,5 @@
 import React from "react";
-import {Admin, Resource} from "react-admin";
+import {Admin, cacheDataProviderProxy, Resource} from "react-admin";
 import simpleRestProvider from "ra-data-simple-rest";
 
 import PatientsList from "./components/patients/PatientsList";
@@ -19,9 +19,11 @@ import ExaminationIcon from "mdi-material-ui/Needle";
 import ExaminationList from "./components/examinations/ExaminationList";
 import ExaminationEdit, {ExaminationCreate} from "./components/examinations/ExaminationEdit";
 
+const dataProvider = cacheDataProviderProxy(simpleRestProvider("/api"));
+
 export default function App() {
     return (
-        <Admin dataProvider={simpleRestProvider("/api")}>
+        <Admin dataProvider={dataProvider}>
 
             <Resource
                 name="patients"

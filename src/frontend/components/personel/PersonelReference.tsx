@@ -1,6 +1,7 @@
-import React from "react";
+import React, {FC} from "react";
 import {AutocompleteInput, ReferenceInput, ReferenceField, TextField} from "react-admin";
 import {personel2str} from "../../../data/personel";
+import PersonelField from "./PersonelField";
 
 type Props = Omit<Parameters<typeof ReferenceInput>[0], "children" | "reference">;
 
@@ -8,36 +9,29 @@ function search2query(searchText: string) {
     return {name: searchText}
 }
 
-export function PersonelReferenceInput(props: Props & {
-    source: string;
-}) {
-    const {fullWidth} = props;
+export const PersonelReferenceInput: FC<Props> = (props) => {
 
     return (
         <ReferenceInput
             {...props}
-            className="fixme"
+            source={props.source}
             reference="personel"
             filterToQuery={search2query}
         >
-            <AutocompleteInput optionText={personel2str} fullWidth={fullWidth}/>
+            <AutocompleteInput optionText={personel2str} fullWidth={props.fullWidth}/>
         </ReferenceInput>
     )
 }
 
-export function PersonelReferenceField(props: Props & {
-    source: string;
-}) {
-    const {fullWidth} = props;
+export const PersonelReferenceField: FC<Props> = (props) => {
 
     return (
         <ReferenceField
             {...props}
-            className="fixme"
+            source={props.source}
             reference="personel"
         >
-            <TextField source="name1"/>
-            <TextField source="name2"/>
+            <PersonelField/>
         </ReferenceField>
     )
 }

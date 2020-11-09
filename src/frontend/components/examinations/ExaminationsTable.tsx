@@ -27,7 +27,7 @@ function ExaminationsTable(props: {
                         <TableCell align="right">Stolec</TableCell>
                         <TableCell align="right">Mocz [mm]</TableCell>
                         <TableCell align="right">Masa [kg]</TableCell>
-                        <TableCell align="right">Komentarz</TableCell>
+                        <TableCell align="left">Komentarz</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
