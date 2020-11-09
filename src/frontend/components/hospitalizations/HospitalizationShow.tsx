@@ -1,14 +1,16 @@
 import React from "react";
-import {Show, SimpleShowLayout, useGetList, CreateButton, Loading, useQueryWithStore} from 'react-admin';
+import {Show, SimpleShowLayout, RichTextField, ReferenceField, Loading, useQueryWithStore, Labeled} from "react-admin";
 import TimestampField from "../lib/TimestampField";
 import {HospitalizationT} from "../../../data/hospitalizations";
 import ExaminationChart from "../examinations/ExaminationsChart";
-import {Box, Grid, Tabs, Tab, Divider, useTheme} from "@material-ui/core";
+import {Box, Grid, Tabs, Tab, Divider, Typography, Toolbar} from "@material-ui/core";
 import {RaFieldProps} from "../../lib/ra-types";
 import {WithId} from "../../../data/_";
 import {ExaminationT} from "../../../data/examinations";
 import {makeStyles} from "@material-ui/core/styles";
 import ExaminationsTable from "../examinations/ExaminationsTable";
+import RichPatientField from "../patients/RichPatientField";
+import {PersonelReferenceField} from "../personel/PersonelReference";
 
 const useStyles = makeStyles(theme => ({
     expand: {
@@ -36,16 +38,68 @@ export default function HospitalizationShow(props: {}) {
     );
 }
 
-function HeaderField(props: RaFieldProps<HospitalizationT>) {
-    const {record: hospitalization, ...ra} = props;
+function HeaderField(props: RaFieldProps<WithId<HospitalizationT>>) {
+    const {record: hospitalization} = props;
 
     return <Grid container spacing={2}>
-        <Grid item xs={12} md={6}>
-            <TimestampField {...props} source="time_start"/>
 
+        <Grid item xs={12}>
+            <ReferenceField {...props} source="patient_id" reference="patients" link={false}>
+                <RichPatientField variant="h4"/>
+            </ReferenceField>
         </Grid>
+
         <Grid item xs={12} md={6}>
-            <TimestampField {...props} source="time_end"/>
+
+            <Toolbar disableGutters>
+
+                <Typography>
+                    Rozpoczęcie
+                </Typography>
+
+                <Box flexGrow={1}/>
+                <TimestampField {...props} source="time_start"/>
+
+            </Toolbar>
+
+            <Box>
+                <RichTextField {...props} source="comment_start"/>
+            </Box>
+
+            <Box>
+                <PersonelReferenceField
+                    {...props}
+                    fullWidth
+                    source="personel_id_start"
+                />
+            </Box>
+        </Grid>
+
+        <Grid item xs={12} md={6}>
+
+            <Toolbar disableGutters>
+
+                <Typography>
+                    Zakończenie
+                </Typography>
+
+                <Box flexGrow={1}/>
+
+                <TimestampField {...props} source="time_end"/>
+
+            </Toolbar>
+
+            <Box>
+                <RichTextField {...props} source="comment_end"/>
+            </Box>
+
+            <Box>
+                <PersonelReferenceField
+                    {...props}
+                    fullWidth
+                    source="personel_id_end"
+                />
+            </Box>
 
         </Grid>
 

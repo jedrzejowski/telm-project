@@ -9,8 +9,8 @@ import {
 } from "react-admin";
 import {makeRequired, makeValidate} from "../../lib/yupUtils";
 import {HospitalizationT} from "../../../data/hospitalizations";
-import {Grid, InputAdornment, Theme, useMediaQuery, useTheme} from "@material-ui/core";
-import {useField, useForm, useFormState} from "react-final-form";
+import {Grid, InputAdornment,} from "@material-ui/core";
+import {useField, useForm} from "react-final-form";
 import {WithId} from "../../../data/_";
 import {ExaminationY} from "../../../data/examinations";
 import {PatientReferenceInput} from "../patients/PatientReference";

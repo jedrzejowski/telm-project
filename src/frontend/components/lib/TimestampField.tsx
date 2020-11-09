@@ -4,7 +4,7 @@ import {Typography} from "@material-ui/core";
 import {RaFieldProps} from "../../lib/ra-types";
 import {nullValue} from "./NullValue";
 
-export default function <T extends object>(props: RaFieldProps<T>) {
+export default function TimestampField<T extends object>(props: RaFieldProps<T>) {
     const {source, record} = props;
     const value = record?.[source];
 
@@ -13,7 +13,10 @@ export default function <T extends object>(props: RaFieldProps<T>) {
     }
 
     return (
-        <Typography variant="body2">
+        <Typography
+            variant="body2"
+            component="span"
+        >
             {dayjs(value).toString()}
         </Typography>
     )

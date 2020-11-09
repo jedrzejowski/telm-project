@@ -1,9 +1,8 @@
 import React from "react";
 import {
-    LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Brush,
+    XAxis, YAxis, CartesianGrid, Tooltip,
     ResponsiveContainer,
-    AreaChart, Area,
-    TooltipProps, TickGeneratorFunction, ScatterChart, Scatter, BarChart, Bar
+    ScatterChart, Scatter, BarChart, Bar, ReferenceLine
 } from "recharts";
 import {ExaminationT} from "../../../data/examinations";
 import dayjs from "dayjs";
@@ -23,11 +22,19 @@ interface DayDataRow {
     urine: number;
 }
 
+type onMouseMoveFunction = (mouseStatus: {
+    chartX: number;
+    chartY: number;
+    xValue: number;
+    yValue: number;
+} | null, event: unknown) => void
+
 function ExaminationsChart(props: {
     examinations: ExaminationT[]
 }) {
     const {examinations} = props;
     const [showLines, setShowLines] = React.useState(false);
+    const [refLineX, setRefLineX] = React.useState<number | null>(null);
 
     const [
         fullDayTicks,
@@ -105,6 +112,14 @@ function ExaminationsChart(props: {
         ];
     }, [examinations]);
 
+    const handleChartMouseOut: onMouseMoveFunction = (mouseStatus) => {
+        // if (mouseStatus) {
+        //     setRefLineX(mouseStatus.xValue);
+        // } else {
+        //     setRefLineX(null);
+        // }
+    }
+
     const lineSwitch = (
         <FormControlLabel
             control={
@@ -120,7 +135,9 @@ function ExaminationsChart(props: {
         />
     )
 
-    console.log(day_data);
+    const referenceLine = (
+        refLineX ? <ReferenceLine x={refLineX} stroke="black"/> : null
+    )
 
     return <>
         <Toolbar>
@@ -142,6 +159,7 @@ function ExaminationsChart(props: {
                 margin={{
                     top: 10, right: 30, left: 0, bottom: 40,
                 }}
+                onMouseMove={handleChartMouseOut}
             >
                 <CartesianGrid strokeDasharray="3 3"/>
 
@@ -159,7 +177,7 @@ function ExaminationsChart(props: {
                     tick={<ValueTicks unit=" °C"/>}
                 />
 
-                <Tooltip content={<MyTooltip/>}/>
+                <Tooltip/>
 
                 <Scatter
                     isAnimationActive={false}
@@ -168,6 +186,8 @@ function ExaminationsChart(props: {
                     line={showLines}
                     fill={colors.red.A100}
                 />
+
+                {referenceLine}
 
             </ScatterChart>
 
@@ -192,6 +212,7 @@ function ExaminationsChart(props: {
                 margin={{
                     top: 10, right: 30, left: 0, bottom: 40,
                 }}
+                onMouseMove={handleChartMouseOut}
             >
                 <CartesianGrid strokeDasharray="3 3"/>
 
@@ -208,7 +229,7 @@ function ExaminationsChart(props: {
                     tick={<ValueTicks/>}
                 />
 
-                <Tooltip content={<MyTooltip/>}/>
+                <Tooltip/>
 
                 <Scatter
                     isAnimationActive={false}
@@ -217,6 +238,8 @@ function ExaminationsChart(props: {
                     line={showLines}
                     fill={colors.purple.A100}
                 />
+
+                {referenceLine}
 
             </ScatterChart>
 
@@ -241,6 +264,7 @@ function ExaminationsChart(props: {
                 margin={{
                     top: 10, right: 30, left: 0, bottom: 40,
                 }}
+                onMouseMove={handleChartMouseOut}
             >
                 <CartesianGrid strokeDasharray="3 3"/>
 
@@ -257,7 +281,7 @@ function ExaminationsChart(props: {
                     tick={<ValueTicks/>}
                 />
 
-                <Tooltip content={<MyTooltip/>}/>
+                <Tooltip/>
 
                 <Scatter
                     isAnimationActive={false}
@@ -274,6 +298,8 @@ function ExaminationsChart(props: {
                     line={showLines}
                     fill={colors.green.A100}
                 />
+
+                {referenceLine}
 
             </ScatterChart>
 
@@ -295,6 +321,7 @@ function ExaminationsChart(props: {
                 margin={{
                     top: 10, right: 30, left: 0, bottom: 40,
                 }}
+                onMouseMove={handleChartMouseOut}
             >
                 <CartesianGrid strokeDasharray="3 3"/>
 
@@ -303,12 +330,12 @@ function ExaminationsChart(props: {
                     domain={["dataMin", "dataMax"]}
                     dataKey="time"
                     ticks={fullDayTicks}
-                    tick={<TimeTick/>}
+                    tick={<TimeTick showHours={false}/>}
                 />
 
                 <YAxis
                     domain={[0, dataMax => Math.ceil(dataMax / 100) * 100]}
-                    tick={<ValueTicks showHours={false}/>}
+                    tick={<ValueTicks/>}
                 />
 
                 <Tooltip content={<MyTooltip/>}/>
@@ -319,6 +346,8 @@ function ExaminationsChart(props: {
                     stroke={colors.amber.A700}
                     fill={colors.amber.A100}
                 />
+
+                {referenceLine}
 
             </BarChart>
 

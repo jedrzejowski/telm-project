@@ -1,10 +1,10 @@
 import React from "react";
 import {
     Create,
-    SimpleForm,
     TextInput,
     DateTimeInput,
-    Edit
+    Edit,
+    SimpleForm
 } from "react-admin";
 import {makeRequired, makeValidate} from "../../lib/yupUtils";
 import {HospitalizationY} from "../../../data/hospitalizations";
@@ -122,7 +122,7 @@ export function HospitalizationsCreate(props: Parameters<typeof Create>[0]) {
     return (
         <Create {...props} >
             <SimpleForm validate={validate}
-                        initialValues={new_hospitalization}>
+                              initialValues={new_hospitalization}>
                 <Forms isNew/>
             </SimpleForm>
         </Create>
