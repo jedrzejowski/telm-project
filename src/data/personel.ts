@@ -3,7 +3,7 @@ import {username_regex} from "../regex";
 
 export const PersonelY = object({
     id: string().uuid(),
-    username: string().matches(username_regex).defined().required(),
+    username: string().matches(username_regex).defined().nullable().required(),
     name1: string().defined().required(),
     name2: string().defined().required(),
     name3: string().nullable().default(null).defined(),

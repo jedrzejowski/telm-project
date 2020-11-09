@@ -1,4 +1,4 @@
-import database, {knex} from "../database";
+import postgresql, {knex} from "../postgresql";
 import {oneOrDbErr, oneOrNull} from "../../lib/one_or";
 import {AppQueryFilter, AppQueryResult} from "../../lib/query";
 import {yupMap} from "../../lib/yup-utils";
@@ -9,7 +9,7 @@ import clock = jasmine.clock;
 
 export async function querySelectHospitalization(hospitalization_id: string) {
 
-    const response = await database.query(`
+    const response = await postgresql.query(`
         select 
             hospitalization_id as "id",
             patient_id,
@@ -70,7 +70,7 @@ export async function queryCreateHospitalization(
     hospitalization: HospitalizationT
 ): Promise<[hospitalization_id: string, hospitalization: HospitalizationT]> {
     console.log("HERE");
-    const response = await database.query(`
+    const response = await postgresql.query(`
         insert into hospitalizations (
             patient_id,
             time_start, time_end,
@@ -103,7 +103,7 @@ export async function queryCreateHospitalization(
 }
 
 export async function queryUpdateHospitalization(hospitalization_id: string, hospitalization: HospitalizationT) {
-    const response = await database.query(`
+    const response = await postgresql.query(`
         update hospitalizations
         set 
             time_start = $1::timestamp,

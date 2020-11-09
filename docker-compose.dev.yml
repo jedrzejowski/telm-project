@@ -9,3 +9,8 @@ services:
       - ./development.env
     ports:
       - '5001:5432'
+
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"

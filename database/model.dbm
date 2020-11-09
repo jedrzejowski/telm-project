@@ -3,7 +3,7 @@
 CAUTION: Do not modify this file unless you know what you are doing.
          Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="0.9.2" author="Adam Jędrzejowski" last-position="587,104" last-zoom="1.35" max-obj-count="7"
+<dbmodel pgmodeler-ver="0.9.2" author="Adam Jędrzejowski" last-position="294,308" last-zoom="1.35" max-obj-count="7"
 	 default-schema="public" default-owner="postgres">
 <database name="telm" encoding="UTF8" is-template="false" allow-conns="true">
 	<appended-sql><![CDATA[
@@ -262,7 +262,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</column>
 
 	<customidxs object-type="column">
-		<object name="personel_id_personel" index="1"/>
+		<object name="personel_id" index="1"/>
 	</customidxs>
 
 	<customidxs object-type="constraint">
@@ -272,7 +272,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 </table>
 
 <relationship name="personel_has_basic_auth" type="rel11" layer="0"
-	 src-col-pattern="{sc}_{st}"
+	 src-col-pattern="{sc}"
 	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
 	 src-fk-pattern="{st}_fk"
 	 custom-color="#9f9c4f"

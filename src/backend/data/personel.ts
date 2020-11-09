@@ -1,4 +1,4 @@
-import database, {knex} from "../database";
+import postgresql, {knex} from "../postgresql";
 import {PersonelT, PersonelY} from "../../data/personel";
 import {oneOrDbErr, oneOrNull} from "../../lib/one_or";
 import {ParameterError} from "../../lib/error";
@@ -10,7 +10,7 @@ export async function querySelectPersona(selector: string, field: "username" | "
     switch (field) {
         case "id": {
 
-            const response = await database.query(`
+            const response = await postgresql.query(`
                 select 
                     personel_id as "id", username,
                     name1, name2,
@@ -23,7 +23,7 @@ export async function querySelectPersona(selector: string, field: "username" | "
         }
         case "username": {
 
-            const response = await database.query(`
+            const response = await postgresql.query(`
                 select 
                     personel_id as "id", username,
                     name1, name2,
@@ -95,7 +95,7 @@ export async function querySelectPersonel(
 }
 
 export async function queryCreatePersonel(personel: PersonelT): Promise<[id: string, personel: PersonelT]> {
-    const response = await database.query(`
+    const response = await postgresql.query(`
         insert into personel(
             username,
             name1, name2, name3, 
@@ -123,7 +123,7 @@ export async function queryCreatePersonel(personel: PersonelT): Promise<[id: str
 
 
 export async function queryUpdatePersonel(personel_id: string, personel: PersonelT) {
-    const response = await database.query(`
+    const response = await postgresql.query(`
         update personel
         set 
             username = $1::text,

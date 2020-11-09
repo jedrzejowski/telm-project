@@ -1,6 +1,8 @@
 import React from "react";
-import {Admin, cacheDataProviderProxy, Resource} from "react-admin";
-import simpleRestProvider from "ra-data-simple-rest";
+import {Admin, Resource} from "react-admin";
+import dataProvider from "./dataProvider";
+import authProvider from "./authProvider";
+import type {AppPermissions} from "../types";
 
 import PatientsList from "./components/patients/PatientsList";
 import PatientsEdit, {PatientCreate} from "./components/patients/PatientsEdit";
@@ -19,45 +21,54 @@ import ExaminationIcon from "mdi-material-ui/Needle";
 import ExaminationList from "./components/examinations/ExaminationList";
 import ExaminationEdit, {ExaminationCreate} from "./components/examinations/ExaminationEdit";
 
-const dataProvider = cacheDataProviderProxy(simpleRestProvider("/api"));
 
 export default function App() {
     return (
-        <Admin dataProvider={dataProvider}>
+        <Admin dataProvider={dataProvider} authProvider={authProvider}>
+            {(permissions: AppPermissions) => [
 
-            <Resource
-                name="patients"
-                list={PatientsList}
-                edit={PatientsEdit}
-                create={PatientCreate}
-                icon={PatientIcon}
-            />
+                permissions.patients ? (
+                    <Resource
+                        name="patients"
+                        list={PatientsList}
+                        edit={permissions.patients?.edit ? PatientsEdit : undefined}
+                        create={permissions.patients?.edit ? PatientCreate : undefined}
+                        icon={PatientIcon}
+                    />
+                ) : null,
 
-            <Resource
-                name="hospitalizations"
-                list={HospitalizationsList}
-                edit={HospitalizationsEdit}
-                create={HospitalizationsCreate}
-                show={HospitalizationShow}
-                icon={HospitalizationIcon}
-            />
+                permissions.hospitalizations ? (
+                    <Resource
+                        name="hospitalizations"
+                        list={HospitalizationsList}
+                        edit={permissions.patients?.edit ? HospitalizationsEdit : undefined}
+                        create={permissions.patients?.edit ? HospitalizationsCreate : undefined}
+                        show={HospitalizationShow}
+                        icon={HospitalizationIcon}
+                    />
+                ) : null,
 
-            <Resource
-                name="examinations"
-                list={ExaminationList}
-                edit={ExaminationEdit}
-                create={ExaminationCreate}
-                icon={ExaminationIcon}
-            />
+                permissions.examinations ? (
+                    <Resource
+                        name="examinations"
+                        list={ExaminationList}
+                        edit={permissions.patients?.edit ? ExaminationEdit : undefined}
+                        create={permissions.patients?.edit ? ExaminationCreate : undefined}
+                        icon={ExaminationIcon}
+                    />
+                ) : null,
 
-            <Resource
-                name="personel"
-                list={PersonelList}
-                edit={PersonelEdit}
-                create={PersonelCreate}
-                icon={PersonelIcon}
-            />
+                permissions.personel ? (
+                    <Resource
+                        name="personel"
+                        list={PersonelList}
+                        edit={permissions.patients?.edit ? PersonelEdit : undefined}
+                        create={permissions.patients?.edit ? PersonelCreate : undefined}
+                        icon={PersonelIcon}
+                    />
+                ) : null
 
+            ]}
         </Admin>
     )
 }

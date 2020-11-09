@@ -5,12 +5,12 @@ import {
     ReferenceField,
     Loading,
     useQueryWithStore,
-    SimpleShowLayout, Labeled,
+    SimpleShowLayout,
 } from "react-admin";
 import TimestampField from "../lib/TimestampField";
 import {HospitalizationT} from "../../../data/hospitalizations";
 import ExaminationChart from "../examinations/ExaminationsChart";
-import {Box, Grid, Tabs, Tab, Divider, Typography, Toolbar, useTheme,} from "@material-ui/core";
+import {Box, Grid, Tabs, Tab, Divider, Typography, Toolbar} from "@material-ui/core";
 import {RaFieldProps} from "../../lib/ra-types";
 import {WithId} from "../../../data/_";
 import {ExaminationT} from "../../../data/examinations";

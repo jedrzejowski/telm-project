@@ -1,4 +1,4 @@
-import {knex} from "../database";
+import {knex} from "../postgresql";
 import {oneOrDbErr, oneOrNull} from "../../lib/one_or";
 import {ExaminationT, ExaminationY} from "../../data/examinations";
 import {AppQueryFilter, AppQueryResult} from "../../lib/query";

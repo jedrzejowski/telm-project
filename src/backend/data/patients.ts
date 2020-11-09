@@ -1,12 +1,12 @@
 import {PatientT, PatientY} from "../../data/patients";
-import database, {knex} from "../database";
+import postgresql, {knex} from "../postgresql";
 import {AppQueryFilter, AppQueryResult} from "../../lib/query";
 import {oneOrNull, oneOrDbErr} from "../../lib/one_or";
 import {yupMap} from "../../lib/yup-utils";
 import {array, boolean, InferType, object, string} from "yup";
 
 export async function querySelectPatient(patient_id: string) {
-    const response = await database.query(`
+    const response = await postgresql.query(`
         select 
             patient_id as id, 
             name1, name2, name3,
@@ -85,7 +85,7 @@ export async function querySelectPatients(
 }
 
 export async function queryCreatePatient(patient: PatientT): Promise<[id: string, patient: PatientT]> {
-    const response = await database.query(`
+    const response = await postgresql.query(`
         insert into patients(
             name1, name2, name3, 
             pesel, sex,
@@ -112,7 +112,7 @@ export async function queryCreatePatient(patient: PatientT): Promise<[id: string
 
 
 export async function queryUpdatePatient(patient_id: string, patient: PatientT) {
-    const response = await database.query(`
+    const response = await postgresql.query(`
         update patients
         set 
             name1 = $1::text, name2 = $2::text, name3 = $3::text, 

@@ -437,7 +437,7 @@ function MyTooltip(props: {}) {
         payload
     } = props as unknown as {
         active: boolean
-        payload: { payload: DataRow }[]
+        payload: { payload: any }[]
     }
 
     if (!active)
