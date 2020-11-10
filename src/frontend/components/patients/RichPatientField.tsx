@@ -1,7 +1,8 @@
 import React, {FC} from "react";
 import PropTypes from "prop-types";
 import {PatientT} from "../../../data/patients";
-import {Box, Typography} from "@material-ui/core";
+import Box from "@material-ui/core/Box";
+import Typography from "@material-ui/core/Typography";
 import {Labeled, linkToRecord, Link} from "react-admin";
 import type {Variant as TypoVariant} from "@material-ui/core/styles/createTypography";
 import {makeStyles} from "@material-ui/core/styles";

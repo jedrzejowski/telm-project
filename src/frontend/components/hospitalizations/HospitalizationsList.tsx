@@ -9,7 +9,8 @@ import {
     SimpleList,
 } from "react-admin";
 import PatientField from "../patients/PatientField";
-import {Theme, useMediaQuery} from "@material-ui/core";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
+import type {Theme} from "@material-ui/core/styles";
 import {WithId} from "../../../data/_";
 import {ExaminationT} from "../../../data/examinations";
 import dayjs from "dayjs";

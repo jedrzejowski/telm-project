@@ -5,7 +5,7 @@ import type {Variant as TypoVariant} from "@material-ui/core/styles/createTypogr
 import type {PersonelT} from "../../../data/personel";
 import NullValue from "../lib/NullValue";
 import {personel2str} from "../../../data/personel";
-import {Typography} from "@material-ui/core";
+import Typography from "@material-ui/core/Typography";
 
 
 const PersonelField: FC<Partial<RaFieldProps<WithId<PersonelT>> & {

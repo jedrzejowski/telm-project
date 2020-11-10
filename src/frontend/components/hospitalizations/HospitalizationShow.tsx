@@ -8,16 +8,22 @@ import {
     SimpleShowLayout,
 } from "react-admin";
 import TimestampField from "../lib/TimestampField";
-import {HospitalizationT} from "../../../data/hospitalizations";
 import ExaminationChart from "../examinations/ExaminationsChart";
-import {Box, Grid, Tabs, Tab, Divider, Typography, Toolbar} from "@material-ui/core";
+import Box from "@material-ui/core/Box";
+import Grid from "@material-ui/core/Grid";
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
+import Divider from "@material-ui/core/Divider";
+import Typography from "@material-ui/core/Typography";
+import Toolbar from "@material-ui/core/Toolbar";
 import {RaFieldProps} from "../../lib/ra-types";
-import {WithId} from "../../../data/_";
-import {ExaminationT} from "../../../data/examinations";
 import {makeStyles} from "@material-ui/core/styles";
 import ExaminationsTable from "../examinations/ExaminationsTable";
 import RichPatientField from "../patients/RichPatientField";
 import {PersonelReferenceField} from "../personel/PersonelReference";
+import type {WithId} from "../../../data/_";
+import type {HospitalizationT} from "../../../data/hospitalizations";
+import type {ExaminationT} from "../../../data/examinations";
 
 const useStyles = makeStyles(theme => ({
     expand: {

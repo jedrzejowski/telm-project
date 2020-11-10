@@ -8,7 +8,8 @@ import {
 } from "react-admin";
 import {makeRequired, makeValidate} from "../../lib/yupUtils";
 import {HospitalizationY} from "../../../data/hospitalizations";
-import {Grid, Typography} from "@material-ui/core";
+import Typography from "@material-ui/core/Typography";
+import Grid from "@material-ui/core/Grid";
 import {PatientReferenceInput} from "../patients/PatientReference";
 import {PersonelReferenceInput} from "../personel/PersonelReference";
 import {makeStyles} from "@material-ui/core/styles";

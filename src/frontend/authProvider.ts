@@ -2,7 +2,7 @@ import type {AuthProvider} from "react-admin"
 import type {WhoAmI} from "../types";
 
 async function whoAmI(): Promise<WhoAmI> {
-    const response = await fetch("/whoami", {
+    const response = await fetch("/api/whoami", {
         method: "GET"
     });
 
@@ -18,7 +18,7 @@ const authProvider: AuthProvider = {
 
         const auth = btoa(`${params.username}:${params.password}`);
 
-        const response = await fetch("/login", {
+        const response = await fetch("/api/login", {
             method: "POST",
             headers: {
                 Authorization: `Basic ${auth}`
@@ -37,7 +37,7 @@ const authProvider: AuthProvider = {
     },
 
     async logout() {
-        await fetch("/logout", {
+        await fetch("/api/logout", {
             method: "GET"
         });
     },

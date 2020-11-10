@@ -8,19 +8,16 @@ import {
     BooleanField,
     SimpleList,
     ShowButton,
-    useQueryWithStore,
-    useGetOne,
 } from "react-admin";
 import PatientField from "../patients/PatientField";
 import TimestampField from "../lib/TimestampField";
-import {Theme, useMediaQuery} from "@material-ui/core";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import {nullValue} from "../lib/NullValue";
 import {NumberFieldProps} from "ra-ui-materialui/lib/field/NumberField";
 import {ExaminationT} from "../../../data/examinations";
 import {WithId} from "../../../data/_";
-import {patient2str, PatientT} from "../../../data/patients";
-import ErrorIcon from "@material-ui/icons/Report";
 import dayjs from "dayjs";
+import type {Theme} from "@material-ui/core/styles";
 
 export default function ExaminationList(props: Parameters<typeof List>[0]) {
     const isSmall = useMediaQuery<Theme>(theme => theme.breakpoints.down("sm"));

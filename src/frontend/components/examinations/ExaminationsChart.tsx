@@ -4,10 +4,15 @@ import {
     ResponsiveContainer,
     ScatterChart, Scatter, BarChart, Bar, ReferenceLine
 } from "recharts";
-import {ExaminationT} from "../../../data/examinations";
 import dayjs from "dayjs";
-import {Box, FormControlLabel, Switch, Toolbar, Typography, useTheme} from "@material-ui/core";
-import {colors} from "@material-ui/core";
+import Box from "@material-ui/core/Box";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Switch from "@material-ui/core/Switch";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import colors from "@material-ui/core/colors";
+import type {ExaminationT} from "../../../data/examinations";
+import useTheme from "@material-ui/core/styles/useTheme";
 
 interface PointDataRow {
     time: number;

@@ -2,10 +2,10 @@ import React, {FC} from "react";
 import {patient2str, PatientT} from "../../../data/patients";
 import NullValue from "../lib/NullValue";
 import {RaFieldProps} from "../../lib/ra-types";
-import {WithId} from "../../../data/_";
 import {Variant as TypoVariant} from "@material-ui/core/styles/createTypography";
 
-interface Props extends RaFieldProps<WithId<PatientT>> {
+interface Props extends Omit<RaFieldProps<PatientT>, "source"> {
+    source?: string
     className?: string
     disabled?: boolean
     variant?: TypoVariant;

@@ -42,7 +42,36 @@ const client_config = {
             IS_PRODUCTION: JSON.stringify(is_production),
             IS_DEVELOPMENT: JSON.stringify(!is_production),
         }),
-    ]
+    ],
+    optimization: {
+        splitChunks: {
+            chunks: "all",
+            maxInitialRequests: Infinity,
+            minSize: 0,
+            cacheGroups: {
+                vendor: {
+                    priority: 0,
+                    test: /\/node_modules\//,
+                    name: "vendor"
+                },
+                react: {
+                    priority: 9,
+                    test: /\/node_modules\/react/,
+                    name: "react"
+                },
+                "react-admin": {
+                    priority: 8,
+                    test: /\/node_modules\/ra-/,
+                    name: "react-admin",
+                },
+                "material-ui": {
+                    priority: 7,
+                    test: /\/node_modules\/@material-ui/,
+                    name: "material-ui",
+                },
+            },
+        },
+    },
 };
 
 const backend_config = {

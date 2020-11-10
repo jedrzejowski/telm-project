@@ -1,10 +1,15 @@
-import {Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from "@material-ui/core";
 import React from "react";
-import {ExaminationT} from "../../../data/examinations";
 import dayjs from "dayjs";
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableCell from "@material-ui/core/TableCell";
+import TableContainer from "@material-ui/core/TableContainer";
+import TableHead from "@material-ui/core/TableHead";
+import TableRow from "@material-ui/core/TableRow";
 import EmoticonPoop from "mdi-material-ui/EmoticonPoop";
 import CloseIcon from "mdi-material-ui/Close";
 import {nullValue} from "../lib/NullValue";
+import type {ExaminationT} from "../../../data/examinations";
 
 function ExaminationsTable(props: {
     examinations: ExaminationT[]

@@ -1,11 +1,15 @@
-import React from "react";
+import React, {FC} from "react";
 import dayjs from "dayjs";
-import {Typography} from "@material-ui/core";
+import Typography from "@material-ui/core/Typography";
 import {RaFieldProps} from "../../lib/ra-types";
 import {nullValue} from "./NullValue";
 import get from "lodash/get";
 
-export default function TimestampField<T extends object>(props: RaFieldProps<T>) {
+interface TimestampField extends RaFieldProps {
+
+}
+
+const TimestampField: FC<TimestampField> = (props) => {
     const {
         source = "",
         record
@@ -26,3 +30,5 @@ export default function TimestampField<T extends object>(props: RaFieldProps<T>)
         </Typography>
     )
 }
+
+export default TimestampField;
