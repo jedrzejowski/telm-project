@@ -15,16 +15,24 @@ services:
 
   redis:
     image: redis:6-alpine
+    environment:
+      - APP_SECRET
     expose:
       - '6379'
 
   node:
-    image: 'telm-project-node:${APP_VERSION}'
+    image: 'telm-project-node:${APP_VERSION:-latest}'
+    deploy:
+      replicas: 2
     environment:
+      - APP_SECRET
       - APP_PORT=8080
-      - APP_REDISURL=redis://redis:6379
+      - APP_PGUSER
+      - APP_PGDATABASE
+      - APP_PGPASSWD
       - APP_PGPORT=5432
       - APP_PGHOST=postgresql
+      - APP_REDISURL=redis://redis:6379
     depends_on:
       - postgresql
       - redis

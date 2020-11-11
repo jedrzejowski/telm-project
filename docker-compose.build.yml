@@ -2,6 +2,9 @@ version: '3'
 services:
 
   node:
+    deploy:
+      replicas: 1
     build:
       dockerfile: node.dockerfile
       context: .
+

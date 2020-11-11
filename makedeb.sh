@@ -41,7 +41,7 @@ Package: $pkgname
 Version: $pkgver
 Section: custom
 Priority: optional
-Architecture: all
+Architecture: amd64
 Maintainer: noone <noone@example.com>
 Depends: docker, docker-compose
 Description: $pkgdesc
