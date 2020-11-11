@@ -6,7 +6,6 @@ services:
     environment:
       - POSTGRES_USER=telm
       - POSTGRES_DB=telm
-      - POSTGRES_PORT=5342
       - POSTGRES_PASSWORD=SuperTajneHaslo
     volumes:
       - ${APP_VOLUME:-./volume}/pgdata:/var/lib/postgresql/data

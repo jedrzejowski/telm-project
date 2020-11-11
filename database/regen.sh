@@ -5,7 +5,7 @@
 # Ten skrypt eksportuje pliki *.dbm do plików *.sql i tworzy obrazy *.png modeli
 #
 
-cd $(dirname $BASH_SOURCE)
+cd "$(dirname $BASH_SOURCE)"
 
 pgmodeler-cli --input "model.dbm" --export-to-png --output "model.png"
     
