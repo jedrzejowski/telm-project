@@ -2,3 +2,6 @@
 dist
 node_modules
 data.csv
+*.tar
+*.gz
+*.deb
