@@ -28,18 +28,67 @@ Całą aplikacją można sterować za pomocą zmiennych środowiskowych.
 ## Jak uruchomić? 
 
 Aplikacja jest pisana z myślą o uruchomianiu w środowisku skonteneryzowanym.
-Do budowania aplikacji nie potrzeba [Docker'a](https://docs.docker.com/get-docker/), ale warto go mieć.
+
+Do budowania aplikacji jest potrzebe:
+| Oprogramowane | Wymagane |
+| nodejs | tak | 
+| npm | tak |
+| [Docker](https://docs.docker.com/get-docker/) | nie, ale warto |
+
+W celu działania aplikacji należy posiadać zainicjowaną bazę danych, należy to zrobić tylko raz.
+Baza będzie dostępna w katalogu `volume`.
+Jak zainicjować bazę jest opisane w sekcjach poniżej.
 
 ### Uruchomianie w formie pokazowej
 
-### Uruchomianie w formie do rozwijania
+```shell script
+docker-compose up
+```
+Powyższy skrypt się sam nie zakończy.
+Aby go zakończyć, wciśnij `Ctrl+C`, co zakończy działanie aplikacji. 
 
-### Uruchamianie bez `Docker`'a i `docker-compose`
+Zainicjuj bazy danych:
+```shell script
+docker-compose exec postgresql psql telm telm < database/schema.sql
+docker-compose exec postgresql psql telm telm < database/example_data.sql
+```
 
-### Inicjowanie bazy danych
+Wejdź na stronę [localhost:8080](http://localhost:8080/).
 
+Zaloguj się jako `xxx` z hasłem `xxx`;
 
-### Wypełnienie przykładowymi danymi
+### Uruchomianie testowych baz danych
+
+Uruchom bazy danych PostgreSQL i Redis:
+
+```shell script
+ ocker-compose --env-file ".dev.env" --file "docker-compose.dev.yml" up
+```
+
+Aby połączyć się z bazą danych, proszę wpisać:
+```shell script
+psql --host=localhost --port=5001 --dbname=telm --username=telm
+Password for user telm: SuperTajneHaslo
+```
+
+Zainicjuj bazę danych.
+
+### Uruchamianie aplikacji w formie developerskiej
+
+Zainstaluj zależności:
+```shell script
+npm install
+```
+
+W dwóch osobnych terminalach uruchom polecenia:
+```
+npm run dev-build
+npm run dev-serve
+``` 
+
+Wejdź na stronę [localhost:8080](http://localhost:8080/).
+
+Uwaga: aby podłączyć inną bazę danych, niż ta domyśla, należy zmienieć parametry w pliku `.env`.
 
 ## Serwer backendowy
 

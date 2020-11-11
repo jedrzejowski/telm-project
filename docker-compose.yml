@@ -20,7 +20,9 @@ services:
       - '6379'
 
   node:
-    image: 'telm-project-node:${APP_VERSION:-latest}'
+    build:
+      dockerfile: node.dockerfile
+      context: .
     deploy:
       replicas: 2
     environment:
