@@ -1,15 +1,5 @@
 # telm-project
 
-```shell script
-APP_VOLUME=/var/lib/$pkgname \\
-docker-compose \
-    --project-name telm_project \
-    --env-file ".prod.env" \
-    --file "docker-compose.prod.yml" \
-    --file "docker-compose.build.yml" \
-    up
-```
-
 ## Zmienne środowiskowe
 
 Całą aplikacją można sterować za pomocą zmiennych środowiskowych.
@@ -25,12 +15,14 @@ Całą aplikacją można sterować za pomocą zmiennych środowiskowych.
 | APP_PGUSER | string | użytkownik do serwera PostgreSQL |
 | APP_PGPASSWD | string | hasło do serwera PostgreSQL |
 
-## Jak uruchomić? 
+## Jak uruchomić aplikację
 
 Aplikacja jest pisana z myślą o uruchomianiu w środowisku skonteneryzowanym.
 
 Do budowania aplikacji jest potrzebe:
+
 | Oprogramowane | Wymagane |
+| --- | --- |
 | nodejs | tak | 
 | npm | tak |
 | [Docker](https://docs.docker.com/get-docker/) | nie, ale warto |
@@ -62,8 +54,10 @@ Zaloguj się jako `xxx` z hasłem `xxx`;
 Uruchom bazy danych PostgreSQL i Redis:
 
 ```shell script
- ocker-compose --env-file ".dev.env" --file "docker-compose.dev.yml" up
+docker-compose --env-file ".dev.env" --file "docker-compose.dev.yml" up
 ```
+
+Uwaga: baza danych jest inicjowana z użytkownikiem `telm` i hasłem `SuperTajneHaslo`.
 
 Aby połączyć się z bazą danych, proszę wpisać:
 ```shell script
@@ -71,7 +65,6 @@ psql --host=localhost --port=5001 --dbname=telm --username=telm
 Password for user telm: SuperTajneHaslo
 ```
 
-Zainicjuj bazę danych.
 
 ### Uruchamianie aplikacji w formie developerskiej
 
@@ -81,7 +74,7 @@ npm install
 ```
 
 W dwóch osobnych terminalach uruchom polecenia:
-```
+```shell script
 npm run dev-build
 npm run dev-serve
 ``` 
@@ -89,6 +82,8 @@ npm run dev-serve
 Wejdź na stronę [localhost:8080](http://localhost:8080/).
 
 Uwaga: aby podłączyć inną bazę danych, niż ta domyśla, należy zmienieć parametry w pliku `.env`.
+
+### Jak działa budowanie
 
 ## Serwer backendowy
 
@@ -126,8 +121,8 @@ Baza danych składa się z 6 tabel:
    
 ## Użyte biblioteki
 
-Sumaryczna użyta ilość bibliotek to: ( ͡° ͜ʖ ͡° )つ──☆*:・ﾟ **1233**.
-Można ją uzyskać uruchamiając `npm audit`.
+Sumaryczna użyta ilość bibliotek to: ( ͡° ͜ʖ ͡° )つ──☆*:・ﾟ **1229**.
+Liczbę można uzyskać uruchamiając `npm audit`.
 
 ![node_modules](https://img.devrant.com/devrant/rant/r_1030841_w7Mq9.jpg)
 
@@ -137,8 +132,18 @@ Pełny wykaz bibliotek znajduje się w pliku `dependencies.txt`, a biblioteki fa
 
 Najważniejsze biblitoki:
 
- - `react`
- - `react-admin`
+ - `react` - główna biblioteka graficzna
+ - `react-admin` - biblioteka do tworzenia stron typu dashboard z danymi 
+ - `@material-ui/core` - biblioteka graficzna w stylu Material 
+ - `@date-io/dayjs` - biblioteka do obsługi czasu
+ - `yup` - biblioteka do walidacji danych 
+ - `recharts` - biblioteka do rysowania grafów
+ - `typescript` - język javascript z typowaniem
+ - `webpack` - narzędzie do pakowania plików
+ - `express` - biblioteka do tworzenia serwera HTTP
+ - `pg` - biblioteki do obsługi bazy PostgreSQL
+ - `knex` - biblioteki generowania dynamicznych zapytań SQL
+ 
 
 ## Autorzy
 
