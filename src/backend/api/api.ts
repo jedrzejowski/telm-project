@@ -7,8 +7,11 @@ import passport from "passport";
 import {querySelectPersona} from "../data/personel";
 import {AppPermissions, WhoAmI} from "../../types";
 import {personel2str} from "../../data/personel";
+import logReqRes from "../logReqRes";
 
 const api = express.Router();
+
+api.use(logReqRes);
 
 api.post("/login",
     passport.authenticate("basic"),
@@ -52,7 +55,8 @@ api.get("/whoami",
             fullName: personel2str(personel),
             permissions
         };
-        res.send(body);
+
+        res.status(200).json(body);
     });
 
 api.use("/patients", patients)

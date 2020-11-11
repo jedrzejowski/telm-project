@@ -9,6 +9,7 @@ import "./passport";
 import api from "./api/api";
 import getEnv from "./getEnv";
 import {authBasic} from "./data/auth";
+import logReqRes from "./logReqRes";
 
 const RedisStore = connectRedis(expressSession)
 const env = getEnv();
@@ -24,7 +25,7 @@ app.use(expressSession({
     secret: env.APP_SECRET,
     resave: false,
     saveUninitialized: false,
-}))
+}));
 
 passport.use(new BasicStrategy(
     function (username, password, done) {

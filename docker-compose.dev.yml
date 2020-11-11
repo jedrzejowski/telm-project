@@ -5,7 +5,7 @@ services:
     image: postgres:12-alpine
     volumes:
       - ./volume/pgdata:/var/lib/postgresql/data
-    env_file:
+    environment:
       - POSTGRES_USER=telm
       - POSTGRES_DB=telm
       - POSTGRES_PORT=5342

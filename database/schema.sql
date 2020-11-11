@@ -173,7 +173,7 @@ WITH SCHEMA public;
 -- DROP TABLE IF EXISTS public.basic_auth CASCADE;
 CREATE TABLE public.basic_auth (
 	password text NOT NULL,
-	personel_id_personel uuid NOT NULL
+	personel_id uuid NOT NULL
 );
 -- ddl-end --
 -- ALTER TABLE public.basic_auth OWNER TO postgres;
@@ -181,14 +181,29 @@ CREATE TABLE public.basic_auth (
 
 -- object: personel_fk | type: CONSTRAINT --
 -- ALTER TABLE public.basic_auth DROP CONSTRAINT IF EXISTS personel_fk CASCADE;
-ALTER TABLE public.basic_auth ADD CONSTRAINT personel_fk FOREIGN KEY (personel_id_personel)
+ALTER TABLE public.basic_auth ADD CONSTRAINT personel_fk FOREIGN KEY (personel_id)
 REFERENCES public.personel (personel_id) MATCH FULL
 ON DELETE RESTRICT ON UPDATE CASCADE;
 -- ddl-end --
 
 -- object: basic_auth_uq | type: CONSTRAINT --
 -- ALTER TABLE public.basic_auth DROP CONSTRAINT IF EXISTS basic_auth_uq CASCADE;
-ALTER TABLE public.basic_auth ADD CONSTRAINT basic_auth_uq UNIQUE (personel_id_personel);
+ALTER TABLE public.basic_auth ADD CONSTRAINT basic_auth_uq UNIQUE (personel_id);
+-- ddl-end --
+
+-- object: public.logs | type: TABLE --
+-- DROP TABLE IF EXISTS public.logs CASCADE;
+CREATE TABLE public.logs (
+	"timestamp" timestamp,
+	ip inet,
+	headers json,
+	method text,
+	url text,
+	request_data text,
+	response_data text
+);
+-- ddl-end --
+-- ALTER TABLE public.logs OWNER TO postgres;
 -- ddl-end --
 
 

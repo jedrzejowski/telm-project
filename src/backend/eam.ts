@@ -1,22 +1,12 @@
-import express from "express";
+import express, {RequestHandler} from "express";
 import {ValidationError} from "yup";
 import {NotFoundError} from "../lib/error";
 
 /**
  * Warstwa pośrednia do przechwytywania wyjątków z asynchronicznych funkcji express'a
  */
-export default function (
-    func: (
-        req: express.Request,
-        res: express.Response,
-        next: express.NextFunction
-    ) => Promise<void>
-) {
-    return async (
-        req: express.Request,
-        res: express.Response,
-        next: express.NextFunction
-    ) => {
+export default function (func: RequestHandler): RequestHandler {
+    return async (req, res, next) => {
         try {
             await func(req, res, next);
         } catch (error) {
