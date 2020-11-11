@@ -4,10 +4,13 @@
     "description": "Projekt na zaliczenie TELM",
     "main": "index.js",
     "scripts": {
+        "serve": "node dist/private/main.js",
         "build": "webpack --mode production",
+        "build-docker": "docker build --file node.dockerfile --tag telm-project-node:$(jq .version package.json -r) .",
         "dev-build": "webpack --mode development --watch",
-        "dev-serve": "env-cmd -f development.env nodemon dist/private/main.js",
-        "test": "jest"
+        "dev-serve": "env-cmd -f .dev.env nodemon dist/private/main.js",
+        "test": "jest",
+        "eslint": "eslint src/"
     },
     "repository": {
         "type": "git",
@@ -47,8 +50,11 @@
         "@types/redux-logger": "^3.0.8",
         "@types/uuid": "^8.3.0",
         "@types/yup": "^0.29.9",
-        "dayjs": "^1.9.4",
+        "@typescript-eslint/eslint-plugin": "^4.7.0",
+        "@typescript-eslint/parser": "^4.7.0",
         "env-cmd": "^10.1.0",
+        "eslint": "^7.13.0",
+        "eslint-plugin-react": "^7.21.5",
         "html-webpack-plugin": "^4.5.0",
         "jest": "^26.6.1",
         "lodash": "^4.17.20",
@@ -67,12 +73,14 @@
         "typescript": "^4.0.5",
         "uuid": "^8.3.1",
         "webpack": "^5.3.1",
+        "webpack-bundle-analyzer": "^4.1.0",
         "webpack-cli": "^4.1.0",
         "webpack-node-externals": "^2.5.2"
     },
     "dependencies": {
         "body-parser": "^1.19.0",
         "connect-redis": "^5.0.0",
+        "dayjs": "^1.9.4",
         "express": "^4.17.1",
         "express-session": "^1.17.1",
         "knex": "^0.21.12",
@@ -81,5 +89,8 @@
         "pg": "^8.4.2",
         "redis": "^3.0.2",
         "yup": "^0.29.3"
-    }
+    },
+    "files": [
+        "dist"
+    ]
 }

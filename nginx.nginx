@@ -1,0 +1,23 @@
+
+events {
+    worker_connections   1000;
+}
+
+http {
+
+    upstream root {
+        server node:8080;
+    }
+
+    server {
+        listen 8080;
+
+
+        location / {
+            proxy_pass http://root;
+            proxy_set_header Upgrade $http_upgrade;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header Host $host;
+        }
+    }
+}

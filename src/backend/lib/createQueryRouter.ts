@@ -1,10 +1,8 @@
 import express from "express";
-
-import {ObjectSchema, ObjectSchemaDefinition} from "yup";
+import {ObjectSchema} from "yup";
 import {AppQueryFilter, AppQueryResult} from "../../lib/query";
 import eam from "../eam";
 import createQueryFilterY from "./createQueryFilterY";
-import {populateDependencyGraph} from "ts-loader/dist/utils";
 
 export default function <Object extends object, Filter extends object>(name: string, opt: {
     objectSchema: ObjectSchema<Object>,

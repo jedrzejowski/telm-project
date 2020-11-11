@@ -6,21 +6,7 @@ import {yupMap} from "../../lib/yup-utils";
 import {HospitalizationY} from "../../data/hospitalizations";
 import {InferType, object, string} from "yup";
 
-const select_fields = [
-    `examination_id as "id"`,
-    `personel_id`,
-    `hospitalization_id`,
-    `"timestamp"::text`,
-    `pulse`,
-    `temperature`,
-    `blood_pressure`,
-    `stool`,
-    `urine`,
-    `mass`,
-    `"comment"`
-]
-
-export async function querySelectExamination(examination_id: string) {
+export async function querySelectExamination(examination_id: string): Promise<ExaminationT | null> {
 
     const rows = await knex({examination: "examinations"}).select({
         id: "examination.examination_id",
@@ -117,6 +103,7 @@ export async function queryCreateExamination(
             "examination_id as id",
             "personel_id",
             "hospitalization_id",
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
             knex.raw(`timestamp"::text`),
             "pulse",
@@ -153,6 +140,7 @@ export async function queryUpdateExamination(
             "examination_id as id",
             "personel_id",
             "hospitalization_id",
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
             knex.raw(`timestamp"::text`),
             "pulse",

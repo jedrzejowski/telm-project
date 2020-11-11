@@ -3,6 +3,7 @@ const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const nodeExternals = require("webpack-node-externals");
+const {BundleAnalyzerPlugin} = require("webpack-bundle-analyzer");
 
 const is_production = process.env.NODE_ENV === 'production';
 
@@ -19,13 +20,9 @@ const client_config = {
         rules: [{
             test: /\.(ts|tsx)$/,
             use: {
-                loader: "ts-loader",
-                options: {
-                    instance: "frontend",
-                    context: path.join(__dirname, "src/frontend"),
-                }
+                loader: "ts-loader"
             },
-            exclude: /node_modules/,
+            exclude: /(node_modules|src\/backend)/,
         }]
     },
     resolve: {
@@ -42,6 +39,7 @@ const client_config = {
             IS_PRODUCTION: JSON.stringify(is_production),
             IS_DEVELOPMENT: JSON.stringify(!is_production),
         }),
+        // new BundleAnalyzerPlugin()
     ],
     optimization: {
         splitChunks: {
@@ -56,7 +54,7 @@ const client_config = {
                 },
                 react: {
                     priority: 9,
-                    test: /\/node_modules\/react/,
+                    test: /\/node_modules\/(react|final-form)/,
                     name: "react"
                 },
                 "react-admin": {
@@ -68,6 +66,11 @@ const client_config = {
                     priority: 7,
                     test: /\/node_modules\/@material-ui/,
                     name: "material-ui",
+                },
+                "rechart": {
+                    priority: 6,
+                    test: /\/node_modules\/rechart/,
+                    name: "rechart",
                 },
             },
         },
@@ -87,13 +90,9 @@ const backend_config = {
         rules: [{
             test: /\.ts$/,
             use: {
-                loader: "ts-loader",
-                options: {
-                    instance: "backend",
-                    context: path.join(__dirname, "src/backend"),
-                }
+                loader: "ts-loader"
             },
-            exclude: /node_modules/,
+            exclude: /(node_modules|src\/frontend)/,
         }]
     },
     resolve: {
@@ -110,4 +109,5 @@ const backend_config = {
     ]
 };
 
-module.exports = [client_config, backend_config];
+
+module.exports = () => [client_config, backend_config];

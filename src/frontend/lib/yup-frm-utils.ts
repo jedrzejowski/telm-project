@@ -47,7 +47,7 @@ function normalizeValidationError(err: YupValidationError, translator?: Translat
         const {path, message} = innerError;
         const el: ReturnType<Translator> = translator ? translator(innerError) : message;
 
-        if (errors.hasOwnProperty(path)) {
+        if (Object.prototype.hasOwnProperty.call(errors, path)) {
             const prev = get(errors, path);
             prev.push(el);
             set(errors, path, prev);

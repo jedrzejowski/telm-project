@@ -1,0 +1,43 @@
+version: '3'
+services:
+
+  postgresql:
+    image: postgres:12-alpine
+    environment:
+      - POSTGRES_USER=telm
+      - POSTGRES_DB=telm
+      - POSTGRES_PORT=5342
+      - POSTGRES_PASSWORD=SuperTajneHaslo
+    volumes:
+      - ./volume/pgdata:/var/lib/postgresql/data
+    expose:
+      - '5432'
+
+  redis:
+    image: redis
+    expose:
+      - '6379'
+
+  node:
+    image: 'telm-project-node:${APP_VERSION}'
+    environment:
+      - APP_PORT=8080
+      - APP_REDISURL=redis://redis:6379
+      - APP_PGPORT=5432
+      - APP_PGHOST=postgresql
+    env_file:
+      - .env
+    depends_on:
+      - postgresql
+      - redis
+    expose:
+      - '8080'
+
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx.nginx:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - node
+    ports:
+      - '8080:8080'

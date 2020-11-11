@@ -40,4 +40,5 @@ app.use(express.static("./dist/public"));
 
 app.use("/api", api);
 
-app.listen(8080);
+app.listen(env.APP_PORT);
+

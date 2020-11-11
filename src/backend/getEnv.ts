@@ -1,6 +1,7 @@
 import {InferType, number, object, string} from "yup";
 
 const envY = object({
+    APP_PORT: number().defined().required(),
     APP_SECRET: string().defined().required(),
     APP_PGHOST: string().defined().required(),
     APP_PGUSER: string().defined().required(),

@@ -1,5 +1,5 @@
 import React, {FC} from "react";
-import {AutocompleteInput, ReferenceInput, ReferenceField, TextField} from "react-admin";
+import {AutocompleteInput, ReferenceInput, ReferenceField} from "react-admin";
 import {personel2str} from "../../../data/personel";
 import PersonelField from "./PersonelField";
 

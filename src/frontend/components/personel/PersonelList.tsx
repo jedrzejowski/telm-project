@@ -12,7 +12,7 @@ export default function PersonelList(props: Parameters<typeof List>[0]) {
     const {permissions = {} as AppPermissions} = usePermissions();
 
     return (
-        <List {...props} filters={<ListFilter/>}>
+        <List {...props} filters={<ListFilter/>} bulkActionButtons={false}>
             <Datagrid>
                 <TextField source="name1"/>
                 <TextField source="name2"/>

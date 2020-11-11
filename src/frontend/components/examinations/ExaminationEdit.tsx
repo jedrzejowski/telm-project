@@ -7,7 +7,7 @@ import {
     useDataProvider,
     NullableBooleanInput,
 } from "react-admin";
-import {makeRequired, makeValidate} from "../../lib/yupUtils";
+import {makeRequired, makeValidate} from "../../lib/yup-frm-utils";
 import {HospitalizationT} from "../../../data/hospitalizations";
 import Grid from "@material-ui/core/Grid";
 import InputAdornment from "@material-ui/core/InputAdornment";

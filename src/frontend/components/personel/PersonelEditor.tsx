@@ -8,7 +8,7 @@ import {
     SelectInput,
     Create
 } from 'react-admin';
-import {makeRequired, makeValidate} from "../../lib/yupUtils";
+import {makeRequired, makeValidate} from "../../lib/yup-frm-utils";
 import {PersonelT, PersonelY} from "../../../data/personel";
 
 const validate = makeValidate(PersonelY);

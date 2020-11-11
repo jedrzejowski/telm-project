@@ -5,18 +5,20 @@ import {oneOrNull, oneOrDbErr} from "../../lib/one_or";
 import {yupMap} from "../../lib/yup-utils";
 import {array, boolean, InferType, object, string} from "yup";
 
-export async function querySelectPatient(patient_id: string) {
-    const response = await postgresql.query(`
-        select 
-            patient_id as id, 
-            name1, name2, name3,
-            pesel, sex,
-            date_of_birth, date_of_death
-        from patients
-        where patient_id = $1::uuid
-    `, [patient_id]);
+export async function querySelectPatient(patient_id: string): Promise<PatientT | null> {
+    const rows = await knex("patients")
+        .select([
+            "patient_id as id",
+            "name1",
+            "name2",
+            "name4",
+            "pesel",
+            "sex",
+            "date_of_birth",
+            "date_of_death"
+        ]).where("patient_id", patient_id);
 
-    return await oneOrNull(response.rows, PatientY);
+    return await oneOrNull(rows, PatientY);
 }
 
 export const PatientFilterY = object({
@@ -106,8 +108,8 @@ export async function queryCreatePatient(patient: PatientT): Promise<[id: string
         patient.date_of_birth, patient.date_of_death,
     ]);
 
-    const patient_db = oneOrDbErr(response.rows);
-    return [patient_db.id, await PatientY.validate(patient_db, {stripUnknown: true})];
+    const patient_db = await oneOrDbErr(response.rows, PatientY);
+    return [patient_db.id, patient_db];
 }
 
 

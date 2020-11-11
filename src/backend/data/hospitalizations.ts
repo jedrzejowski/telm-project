@@ -4,10 +4,8 @@ import {AppQueryFilter, AppQueryResult} from "../../lib/query";
 import {yupMap} from "../../lib/yup-utils";
 import {HospitalizationT, HospitalizationY} from "../../data/hospitalizations";
 import {InferType, object, string} from "yup";
-import clock = jasmine.clock;
 
-
-export async function querySelectHospitalization(hospitalization_id: string) {
+export async function querySelectHospitalization(hospitalization_id: string): Promise<HospitalizationT | null> {
 
     const response = await postgresql.query(`
         select 
@@ -96,13 +94,14 @@ export async function queryCreateHospitalization(
         hospitalization.comment_start, hospitalization.comment_end,
     ]);
 
-    console.log(response.rows);
-
     const hospitalization_db = await oneOrDbErr(response.rows, HospitalizationY);
     return [hospitalization_db.id, hospitalization_db];
 }
 
-export async function queryUpdateHospitalization(hospitalization_id: string, hospitalization: HospitalizationT) {
+export async function queryUpdateHospitalization(
+    hospitalization_id: string, hospitalization: HospitalizationT
+): Promise<HospitalizationT> {
+
     const response = await postgresql.query(`
         update hospitalizations
         set 

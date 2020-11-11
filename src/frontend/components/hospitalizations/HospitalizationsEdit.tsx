@@ -6,7 +6,7 @@ import {
     Edit,
     SimpleForm
 } from "react-admin";
-import {makeRequired, makeValidate} from "../../lib/yupUtils";
+import {makeRequired, makeValidate} from "../../lib/yup-frm-utils";
 import {HospitalizationY} from "../../../data/hospitalizations";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";

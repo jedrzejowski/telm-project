@@ -10,7 +10,7 @@ const ListFilter = (props: {}) => (
 export default function PatientsList(props: Parameters<typeof List>[0]) {
 
     return (
-        <List {...props} filters={<ListFilter/>}>
+        <List {...props} filters={<ListFilter/>} bulkActionButtons={false}>
             <Datagrid>
                 <TextField source="pesel"/>
                 <TextField source="name1"/>

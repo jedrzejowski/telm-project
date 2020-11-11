@@ -11,8 +11,5 @@
         "allowSyntheticDefaultImports": true,
         "strictNullChecks": true,
         "noImplicitAny": true
-    },
-    "exclude": [
-        "../backend"
-    ]
+    }
 }

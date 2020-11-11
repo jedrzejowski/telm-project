@@ -6,11 +6,14 @@ services:
     volumes:
       - ./volume/pgdata:/var/lib/postgresql/data
     env_file:
-      - ./development.env
+      - POSTGRES_USER=telm
+      - POSTGRES_DB=telm
+      - POSTGRES_PORT=5342
+      - POSTGRES_PASSWORD=SuperTajneHaslo
     ports:
       - '5001:5432'
 
   redis:
     image: redis
     ports:
-      - "6379:6379"
+      - "5002:6379"
