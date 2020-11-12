@@ -65,7 +65,6 @@ psql --host=localhost --port=5001 --dbname=telm --username=telm
 Password for user telm: SuperTajneHaslo
 ```
 
-
 ### Uruchamianie aplikacji w formie developerskiej
 
 Zainstaluj zależności:
@@ -84,6 +83,27 @@ Wejdź na stronę [localhost:8080](http://localhost:8080/).
 Uwaga: aby podłączyć inną bazę danych, niż ta domyśla, należy zmienieć parametry w pliku `.env`.
 
 ### Jak działa budowanie
+
+Uruchamiając `npm run build`, uruchamia `webpack`'a, który pakuje cały projekt w kilka skompresowanych plików do katalogu `dist`, o następującej strukturze: 
+```
+├── dist
+│   ├── private
+│   │   └── main.js
+│   └── public
+│       ├── index.html
+│       ├── main.js
+│       ├── material-ui.js
+│       ├── material-ui.js.LICENSE.txt
+│       ├── react-admin.js
+│       ├── react.js
+│       ├── react.js.LICENSE.txt
+│       ├── rechart.js
+│       ├── vendor.js
+│       └── vendor.js.LICENSE.txt
+├── node_modules
+└── package.json
+```
+
 
 ## Serwer backendowy
 

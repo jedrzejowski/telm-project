@@ -3200,7 +3200,7 @@ telm-project@0.0.1
 │ │ │ │ │   Manipulate strings according to the word parsing rules of the UNIX Bourne shell.
 │ │ │ │ │   git://github.com/jimmycuadra/shellwords.git
 │ │ │ │ │   https://github.com/jimmycuadra/shellwords
-│ │ │ │ ├── uuid@8.3.1 deduped
+│ │ │ │ ├── uuid@8.3.1
 │ │ │ │ │   RFC4122 (v1, v4, and v5) UUIDs
 │ │ │ │ │   git+https://github.com/uuidjs/uuid.git
 │ │ │ │ │   https://github.com/uuidjs/uuid#readme
@@ -7712,51 +7712,11 @@ telm-project@0.0.1
 │     A tiny warning function
 │     git+https://github.com/alexreardon/tiny-warning.git
 │     https://github.com/alexreardon/tiny-warning#readme
-├─┬ react-stickynode@3.0.4
-│ │ A performant and comprehensive React sticky component
-│ │ git+https://github.com/yahoo/react-stickynode.git
-│ │ https://github.com/yahoo/react-stickynode#readme
-│ ├── classnames@2.2.6
-│ │   A simple utility for conditionally joining classNames together
-│ │   git+https://github.com/JedWatson/classnames.git
-│ │   https://github.com/JedWatson/classnames#readme
-│ ├── core-js@3.6.5 deduped
-│ │   Standard library
-│ │   git+https://github.com/zloirock/core-js.git
-│ │   https://github.com/zloirock/core-js#readme
-│ ├── prop-types@15.7.2 deduped
-│ │   Runtime type checking for React props and similar objects.
-│ │   git+https://github.com/facebook/prop-types.git
-│ │   https://facebook.github.io/react/
-│ ├── shallowequal@1.1.0
-│ │   Like lodash isEqualWith but for shallow equal.
-│ │   git+https://github.com/dashed/shallowequal.git
-│ │   https://github.com/dashed/shallowequal#readme
-│ └─┬ subscribe-ui-event@2.0.7
-│   │ A single, throttle built-in solution to subscribe to browser UI Events.
-│   │ git+https://github.com/yahoo/subscribe-ui-event.git
-│   │ https://github.com/yahoo/subscribe-ui-event#readme
-│   ├── eventemitter3@3.1.2 deduped
-│   │   EventEmitter3 focuses on performance while maintaining a Node.js AND browser compatible interface.
-│   │   git://github.com/primus/eventemitter3.git
-│   │   https://github.com/primus/eventemitter3#readme
-│   ├── lodash@4.17.20 deduped
-│   │   Lodash modular utilities.
-│   │   git+https://github.com/lodash/lodash.git
-│   │   https://lodash.com/
-│   └─┬ raf@3.4.1
-│     │ requestAnimationFrame polyfill for node and the browser
-│     │ git://github.com/chrisdickinson/raf.git
-│     │ https://github.com/chrisdickinson/raf#readme
-│     └── performance-now@2.1.0
-│         Implements performance.now (based on process.hrtime).
-│         git://github.com/braveg1rl/performance-now.git
-│         https://github.com/braveg1rl/performance-now
 ├─┬ recharts@1.8.5
 │ │ React charts
 │ │ git+https://github.com/recharts/recharts.git
 │ │ https://github.com/recharts/recharts
-│ ├── classnames@2.2.6 deduped
+│ ├── classnames@2.2.6
 │ │   A simple utility for conditionally joining classNames together
 │ │   git+https://github.com/JedWatson/classnames.git
 │ │   https://github.com/JedWatson/classnames#readme
@@ -7852,10 +7812,14 @@ telm-project@0.0.1
 │ │ │   Runtime type checking for React props and similar objects.
 │ │ │   git+https://github.com/facebook/prop-types.git
 │ │ │   https://facebook.github.io/react/
-│ │ ├── raf@3.4.1 deduped
-│ │ │   requestAnimationFrame polyfill for node and the browser
-│ │ │   git://github.com/chrisdickinson/raf.git
-│ │ │   https://github.com/chrisdickinson/raf#readme
+│ │ ├─┬ raf@3.4.1
+│ │ │ │ requestAnimationFrame polyfill for node and the browser
+│ │ │ │ git://github.com/chrisdickinson/raf.git
+│ │ │ │ https://github.com/chrisdickinson/raf#readme
+│ │ │ └── performance-now@2.1.0
+│ │ │     Implements performance.now (based on process.hrtime).
+│ │ │     git://github.com/braveg1rl/performance-now.git
+│ │ │     https://github.com/braveg1rl/performance-now
 │ │ └─┬ react-transition-group@2.9.0
 │ │   │ A react component toolset for managing animations
 │ │   │ git+https://github.com/reactjs/react-transition-group.git
@@ -8125,10 +8089,6 @@ telm-project@0.0.1
 │   TypeScript is a language for application scale JavaScript development
 │   git+https://github.com/Microsoft/TypeScript.git
 │   https://www.typescriptlang.org/
-├── uuid@8.3.1
-│   RFC4122 (v1, v4, and v5) UUIDs
-│   git+https://github.com/uuidjs/uuid.git
-│   https://github.com/uuidjs/uuid#readme
 ├─┬ webpack@5.3.1
 │ │ Packs CommonJs/AMD modules for the browser. Allows to split your codebase into multiple bundles, which can be loaded on demand. Support loaders to preprocess files, i.e. json, jsx, es7, css, less, ... and your custom stuff.
 │ │ git+https://github.com/webpack/webpack.git
