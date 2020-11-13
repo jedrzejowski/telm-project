@@ -10,6 +10,7 @@ import EmoticonPoop from "mdi-material-ui/EmoticonPoop";
 import CloseIcon from "mdi-material-ui/Close";
 import {nullValue} from "../lib/NullValue";
 import type {ExaminationT} from "../../../data/examinations";
+import useDayFormat from "../../lib/useDayFormat";
 
 function ExaminationsTable(props: {
     examinations: ExaminationT[]
@@ -17,6 +18,8 @@ function ExaminationsTable(props: {
     const {
         examinations
     } = props;
+
+    const dayFormat = useDayFormat();
 
     return (
         <TableContainer>
@@ -39,7 +42,7 @@ function ExaminationsTable(props: {
                     {examinations.map((row) => (
                         <TableRow key={row.id}>
                             <TableCell component="th" scope="row">
-                                {dayjs(row.timestamp).format("MMM DD, hh:mm")}
+                                {dayFormat(row.timestamp, "MMM DD, hh:mm")}
                             </TableCell>
                             <TableCell align="right">{row.pulse ?? nullValue}</TableCell>
                             <TableCell align="right">{row.temperature ?? nullValue}</TableCell>

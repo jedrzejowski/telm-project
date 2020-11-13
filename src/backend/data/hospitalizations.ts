@@ -67,7 +67,7 @@ export async function querySelectHospitalizations(
 export async function queryCreateHospitalization(
     hospitalization: HospitalizationT
 ): Promise<[hospitalization_id: string, hospitalization: HospitalizationT]> {
-    console.log("HERE");
+
     const response = await postgresql.query(`
         insert into hospitalizations (
             patient_id,

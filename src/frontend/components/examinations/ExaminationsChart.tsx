@@ -10,7 +10,7 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch from "@material-ui/core/Switch";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import colors from "@material-ui/core/colors";
+import * as colors from "@material-ui/core/colors";
 import type {ExaminationT} from "../../../data/examinations";
 import useTheme from "@material-ui/core/styles/useTheme";
 

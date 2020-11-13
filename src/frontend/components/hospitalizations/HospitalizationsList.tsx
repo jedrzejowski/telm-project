@@ -1,25 +1,24 @@
-import React, {FC} from "react";
+import React from "react";
 import {
     List,
     Datagrid,
     EditButton,
     ReferenceField,
-    DateField,
     ShowButton,
     SimpleList,
+    TextField,
 } from "react-admin";
 import PatientField from "../patients/PatientField";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import type {Theme} from "@material-ui/core/styles";
-import {WithId} from "../../../data/_";
-import {ExaminationT} from "../../../data/examinations";
-import dayjs from "dayjs";
+import {HospitalizationRa} from "../../../data/hospitalizations";
+import useDayFormat from "../../lib/useDayFormat";
+import TimestampField from "../lib/TimestampField";
 
 export default function HospitalizationsList(props: Parameters<typeof List>[0]) {
     const isSmall = useMediaQuery<Theme>(theme => theme.breakpoints.down("sm"));
-    const isMedium = useMediaQuery<Theme>(theme => theme.breakpoints.up("md"));
     const isLarge = useMediaQuery<Theme>(theme => theme.breakpoints.up("lg"));
-    const isXLarge = useMediaQuery<Theme>(theme => theme.breakpoints.up("xl"));
+    const dayFormat = useDayFormat();
 
     return (
         <List {...props} bulkActionButtons={false}>
@@ -36,8 +35,14 @@ export default function HospitalizationsList(props: Parameters<typeof List>[0]) 
                             <PatientField/>
                         </ReferenceField>
                     )}
-                    secondaryText={record => <SimpleField type="secondary" record={record as any}/>}
-                    tertiaryText={record => <SimpleField type="tertiary" record={record as any}/>}
+                    secondaryText={(examination: HospitalizationRa) => {
+                        return [
+                            "od",
+                            dayFormat(examination.time_start, "YYYY MMM D H:mm"),
+                            "do",
+                            dayFormat(examination.time_end, "YYYY MMM D H:mm"),
+                        ].join(" ")
+                    }}
                     linkType="show"
                 />
             ) : (
@@ -45,31 +50,17 @@ export default function HospitalizationsList(props: Parameters<typeof List>[0]) 
                     <ReferenceField source="patient_id" reference="patients">
                         <PatientField/>
                     </ReferenceField>
-                    <DateField source="time_start"/>
-                    <DateField source="time_end"/>
-                    <EditButton/>
+
+                    <TimestampField source="time_start"/>
+                    {isLarge ? <TextField source="comment_start"/> : null}
+
+                    <TimestampField source="time_end"/>
+                    {isLarge ? <TextField source="comment_end"/> : null}
+
+                    {isLarge ? <EditButton/> : null}
                     <ShowButton/>
                 </Datagrid>
             )}
         </List>
     )
 }
-
-const SimpleField: FC<{
-    record: WithId<ExaminationT>;
-    type: "secondary" | "tertiary"
-}> = React.memo(({record: examination, type}) => {
-
-    switch (type) {
-        case "secondary":
-            return (
-                <>
-                    {examination.temperature}&nbsp;°C,&nbsp;
-                    {examination.pulse}&nbsp;,&nbsp;
-                    {examination.blood_pressure1}/{examination.blood_pressure2}&nbsp;[mmHg],
-                </>
-            );
-        case "tertiary":
-            return <>{dayjs(examination.timestamp).toString()}</>
-    }
-});

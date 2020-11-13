@@ -1,9 +1,9 @@
 import React, {FC} from "react";
-import dayjs from "dayjs";
 import Typography from "@material-ui/core/Typography";
 import {RaFieldProps} from "../../lib/ra-types";
-import {nullValue} from "./NullValue";
+import {nullStr} from "./NullValue";
 import get from "lodash/get";
+import useDayFormat from "../../lib/useDayFormat";
 
 interface TimestampField extends RaFieldProps {
 
@@ -14,19 +14,15 @@ const TimestampField: FC<TimestampField> = (props) => {
         source = "",
         record
     } = props;
-
+    const dayFormat = useDayFormat();
     const value = get(record, source, record);
-
-    if (typeof value !== "string") {
-        return <Typography variant="body2">{nullValue}</Typography>
-    }
 
     return (
         <Typography
             variant="body2"
             component="span"
         >
-            {dayjs(value).toString()}
+            {value ? dayFormat(value, "YYYY MMM D H:mm") : nullStr}
         </Typography>
     )
 }

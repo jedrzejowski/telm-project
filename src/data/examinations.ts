@@ -1,5 +1,5 @@
 import {boolean, InferType, number, object, string} from "yup";
-import {yup_timestamp_transform} from "./_";
+import {WithId, yup_timestamp_transform} from "./_";
 import {numeric} from "../lib/yup-utils";
 
 export const ExaminationY = object({
@@ -19,3 +19,4 @@ export const ExaminationY = object({
 }).defined().required()
 
 export type ExaminationT = InferType<typeof ExaminationY>;
+export type ExaminationRa = WithId<ExaminationT>;

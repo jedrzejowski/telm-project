@@ -6,7 +6,7 @@ import {
     DateInput,
     SelectInput,
     Create
-} from 'react-admin';
+} from "react-admin";
 import {makeRequired, makeValidate} from "../../lib/yup-frm-utils";
 import {PatientT, PatientY} from "../../../data/patients";
 

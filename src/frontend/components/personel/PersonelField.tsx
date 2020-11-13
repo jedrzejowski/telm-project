@@ -17,8 +17,6 @@ const PersonelField: FC<Partial<RaFieldProps<WithId<PersonelT>> & {
            variant = "body2"
        }) => {
 
-    console.log("HERE", record);
-
     if (record) {
         return <Typography variant={variant}>{personel2str(record)}</Typography>
     } else {
