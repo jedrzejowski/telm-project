@@ -1,6 +1,7 @@
 import React from "react";
 import {Admin, Resource} from "react-admin";
 import dataProvider from "./dataProvider";
+import i18nProvider from "./i18nProvider";
 import authProvider from "./authProvider";
 import type {AppPermissions} from "../types";
 
@@ -24,7 +25,11 @@ import ExaminationEdit, {ExaminationCreate} from "./components/examinations/Exam
 
 export default function App() {
     return (
-        <Admin dataProvider={dataProvider} authProvider={authProvider}>
+        <Admin
+            dataProvider={dataProvider}
+            authProvider={authProvider}
+            i18nProvider={i18nProvider}
+        >
             {(permissions: AppPermissions) => [
 
                 permissions.patients ? (

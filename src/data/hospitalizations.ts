@@ -1,5 +1,5 @@
 import {InferType, object, string} from "yup";
-import {WithId, yup_timestamp_transform} from "./_";
+import {RaRecord, yup_timestamp_transform} from "./_";
 
 export const HospitalizationY = object({
     id: string().uuid(),
@@ -13,4 +13,4 @@ export const HospitalizationY = object({
 }).defined().required();
 
 export type HospitalizationT = InferType<typeof HospitalizationY>;
-export type HospitalizationRa = WithId<HospitalizationT>;
+export type HospitalizationRa = RaRecord<HospitalizationT>;

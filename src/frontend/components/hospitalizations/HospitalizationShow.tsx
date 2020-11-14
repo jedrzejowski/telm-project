@@ -6,6 +6,7 @@ import {
     Loading,
     useQueryWithStore,
     SimpleShowLayout,
+    ReferenceManyField,
 } from "react-admin";
 import TimestampField from "../lib/TimestampField";
 import ExaminationChart from "../examinations/ExaminationsChart";
@@ -21,9 +22,10 @@ import {makeStyles} from "@material-ui/core/styles";
 import ExaminationsTable from "../examinations/ExaminationsTable";
 import RichPatientField from "../patients/RichPatientField";
 import {PersonelReferenceField} from "../personel/PersonelReference";
-import type {WithId} from "../../../data/_";
-import type {HospitalizationT} from "../../../data/hospitalizations";
+import type {RaRecord} from "../../../data/_";
+import type {HospitalizationRa, HospitalizationT} from "../../../data/hospitalizations";
 import type {ExaminationT} from "../../../data/examinations";
+import {ExaminationDataGrid} from "../examinations/ExaminationList";
 
 const useStyles = makeStyles(theme => ({
     expand: {
@@ -46,7 +48,7 @@ export default function HospitalizationShow(props: {}) {
     );
 }
 
-function HeaderField(props: Omit<RaFieldProps<WithId<HospitalizationT>>, "source">) {
+function HeaderField(props: Omit<RaFieldProps<HospitalizationRa>, "source">) {
 
     return <Grid container spacing={2}>
 
@@ -137,7 +139,7 @@ function ExaminationsField(props: Omit<RaFieldProps<HospitalizationT>, "source">
             return [];
         }
 
-        return Object.entries(data as WithId<ExaminationT>[])
+        return Object.entries(data as RaRecord<ExaminationT>[])
             .map(entry => entry[1])
             .sort((a, b) => {
                 if (a.timestamp < b.timestamp) {
@@ -178,7 +180,14 @@ function ExaminationsField(props: Omit<RaFieldProps<HospitalizationT>, "source">
         </Box>
 
         <Box display={tab === "tables" ? "block" : "none"} className={classes.expand}>
-            <ExaminationsTable examinations={data_array}/>
+            <ReferenceManyField
+                basePath={props.basePath}
+                reference="examinations"
+                target="hospitalization_id"
+                sort={{field: "timestamp", order: "desc"}}
+            >
+                <ExaminationDataGrid showPatient={false}/>
+            </ReferenceManyField>
         </Box>
 
     </Box>;

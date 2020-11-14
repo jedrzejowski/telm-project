@@ -1,5 +1,4 @@
 import React from "react";
-import dayjs from "dayjs";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
@@ -27,8 +26,8 @@ function ExaminationsTable(props: {
                 <TableHead>
                     <TableRow>
                         <TableCell>Czas</TableCell>
-                        <TableCell align="right">Puls</TableCell>
                         <TableCell align="right">Temperatura [°C]</TableCell>
+                        <TableCell align="right">Puls</TableCell>
                         <TableCell align="right">
                             Ciśnienie krwi<br/>[mmHg/mmHg]
                         </TableCell>
@@ -44,8 +43,8 @@ function ExaminationsTable(props: {
                             <TableCell component="th" scope="row">
                                 {dayFormat(row.timestamp, "MMM DD, hh:mm")}
                             </TableCell>
-                            <TableCell align="right">{row.pulse ?? nullValue}</TableCell>
                             <TableCell align="right">{row.temperature ?? nullValue}</TableCell>
+                            <TableCell align="right">{row.pulse ?? nullValue}</TableCell>
                             <TableCell
                                 align="right">{row.blood_pressure1 ?? nullValue}/{row.blood_pressure2 ?? nullValue}</TableCell>
 

@@ -1,5 +1,5 @@
 import {InferType, object, string} from "yup";
-import {WithId, yup_date_transform} from "./_";
+import {RaRecord, yup_date_transform} from "./_";
 
 export const PatientY = object({
     id: string().uuid(),
@@ -13,7 +13,7 @@ export const PatientY = object({
 }).defined().required();
 
 export type PatientT = InferType<typeof PatientY>;
-export type PatientRa = WithId<PatientT>;
+export type PatientRa = RaRecord<PatientT>;
 
 export function patient2str(patient: PatientT) {
     return patient.name1 + " " + patient.name2;

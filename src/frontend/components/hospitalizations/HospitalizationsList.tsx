@@ -7,6 +7,7 @@ import {
     ShowButton,
     SimpleList,
     TextField,
+    useTranslate,
 } from "react-admin";
 import PatientField from "../patients/PatientField";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
@@ -19,9 +20,14 @@ export default function HospitalizationsList(props: Parameters<typeof List>[0]) 
     const isSmall = useMediaQuery<Theme>(theme => theme.breakpoints.down("sm"));
     const isLarge = useMediaQuery<Theme>(theme => theme.breakpoints.up("lg"));
     const dayFormat = useDayFormat();
+    const translate = useTranslate();
 
     return (
-        <List {...props} bulkActionButtons={false}>
+        <List
+            {...props}
+            bulkActionButtons={false}
+            title={translate(`resources.${props.resource}.list_title`)}
+        >
             {isSmall ? (
                 <SimpleList
                     primaryText={record => (

@@ -6,12 +6,13 @@ import get from "lodash/get";
 import useDayFormat from "../../lib/useDayFormat";
 
 interface TimestampField extends RaFieldProps {
-
+    format?: string
 }
 
 const TimestampField: FC<TimestampField> = (props) => {
     const {
         source = "",
+        format = "YYYY MMM D H:mm",
         record
     } = props;
     const dayFormat = useDayFormat();
@@ -22,7 +23,7 @@ const TimestampField: FC<TimestampField> = (props) => {
             variant="body2"
             component="span"
         >
-            {value ? dayFormat(value, "YYYY MMM D H:mm") : nullStr}
+            {value ? dayFormat(value, format) : nullStr}
         </Typography>
     )
 }

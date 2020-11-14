@@ -10,4 +10,4 @@ export function yup_timestamp_transform(value: any) {
     return date.isValid() ? date.toISOString() : null
 }
 
-export type WithId<T extends object> = T & { id: string };
+export type RaRecord<T extends object = {}> = T & { id: string };

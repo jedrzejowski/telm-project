@@ -1,6 +1,6 @@
 import {string, object, boolean, InferType} from "yup";
 import {username_regex} from "../regex";
-import {WithId} from "./_";
+import {RaRecord} from "./_";
 
 export const PersonelY = object({
     id: string().uuid(),
@@ -13,7 +13,7 @@ export const PersonelY = object({
 }).defined().required();
 
 export type PersonelT = InferType<typeof PersonelY>;
-export type PersonelRa = WithId<PersonelT>;
+export type PersonelRa = RaRecord<PersonelT>;
 
 export function personel2str(personel: PersonelT) {
     return personel.name1 + " " + personel.name2;

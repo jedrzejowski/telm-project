@@ -144,7 +144,7 @@ function ExaminationsChart(props: {
         refLineX ? <ReferenceLine x={refLineX} stroke="black"/> : null
     )
 
-    return <>
+    return <div>
         <Toolbar>
 
             <Typography variant="h6">
@@ -358,7 +358,7 @@ function ExaminationsChart(props: {
 
         </ResponsiveContainer>
 
-    </>
+    </div>
 }
 
 export default React.memo(ExaminationsChart);

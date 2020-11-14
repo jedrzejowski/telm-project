@@ -10,9 +10,9 @@ import GenderFemale from "mdi-material-ui/GenderFemale";
 import GenderMale from "mdi-material-ui/GenderMale";
 import HeadQuestionOutline from "mdi-material-ui/HeadQuestionOutline";
 import type {RaFieldProps} from "../../lib/ra-types";
-import type {WithId} from "../../../data/_";
+import type {RaRecord} from "../../../data/_";
 
-interface Props extends RaFieldProps<WithId<PatientT>> {
+interface Props extends RaFieldProps<RaRecord<PatientT>> {
     className?: string
     disabled?: boolean
     // input: undefined

@@ -307,7 +307,7 @@ telm-project@0.0.1
 │     Generates and consumes source maps
 │     git+ssh://git@github.com/mozilla/source-map.git
 │     https://github.com/mozilla/source-map
-├─┬ @babel/node@7.12.1
+├─┬ @babel/node@7.12.6
 │ │ Babel command line
 │ │ git+https://github.com/babel/babel.git
 │ │ https://babeljs.io/
@@ -319,7 +319,7 @@ telm-project@0.0.1
 │ │   the complete solution for node.js command-line programs
 │ │   git+https://github.com/tj/commander.js.git
 │ │   https://github.com/tj/commander.js#readme
-│ ├── core-js@3.6.5
+│ ├── core-js@3.7.0
 │ │   Standard library
 │ │   git+https://github.com/zloirock/core-js.git
 │ │   https://github.com/zloirock/core-js#readme
@@ -450,11 +450,11 @@ telm-project@0.0.1
 │       Generates and consumes source maps
 │       git+ssh://git@github.com/mozilla/source-map.git
 │       https://github.com/mozilla/source-map
-├─┬ @date-io/dayjs@1.3.13
+├─┬ @date-io/dayjs@2.10.6
 │ │ Abstraction over common javascript date management libraries
 │ │ git+https://github.com/dmtrKovalenko/date-io.git
 │ │ https://github.com/dmtrKovalenko/date-io#readme
-│ └── @date-io/core@1.3.13
+│ └── @date-io/core@2.10.6
 │     Abstraction over common javascript date management libraries
 │     git+https://github.com/dmtrKovalenko/date-io.git
 │     https://github.com/dmtrKovalenko/date-io#readme
@@ -628,10 +628,14 @@ telm-project@0.0.1
 │ │ │     A lib for generating Style Sheets with JavaScript.
 │ │ │     git+https://github.com/cssinjs/jss.git
 │ │ │     https://cssinjs.org/
-│ │ └── prop-types@15.7.2 deduped
-│ │     Runtime type checking for React props and similar objects.
-│ │     git+https://github.com/facebook/prop-types.git
-│ │     https://facebook.github.io/react/
+│ │ ├── prop-types@15.7.2 deduped
+│ │ │   Runtime type checking for React props and similar objects.
+│ │ │   git+https://github.com/facebook/prop-types.git
+│ │ │   https://facebook.github.io/react/
+│ │ ├── UNMET PEER DEPENDENCY react@^16.8.0
+│ │ │   
+│ │ └── UNMET PEER DEPENDENCY react-dom@^16.8.0
+│ │     
 │ ├─┬ @material-ui/system@4.9.14
 │ │ │ Material-UI System - Design system for Material-UI.
 │ │ │ git+https://github.com/mui-org/material-ui.git
@@ -648,10 +652,14 @@ telm-project@0.0.1
 │ │ │   Strict TypeScript and Flow types for style based on MDN data
 │ │ │   git+https://github.com/frenic/csstype.git
 │ │ │   https://github.com/frenic/csstype#readme
-│ │ └── prop-types@15.7.2 deduped
-│ │     Runtime type checking for React props and similar objects.
-│ │     git+https://github.com/facebook/prop-types.git
-│ │     https://facebook.github.io/react/
+│ │ ├── prop-types@15.7.2 deduped
+│ │ │   Runtime type checking for React props and similar objects.
+│ │ │   git+https://github.com/facebook/prop-types.git
+│ │ │   https://facebook.github.io/react/
+│ │ ├── UNMET PEER DEPENDENCY react@^16.8.0
+│ │ │   
+│ │ └── UNMET PEER DEPENDENCY react-dom@^16.8.0
+│ │     
 │ ├── @material-ui/types@5.1.0
 │ │   Material-UI Types - Utility types for Material-UI.
 │ │   git+https://github.com/mui-org/material-ui.git
@@ -676,7 +684,7 @@ telm-project@0.0.1
 │ │ │ TypeScript definitions for react-transition-group
 │ │ │ git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │ │ │ https://github.com/DefinitelyTyped/DefinitelyTyped#readme
-│ │ └── @types/react@16.9.55 deduped
+│ │ └── @types/react@16.9.56 deduped
 │ │     TypeScript definitions for React
 │ │     git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │ │     https://github.com/DefinitelyTyped/DefinitelyTyped#readme
@@ -712,6 +720,10 @@ telm-project@0.0.1
 │ │     Brand checking of React Elements.
 │ │     git+https://github.com/facebook/react.git
 │ │     https://reactjs.org/
+│ ├── UNMET PEER DEPENDENCY react@^16.8.0
+│ │   
+│ ├── UNMET PEER DEPENDENCY react-dom@^16.8.0
+│ │   
 │ ├── react-is@16.13.1
 │ │   Brand checking of React Elements.
 │ │   git+https://github.com/facebook/react.git
@@ -760,7 +772,7 @@ telm-project@0.0.1
 │ │   babel's modular runtime helpers
 │ │   git+https://github.com/babel/babel.git
 │ │   https://babeljs.io/
-│ ├── @date-io/core@1.3.13 deduped
+│ ├── @date-io/core@1.3.13
 │ │   Abstraction over common javascript date management libraries
 │ │   git+https://github.com/dmtrKovalenko/date-io.git
 │ │   https://github.com/dmtrKovalenko/date-io#readme
@@ -768,7 +780,7 @@ telm-project@0.0.1
 │ │ │ TypeScript definitions for styled-jsx
 │ │ │ git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │ │ │ https://github.com/DefinitelyTyped/DefinitelyTyped#readme
-│ │ └── @types/react@16.9.55 deduped
+│ │ └── @types/react@16.9.56 deduped
 │ │     TypeScript definitions for React
 │ │     git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │ │     https://github.com/DefinitelyTyped/DefinitelyTyped#readme
@@ -812,15 +824,15 @@ telm-project@0.0.1
 │     The lodash method `_.mapValues` exported as a module.
 │     git+https://github.com/lodash/lodash.git
 │     https://lodash.com/
-├─┬ @types/connect-redis@0.0.14
+├─┬ @types/connect-redis@0.0.15
 │ │ TypeScript definitions for connect-redis
 │ │ git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │ │ https://github.com/DefinitelyTyped/DefinitelyTyped#readme
-│ ├── @types/express@4.17.8 deduped
+│ ├── @types/express@4.17.9 deduped
 │ │   TypeScript definitions for Express
 │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
-│ ├── @types/express-session@1.17.0 deduped
+│ ├── @types/express-session@1.17.2 deduped
 │ │   TypeScript definitions for express-session
 │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
@@ -828,7 +840,7 @@ telm-project@0.0.1
 │ │ │ TypeScript definitions for ioredis
 │ │ │ git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │ │ │ https://github.com/DefinitelyTyped/DefinitelyTyped#readme
-│ │ └── @types/node@14.14.6 deduped
+│ │ └── @types/node@14.14.7 deduped
 │ │     TypeScript definitions for Node.js
 │ │     git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │ │     https://github.com/DefinitelyTyped/DefinitelyTyped#readme
@@ -836,7 +848,7 @@ telm-project@0.0.1
 │     TypeScript definitions for redis
 │     git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │     https://github.com/DefinitelyTyped/DefinitelyTyped#readme
-├─┬ @types/express@4.17.8
+├─┬ @types/express@4.17.9
 │ │ TypeScript definitions for Express
 │ │ git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │ │ https://github.com/DefinitelyTyped/DefinitelyTyped#readme
@@ -848,11 +860,11 @@ telm-project@0.0.1
 │ │ │ │ TypeScript definitions for connect
 │ │ │ │ git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │ │ │ │ https://github.com/DefinitelyTyped/DefinitelyTyped#readme
-│ │ │ └── @types/node@14.14.6 deduped
+│ │ │ └── @types/node@14.14.7 deduped
 │ │ │     TypeScript definitions for Node.js
 │ │ │     git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │ │ │     https://github.com/DefinitelyTyped/DefinitelyTyped#readme
-│ │ └── @types/node@14.14.6 deduped
+│ │ └── @types/node@14.14.7 deduped
 │ │     TypeScript definitions for Node.js
 │ │     git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │ │     https://github.com/DefinitelyTyped/DefinitelyTyped#readme
@@ -860,7 +872,7 @@ telm-project@0.0.1
 │ │ │ TypeScript definitions for Express
 │ │ │ git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │ │ │ https://github.com/DefinitelyTyped/DefinitelyTyped#readme
-│ │ ├── @types/node@14.14.6 deduped
+│ │ ├── @types/node@14.14.7 deduped
 │ │ │   TypeScript definitions for Node.js
 │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
@@ -876,7 +888,7 @@ telm-project@0.0.1
 │ │   TypeScript definitions for qs
 │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
-│ └─┬ @types/serve-static@1.13.6
+│ └─┬ @types/serve-static@1.13.7
 │   │ TypeScript definitions for serve-static
 │   │ git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │   │ https://github.com/DefinitelyTyped/DefinitelyTyped#readme
@@ -884,20 +896,16 @@ telm-project@0.0.1
 │   │   TypeScript definitions for mime
 │   │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │   │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
-│   └── @types/node@14.14.6 deduped
+│   └── @types/node@14.14.7 deduped
 │       TypeScript definitions for Node.js
 │       git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │       https://github.com/DefinitelyTyped/DefinitelyTyped#readme
-├─┬ @types/express-session@1.17.0
+├─┬ @types/express-session@1.17.2
 │ │ TypeScript definitions for express-session
 │ │ git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │ │ https://github.com/DefinitelyTyped/DefinitelyTyped#readme
-│ ├── @types/express@4.17.8 deduped
-│ │   TypeScript definitions for Express
-│ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
-│ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
-│ └── @types/node@14.14.6 deduped
-│     TypeScript definitions for Node.js
+│ └── @types/express@4.17.9 deduped
+│     TypeScript definitions for Express
 │     git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │     https://github.com/DefinitelyTyped/DefinitelyTyped#readme
 ├─┬ @types/jest@26.0.15
@@ -947,7 +955,7 @@ telm-project@0.0.1
 │   │ │       TypeScript definitions for istanbul-lib-coverage
 │   │ │       git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │   │ │       https://github.com/DefinitelyTyped/DefinitelyTyped#readme
-│   │ ├── @types/node@14.14.6 deduped
+│   │ ├── @types/node@14.14.7 deduped
 │   │ │   TypeScript definitions for Node.js
 │   │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │   │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
@@ -983,7 +991,7 @@ telm-project@0.0.1
 │       Brand checking of React Elements.
 │       git+https://github.com/facebook/react.git
 │       https://reactjs.org/
-├── @types/node@14.14.6
+├── @types/node@14.14.7
 │   TypeScript definitions for Node.js
 │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
@@ -991,7 +999,7 @@ telm-project@0.0.1
 │ │ TypeScript definitions for passport-http
 │ │ git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │ │ https://github.com/DefinitelyTyped/DefinitelyTyped#readme
-│ ├── @types/express@4.17.8 deduped
+│ ├── @types/express@4.17.9 deduped
 │ │   TypeScript definitions for Express
 │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
@@ -999,7 +1007,7 @@ telm-project@0.0.1
 │   │ TypeScript definitions for Passport
 │   │ git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │   │ https://github.com/DefinitelyTyped/DefinitelyTyped#readme
-│   └── @types/express@4.17.8 deduped
+│   └── @types/express@4.17.9 deduped
 │       TypeScript definitions for Express
 │       git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │       https://github.com/DefinitelyTyped/DefinitelyTyped#readme
@@ -1007,7 +1015,7 @@ telm-project@0.0.1
 │ │ TypeScript definitions for passport-local
 │ │ git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │ │ https://github.com/DefinitelyTyped/DefinitelyTyped#readme
-│ ├── @types/express@4.17.8 deduped
+│ ├── @types/express@4.17.9 deduped
 │ │   TypeScript definitions for Express
 │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
@@ -1019,7 +1027,7 @@ telm-project@0.0.1
 │   │ TypeScript definitions for Passport Strategy module
 │   │ git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │   │ https://github.com/DefinitelyTyped/DefinitelyTyped#readme
-│   ├── @types/express@4.17.8 deduped
+│   ├── @types/express@4.17.9 deduped
 │   │   TypeScript definitions for Express
 │   │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │   │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
@@ -1027,11 +1035,11 @@ telm-project@0.0.1
 │       TypeScript definitions for Passport
 │       git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │       https://github.com/DefinitelyTyped/DefinitelyTyped#readme
-├─┬ @types/pg@7.14.5
+├─┬ @types/pg@7.14.6
 │ │ TypeScript definitions for pg
 │ │ git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │ │ https://github.com/DefinitelyTyped/DefinitelyTyped#readme
-│ ├── @types/node@14.14.6 deduped
+│ ├── @types/node@14.14.7 deduped
 │ │   TypeScript definitions for Node.js
 │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
@@ -1039,7 +1047,7 @@ telm-project@0.0.1
 │     TypeScript definitions for pg-types
 │     git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │     https://github.com/DefinitelyTyped/DefinitelyTyped#readme
-├─┬ @types/react@16.9.55
+├─┬ @types/react@16.9.56
 │ │ TypeScript definitions for React
 │ │ git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │ │ https://github.com/DefinitelyTyped/DefinitelyTyped#readme
@@ -1047,7 +1055,7 @@ telm-project@0.0.1
 │ │   TypeScript definitions for prop-types
 │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
-│ └── csstype@3.0.4
+│ └── csstype@3.0.5
 │     Strict TypeScript and Flow types for style based on MDN data
 │     git+https://github.com/frenic/csstype.git
 │     https://github.com/frenic/csstype#readme
@@ -1055,7 +1063,7 @@ telm-project@0.0.1
 │ │ TypeScript definitions for React (react-dom)
 │ │ git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │ │ https://github.com/DefinitelyTyped/DefinitelyTyped#readme
-│ └── @types/react@16.9.55 deduped
+│ └── @types/react@16.9.56 deduped
 │     TypeScript definitions for React
 │     git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │     https://github.com/DefinitelyTyped/DefinitelyTyped#readme
@@ -1067,7 +1075,7 @@ telm-project@0.0.1
 │ │   TypeScript definitions for history
 │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
-│ ├── @types/react@16.9.55 deduped
+│ ├── @types/react@16.9.56 deduped
 │ │   TypeScript definitions for React
 │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
@@ -1079,7 +1087,7 @@ telm-project@0.0.1
 │   │   TypeScript definitions for history
 │   │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │   │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
-│   └── @types/react@16.9.55 deduped
+│   └── @types/react@16.9.56 deduped
 │       TypeScript definitions for React
 │       git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │       https://github.com/DefinitelyTyped/DefinitelyTyped#readme
@@ -1095,7 +1103,7 @@ telm-project@0.0.1
 │ │     TypeScript definitions for D3JS d3-path module
 │ │     git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │ │     https://github.com/DefinitelyTyped/DefinitelyTyped#readme
-│ └── @types/react@16.9.55 deduped
+│ └── @types/react@16.9.56 deduped
 │     TypeScript definitions for React
 │     git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │     https://github.com/DefinitelyTyped/DefinitelyTyped#readme
@@ -1103,7 +1111,7 @@ telm-project@0.0.1
 │ │ TypeScript definitions for redis
 │ │ git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │ │ https://github.com/DefinitelyTyped/DefinitelyTyped#readme
-│ └── @types/node@14.14.6 deduped
+│ └── @types/node@14.14.7 deduped
 │     TypeScript definitions for Node.js
 │     git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │     https://github.com/DefinitelyTyped/DefinitelyTyped#readme
@@ -1431,7 +1439,7 @@ telm-project@0.0.1
 │   Redis session store for Connect
 │   git+ssh://git@github.com/visionmedia/connect-redis.git
 │   https://github.com/visionmedia/connect-redis#readme
-├── dayjs@1.9.4
+├── dayjs@1.9.6
 │   2KB immutable date time library alternative to Moment.js with the same modern API 
 │   git+https://github.com/iamkun/dayjs.git
 │   https://day.js.org
@@ -2715,7 +2723,7 @@ telm-project@0.0.1
 │ │ │   TypeScript definitions for anymatch
 │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
-│ │ ├── @types/node@14.14.6 deduped
+│ │ ├── @types/node@14.14.7 deduped
 │ │ │   TypeScript definitions for Node.js
 │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
@@ -2735,7 +2743,7 @@ telm-project@0.0.1
 │ │ │ │ TypeScript definitions for webpack-sources
 │ │ │ │ git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │ │ │ │ https://github.com/DefinitelyTyped/DefinitelyTyped#readme
-│ │ │ ├── @types/node@14.14.6 deduped
+│ │ │ ├── @types/node@14.14.7 deduped
 │ │ │ │   TypeScript definitions for Node.js
 │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
@@ -2987,21 +2995,41 @@ telm-project@0.0.1
 │       ES2017 spec-compliant shim for `Object.getOwnPropertyDescriptors` that works in ES5.
 │       git://github.com/es-shims/object.getownpropertydescriptors.git
 │       https://github.com/es-shims/object.getownpropertydescriptors#readme
-├─┬ jest@26.6.1
+├─┬ jest@26.6.3
 │ │ Delightful JavaScript Testing.
 │ │ git+https://github.com/facebook/jest.git
 │ │ https://jestjs.io/
-│ ├─┬ @jest/core@26.6.1
+│ ├─┬ @jest/core@26.6.3
 │ │ │ Delightful JavaScript Testing.
 │ │ │ git+https://github.com/facebook/jest.git
 │ │ │ https://jestjs.io/
-│ │ ├─┬ @jest/console@26.6.1
+│ │ ├─┬ @jest/console@26.6.2
 │ │ │ │ git+https://github.com/facebook/jest.git
 │ │ │ │ https://github.com/facebook/jest#readme
-│ │ │ ├── @jest/types@26.6.1 deduped
-│ │ │ │   git+https://github.com/facebook/jest.git
-│ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ ├── @types/node@14.14.6 deduped
+│ │ │ ├─┬ @jest/types@26.6.2
+│ │ │ │ │ git+https://github.com/facebook/jest.git
+│ │ │ │ │ https://github.com/facebook/jest#readme
+│ │ │ │ ├── @types/istanbul-lib-coverage@2.0.3 deduped
+│ │ │ │ │   TypeScript definitions for istanbul-lib-coverage
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ ├── @types/istanbul-reports@3.0.0 deduped
+│ │ │ │ │   TypeScript definitions for istanbul-reports
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ ├── @types/node@14.14.7 deduped
+│ │ │ │ │   TypeScript definitions for Node.js
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ ├── @types/yargs@15.0.9 deduped
+│ │ │ │ │   TypeScript definitions for yargs
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ └── chalk@4.1.0 deduped
+│ │ │ │     Terminal string styling done right
+│ │ │ │     git+https://github.com/chalk/chalk.git
+│ │ │ │     https://github.com/chalk/chalk#readme
+│ │ │ ├── @types/node@14.14.7 deduped
 │ │ │ │   TypeScript definitions for Node.js
 │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
@@ -3009,17 +3037,17 @@ telm-project@0.0.1
 │ │ │ │   Terminal string styling done right
 │ │ │ │   git+https://github.com/chalk/chalk.git
 │ │ │ │   https://github.com/chalk/chalk#readme
-│ │ │ ├── jest-message-util@26.6.1 deduped
+│ │ │ ├── jest-message-util@26.6.2 deduped
 │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ ├── jest-util@26.6.1 deduped
+│ │ │ ├── jest-util@26.6.2 deduped
 │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │   https://github.com/facebook/jest#readme
 │ │ │ └── slash@3.0.0 deduped
 │ │ │     Convert Windows backslash paths to slash paths
 │ │ │     git+https://github.com/sindresorhus/slash.git
 │ │ │     https://github.com/sindresorhus/slash#readme
-│ │ ├─┬ @jest/reporters@26.6.1
+│ │ ├─┬ @jest/reporters@26.6.2
 │ │ │ │ Jest's reporters
 │ │ │ │ git+https://github.com/facebook/jest.git
 │ │ │ │ https://jestjs.io/
@@ -3027,18 +3055,38 @@ telm-project@0.0.1
 │ │ │ │   Helper functions for V8 coverage files.
 │ │ │ │   git://github.com/demurgos/v8-coverage.git
 │ │ │ │   https://demurgos.github.io/v8-coverage
-│ │ │ ├── @jest/console@26.6.1 deduped
+│ │ │ ├── @jest/console@26.6.2 deduped
 │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ ├── @jest/test-result@26.6.1 deduped
+│ │ │ ├── @jest/test-result@26.6.2 deduped
 │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ ├── @jest/transform@26.6.1 deduped
+│ │ │ ├── @jest/transform@26.6.2 deduped
 │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ ├── @jest/types@26.6.1 deduped
-│ │ │ │   git+https://github.com/facebook/jest.git
-│ │ │ │   https://github.com/facebook/jest#readme
+│ │ │ ├─┬ @jest/types@26.6.2
+│ │ │ │ │ git+https://github.com/facebook/jest.git
+│ │ │ │ │ https://github.com/facebook/jest#readme
+│ │ │ │ ├── @types/istanbul-lib-coverage@2.0.3 deduped
+│ │ │ │ │   TypeScript definitions for istanbul-lib-coverage
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ ├── @types/istanbul-reports@3.0.0 deduped
+│ │ │ │ │   TypeScript definitions for istanbul-reports
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ ├── @types/node@14.14.7 deduped
+│ │ │ │ │   TypeScript definitions for Node.js
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ ├── @types/yargs@15.0.9 deduped
+│ │ │ │ │   TypeScript definitions for yargs
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ └── chalk@4.1.0 deduped
+│ │ │ │     Terminal string styling done right
+│ │ │ │     git+https://github.com/chalk/chalk.git
+│ │ │ │     https://github.com/chalk/chalk#readme
 │ │ │ ├── chalk@4.1.0 deduped
 │ │ │ │   Terminal string styling done right
 │ │ │ │   git+https://github.com/chalk/chalk.git
@@ -3163,16 +3211,16 @@ telm-project@0.0.1
 │ │ │ │     Base reporting library for istanbul
 │ │ │ │     git+ssh://git@github.com/istanbuljs/istanbuljs.git
 │ │ │ │     https://istanbul.js.org/
-│ │ │ ├── jest-haste-map@26.6.1 deduped
+│ │ │ ├── jest-haste-map@26.6.2 deduped
 │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ ├── jest-resolve@26.6.1 deduped
+│ │ │ ├── jest-resolve@26.6.2 deduped
 │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ ├── jest-util@26.6.1 deduped
+│ │ │ ├── jest-util@26.6.2 deduped
 │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ ├── jest-worker@26.6.1 deduped
+│ │ │ ├── jest-worker@26.6.2 deduped
 │ │ │ │   Module for executing heavy tasks under forked processes in parallel, by providing a `Promise` based interface, minimum overhead, and bound workers.
 │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │   https://github.com/facebook/jest#readme
@@ -3252,7 +3300,7 @@ telm-project@0.0.1
 │ │ │ │       Detect whether a terminal supports color
 │ │ │ │       git+https://github.com/chalk/supports-color.git
 │ │ │ │       https://github.com/chalk/supports-color#readme
-│ │ │ └─┬ v8-to-istanbul@6.0.1
+│ │ │ └─┬ v8-to-istanbul@7.0.0
 │ │ │   │ convert from v8 coverage format to istanbul's format
 │ │ │   │ git+https://github.com/istanbuljs/v8-to-istanbul.git
 │ │ │   │ https://github.com/istanbuljs/v8-to-istanbul#readme
@@ -3268,15 +3316,35 @@ telm-project@0.0.1
 │ │ │       Generates and consumes source maps
 │ │ │       git+ssh://git@github.com/mozilla/source-map.git
 │ │ │       https://github.com/mozilla/source-map
-│ │ ├─┬ @jest/test-result@26.6.1
+│ │ ├─┬ @jest/test-result@26.6.2
 │ │ │ │ git+https://github.com/facebook/jest.git
 │ │ │ │ https://github.com/facebook/jest#readme
-│ │ │ ├── @jest/console@26.6.1 deduped
+│ │ │ ├── @jest/console@26.6.2 deduped
 │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ ├── @jest/types@26.6.1 deduped
-│ │ │ │   git+https://github.com/facebook/jest.git
-│ │ │ │   https://github.com/facebook/jest#readme
+│ │ │ ├─┬ @jest/types@26.6.2
+│ │ │ │ │ git+https://github.com/facebook/jest.git
+│ │ │ │ │ https://github.com/facebook/jest#readme
+│ │ │ │ ├── @types/istanbul-lib-coverage@2.0.3 deduped
+│ │ │ │ │   TypeScript definitions for istanbul-lib-coverage
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ ├── @types/istanbul-reports@3.0.0 deduped
+│ │ │ │ │   TypeScript definitions for istanbul-reports
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ ├── @types/node@14.14.7 deduped
+│ │ │ │ │   TypeScript definitions for Node.js
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ ├── @types/yargs@15.0.9 deduped
+│ │ │ │ │   TypeScript definitions for yargs
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ └── chalk@4.1.0 deduped
+│ │ │ │     Terminal string styling done right
+│ │ │ │     git+https://github.com/chalk/chalk.git
+│ │ │ │     https://github.com/chalk/chalk#readme
 │ │ │ ├── @types/istanbul-lib-coverage@2.0.3 deduped
 │ │ │ │   TypeScript definitions for istanbul-lib-coverage
 │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
@@ -3285,16 +3353,36 @@ telm-project@0.0.1
 │ │ │     Use this module to start and stop the V8 inspector manually and collect precise coverage.
 │ │ │     git+https://github.com/SimenB/collect-v8-coverage.git
 │ │ │     https://github.com/SimenB/collect-v8-coverage#readme
-│ │ ├─┬ @jest/transform@26.6.1
+│ │ ├─┬ @jest/transform@26.6.2
 │ │ │ │ git+https://github.com/facebook/jest.git
 │ │ │ │ https://github.com/facebook/jest#readme
 │ │ │ ├── @babel/core@7.12.3 deduped
 │ │ │ │   Babel compiler core.
 │ │ │ │   git+https://github.com/babel/babel.git
 │ │ │ │   https://babeljs.io/
-│ │ │ ├── @jest/types@26.6.1 deduped
-│ │ │ │   git+https://github.com/facebook/jest.git
-│ │ │ │   https://github.com/facebook/jest#readme
+│ │ │ ├─┬ @jest/types@26.6.2
+│ │ │ │ │ git+https://github.com/facebook/jest.git
+│ │ │ │ │ https://github.com/facebook/jest#readme
+│ │ │ │ ├── @types/istanbul-lib-coverage@2.0.3 deduped
+│ │ │ │ │   TypeScript definitions for istanbul-lib-coverage
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ ├── @types/istanbul-reports@3.0.0 deduped
+│ │ │ │ │   TypeScript definitions for istanbul-reports
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ ├── @types/node@14.14.7 deduped
+│ │ │ │ │   TypeScript definitions for Node.js
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ ├── @types/yargs@15.0.9 deduped
+│ │ │ │ │   TypeScript definitions for yargs
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ └── chalk@4.1.0 deduped
+│ │ │ │     Terminal string styling done right
+│ │ │ │     git+https://github.com/chalk/chalk.git
+│ │ │ │     https://github.com/chalk/chalk#readme
 │ │ │ ├─┬ babel-plugin-istanbul@6.0.0
 │ │ │ │ │ A babel plugin that adds istanbul instrumentation to ES6 code
 │ │ │ │ │ git+https://github.com/istanbuljs/babel-plugin-istanbul.git
@@ -3367,13 +3455,13 @@ telm-project@0.0.1
 │ │ │ │   A drop-in replacement for fs, making various improvements.
 │ │ │ │   git+https://github.com/isaacs/node-graceful-fs.git
 │ │ │ │   https://github.com/isaacs/node-graceful-fs#readme
-│ │ │ ├── jest-haste-map@26.6.1 deduped
+│ │ │ ├── jest-haste-map@26.6.2 deduped
 │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │   https://github.com/facebook/jest#readme
 │ │ │ ├── jest-regex-util@26.0.0 deduped
 │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ ├── jest-util@26.6.1 deduped
+│ │ │ ├── jest-util@26.6.2 deduped
 │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │   https://github.com/facebook/jest#readme
 │ │ │ ├── micromatch@4.0.2 deduped
@@ -3416,17 +3504,41 @@ telm-project@0.0.1
 │ │ │         Detect whether or not an object is a Typed Array
 │ │ │         git://github.com/hughsk/is-typedarray.git
 │ │ │         https://github.com/hughsk/is-typedarray
-│ │ ├── @jest/types@26.6.1 deduped
-│ │ │   git+https://github.com/facebook/jest.git
-│ │ │   https://github.com/facebook/jest#readme
-│ │ ├── @types/node@14.14.6 deduped
+│ │ ├─┬ @jest/types@26.6.2
+│ │ │ │ git+https://github.com/facebook/jest.git
+│ │ │ │ https://github.com/facebook/jest#readme
+│ │ │ ├── @types/istanbul-lib-coverage@2.0.3 deduped
+│ │ │ │   TypeScript definitions for istanbul-lib-coverage
+│ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ ├── @types/istanbul-reports@3.0.0 deduped
+│ │ │ │   TypeScript definitions for istanbul-reports
+│ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ ├── @types/node@14.14.7 deduped
+│ │ │ │   TypeScript definitions for Node.js
+│ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ ├── @types/yargs@15.0.9 deduped
+│ │ │ │   TypeScript definitions for yargs
+│ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ └── chalk@4.1.0 deduped
+│ │ │     Terminal string styling done right
+│ │ │     git+https://github.com/chalk/chalk.git
+│ │ │     https://github.com/chalk/chalk#readme
+│ │ ├── @types/node@14.14.7 deduped
 │ │ │   TypeScript definitions for Node.js
 │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
-│ │ ├── ansi-escapes@4.3.1 deduped
-│ │ │   ANSI escape codes for manipulating the terminal
-│ │ │   git+https://github.com/sindresorhus/ansi-escapes.git
-│ │ │   https://github.com/sindresorhus/ansi-escapes#readme
+│ │ ├─┬ ansi-escapes@4.3.1
+│ │ │ │ ANSI escape codes for manipulating the terminal
+│ │ │ │ git+https://github.com/sindresorhus/ansi-escapes.git
+│ │ │ │ https://github.com/sindresorhus/ansi-escapes#readme
+│ │ │ └── type-fest@0.11.0
+│ │ │     A collection of essential TypeScript types
+│ │ │     git+https://github.com/sindresorhus/type-fest.git
+│ │ │     https://github.com/sindresorhus/type-fest#readme
 │ │ ├── chalk@4.1.0 deduped
 │ │ │   Terminal string styling done right
 │ │ │   git+https://github.com/chalk/chalk.git
@@ -3439,13 +3551,33 @@ telm-project@0.0.1
 │ │ │   A drop-in replacement for fs, making various improvements.
 │ │ │   git+https://github.com/isaacs/node-graceful-fs.git
 │ │ │   https://github.com/isaacs/node-graceful-fs#readme
-│ │ ├─┬ jest-changed-files@26.6.1
+│ │ ├─┬ jest-changed-files@26.6.2
 │ │ │ │ A module used internally by Jest to check which files have changed since you last committed in git or hg.
 │ │ │ │ git+https://github.com/facebook/jest.git
 │ │ │ │ https://github.com/facebook/jest#readme
-│ │ │ ├── @jest/types@26.6.1 deduped
-│ │ │ │   git+https://github.com/facebook/jest.git
-│ │ │ │   https://github.com/facebook/jest#readme
+│ │ │ ├─┬ @jest/types@26.6.2
+│ │ │ │ │ git+https://github.com/facebook/jest.git
+│ │ │ │ │ https://github.com/facebook/jest#readme
+│ │ │ │ ├── @types/istanbul-lib-coverage@2.0.3 deduped
+│ │ │ │ │   TypeScript definitions for istanbul-lib-coverage
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ ├── @types/istanbul-reports@3.0.0 deduped
+│ │ │ │ │   TypeScript definitions for istanbul-reports
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ ├── @types/node@14.14.7 deduped
+│ │ │ │ │   TypeScript definitions for Node.js
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ ├── @types/yargs@15.0.9 deduped
+│ │ │ │ │   TypeScript definitions for yargs
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ └── chalk@4.1.0 deduped
+│ │ │ │     Terminal string styling done right
+│ │ │ │     git+https://github.com/chalk/chalk.git
+│ │ │ │     https://github.com/chalk/chalk#readme
 │ │ │ ├─┬ execa@4.1.0
 │ │ │ │ │ Process execution for humans
 │ │ │ │ │ git+https://github.com/sindresorhus/execa.git
@@ -3518,46 +3650,86 @@ telm-project@0.0.1
 │ │ │     Throttle the parallelism of an asynchronous (promise returning) function / functions
 │ │ │     git+https://github.com/ForbesLindesay/throat.git
 │ │ │     https://github.com/ForbesLindesay/throat#readme
-│ │ ├─┬ jest-config@26.6.1
+│ │ ├─┬ jest-config@26.6.3
 │ │ │ │ git+https://github.com/facebook/jest.git
 │ │ │ │ https://github.com/facebook/jest#readme
 │ │ │ ├── @babel/core@7.12.3 deduped
 │ │ │ │   Babel compiler core.
 │ │ │ │   git+https://github.com/babel/babel.git
 │ │ │ │   https://babeljs.io/
-│ │ │ ├─┬ @jest/test-sequencer@26.6.1
+│ │ │ ├─┬ @jest/test-sequencer@26.6.3
 │ │ │ │ │ git+https://github.com/facebook/jest.git
 │ │ │ │ │ https://github.com/facebook/jest#readme
-│ │ │ │ ├── @jest/test-result@26.6.1 deduped
+│ │ │ │ ├── @jest/test-result@26.6.2 deduped
 │ │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │ │   https://github.com/facebook/jest#readme
 │ │ │ │ ├── graceful-fs@4.2.4 deduped
 │ │ │ │ │   A drop-in replacement for fs, making various improvements.
 │ │ │ │ │   git+https://github.com/isaacs/node-graceful-fs.git
 │ │ │ │ │   https://github.com/isaacs/node-graceful-fs#readme
-│ │ │ │ ├── jest-haste-map@26.6.1 deduped
+│ │ │ │ ├── jest-haste-map@26.6.2 deduped
 │ │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ │ ├── jest-runner@26.6.1 deduped
+│ │ │ │ ├── jest-runner@26.6.3 deduped
 │ │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ │ └── jest-runtime@26.6.1 deduped
+│ │ │ │ └── jest-runtime@26.6.3 deduped
 │ │ │ │     git+https://github.com/facebook/jest.git
 │ │ │ │     https://github.com/facebook/jest#readme
-│ │ │ ├── @jest/types@26.6.1 deduped
-│ │ │ │   git+https://github.com/facebook/jest.git
-│ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ ├─┬ babel-jest@26.6.1
+│ │ │ ├─┬ @jest/types@26.6.2
+│ │ │ │ │ git+https://github.com/facebook/jest.git
+│ │ │ │ │ https://github.com/facebook/jest#readme
+│ │ │ │ ├── @types/istanbul-lib-coverage@2.0.3 deduped
+│ │ │ │ │   TypeScript definitions for istanbul-lib-coverage
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ ├── @types/istanbul-reports@3.0.0 deduped
+│ │ │ │ │   TypeScript definitions for istanbul-reports
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ ├── @types/node@14.14.7 deduped
+│ │ │ │ │   TypeScript definitions for Node.js
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ ├── @types/yargs@15.0.9 deduped
+│ │ │ │ │   TypeScript definitions for yargs
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ └── chalk@4.1.0 deduped
+│ │ │ │     Terminal string styling done right
+│ │ │ │     git+https://github.com/chalk/chalk.git
+│ │ │ │     https://github.com/chalk/chalk#readme
+│ │ │ ├─┬ babel-jest@26.6.3
 │ │ │ │ │ Jest plugin to use babel for transformation.
 │ │ │ │ │ git+https://github.com/facebook/jest.git
 │ │ │ │ │ https://github.com/facebook/jest#readme
-│ │ │ │ ├── @jest/transform@26.6.1 deduped
+│ │ │ │ ├── @jest/transform@26.6.2 deduped
 │ │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ │ ├── @jest/types@26.6.1 deduped
-│ │ │ │ │   git+https://github.com/facebook/jest.git
-│ │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ │ ├─┬ @types/babel__core@7.1.10
+│ │ │ │ ├─┬ @jest/types@26.6.2
+│ │ │ │ │ │ git+https://github.com/facebook/jest.git
+│ │ │ │ │ │ https://github.com/facebook/jest#readme
+│ │ │ │ │ ├── @types/istanbul-lib-coverage@2.0.3 deduped
+│ │ │ │ │ │   TypeScript definitions for istanbul-lib-coverage
+│ │ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ │ ├── @types/istanbul-reports@3.0.0 deduped
+│ │ │ │ │ │   TypeScript definitions for istanbul-reports
+│ │ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ │ ├── @types/node@14.14.7 deduped
+│ │ │ │ │ │   TypeScript definitions for Node.js
+│ │ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ │ ├── @types/yargs@15.0.9 deduped
+│ │ │ │ │ │   TypeScript definitions for yargs
+│ │ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ │ └── chalk@4.1.0 deduped
+│ │ │ │ │     Terminal string styling done right
+│ │ │ │ │     git+https://github.com/chalk/chalk.git
+│ │ │ │ │     https://github.com/chalk/chalk#readme
+│ │ │ │ ├─┬ @types/babel__core@7.1.12
 │ │ │ │ │ │ TypeScript definitions for @babel/core
 │ │ │ │ │ │ git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │ │ │ │ │ │ https://github.com/DefinitelyTyped/DefinitelyTyped#readme
@@ -3577,7 +3749,7 @@ telm-project@0.0.1
 │ │ │ │ │ │     Babel Types is a Lodash-esque utility library for AST nodes
 │ │ │ │ │ │     git+https://github.com/babel/babel.git
 │ │ │ │ │ │     https://babeljs.io/
-│ │ │ │ │ ├─┬ @types/babel__template@7.0.3
+│ │ │ │ │ ├─┬ @types/babel__template@7.4.0
 │ │ │ │ │ │ │ TypeScript definitions for @babel/template
 │ │ │ │ │ │ │ git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │ │ │ │ │ │ │ https://github.com/DefinitelyTyped/DefinitelyTyped#readme
@@ -3597,11 +3769,11 @@ telm-project@0.0.1
 │ │ │ │ │   A babel plugin that adds istanbul instrumentation to ES6 code
 │ │ │ │ │   git+https://github.com/istanbuljs/babel-plugin-istanbul.git
 │ │ │ │ │   https://github.com/istanbuljs/babel-plugin-istanbul#readme
-│ │ │ │ ├─┬ babel-preset-jest@26.5.0
+│ │ │ │ ├─┬ babel-preset-jest@26.6.2
 │ │ │ │ │ │ > Babel preset for all Jest plugins. This preset is automatically included when using [babel-jest](https://github.com/facebook/jest/tree/master/packages/babel-jest).
 │ │ │ │ │ │ git+https://github.com/facebook/jest.git
 │ │ │ │ │ │ https://github.com/facebook/jest#readme
-│ │ │ │ │ ├─┬ babel-plugin-jest-hoist@26.5.0
+│ │ │ │ │ ├─┬ babel-plugin-jest-hoist@26.6.2
 │ │ │ │ │ │ │ Babel plugin to hoist `jest.disableAutomock`, `jest.enableAutomock`, `jest.unmock`, `jest.mock`, calls above `import` statements. This plugin is automatically included when using [babel-jest](https://github.com/facebook/jest/tree/master/packages/babel-jest).
 │ │ │ │ │ │ │ git+https://github.com/facebook/jest.git
 │ │ │ │ │ │ │ https://github.com/facebook/jest#readme
@@ -3613,7 +3785,7 @@ telm-project@0.0.1
 │ │ │ │ │ │ │   Babel Types is a Lodash-esque utility library for AST nodes
 │ │ │ │ │ │ │   git+https://github.com/babel/babel.git
 │ │ │ │ │ │ │   https://babeljs.io/
-│ │ │ │ │ │ ├── @types/babel__core@7.1.10 deduped
+│ │ │ │ │ │ ├── @types/babel__core@7.1.12 deduped
 │ │ │ │ │ │ │   TypeScript definitions for @babel/core
 │ │ │ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │ │ │ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
@@ -3621,7 +3793,7 @@ telm-project@0.0.1
 │ │ │ │ │ │     TypeScript definitions for @babel/traverse
 │ │ │ │ │ │     git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │ │ │ │ │ │     https://github.com/DefinitelyTyped/DefinitelyTyped#readme
-│ │ │ │ │ └─┬ babel-preset-current-node-syntax@0.1.4
+│ │ │ │ │ └─┬ babel-preset-current-node-syntax@1.0.0
 │ │ │ │ │   │ A Babel preset that enables parsing of proposals supported by the current Node.js version.
 │ │ │ │ │   │ git+https://github.com/nicolo-ribaudo/babel-preset-current-node-syntax.git
 │ │ │ │ │   │ https://github.com/nicolo-ribaudo/babel-preset-current-node-syntax#readme
@@ -3699,9 +3871,17 @@ telm-project@0.0.1
 │ │ │ │ │   │     General utilities for plugins to use
 │ │ │ │ │   │     git+https://github.com/babel/babel.git
 │ │ │ │ │   │     https://babeljs.io/
-│ │ │ │ │   └─┬ @babel/plugin-syntax-optional-chaining@7.8.3
-│ │ │ │ │     │ Allow parsing of optional properties
-│ │ │ │ │     │ https://github.com/babel/babel/tree/master/packages/babel-plugin-syntax-optional-chaining
+│ │ │ │ │   ├─┬ @babel/plugin-syntax-optional-chaining@7.8.3
+│ │ │ │ │   │ │ Allow parsing of optional properties
+│ │ │ │ │   │ │ https://github.com/babel/babel/tree/master/packages/babel-plugin-syntax-optional-chaining
+│ │ │ │ │   │ └── @babel/helper-plugin-utils@7.10.4 deduped
+│ │ │ │ │   │     General utilities for plugins to use
+│ │ │ │ │   │     git+https://github.com/babel/babel.git
+│ │ │ │ │   │     https://babeljs.io/
+│ │ │ │ │   └─┬ @babel/plugin-syntax-top-level-await@7.12.1
+│ │ │ │ │     │ Allow parsing of top-level await in modules
+│ │ │ │ │     │ git+https://github.com/babel/babel.git
+│ │ │ │ │     │ https://github.com/babel/babel#readme
 │ │ │ │ │     └── @babel/helper-plugin-utils@7.10.4 deduped
 │ │ │ │ │         General utilities for plugins to use
 │ │ │ │ │         git+https://github.com/babel/babel.git
@@ -3734,27 +3914,47 @@ telm-project@0.0.1
 │ │ │ │   A drop-in replacement for fs, making various improvements.
 │ │ │ │   git+https://github.com/isaacs/node-graceful-fs.git
 │ │ │ │   https://github.com/isaacs/node-graceful-fs#readme
-│ │ │ ├─┬ jest-environment-jsdom@26.6.1
+│ │ │ ├─┬ jest-environment-jsdom@26.6.2
 │ │ │ │ │ git+https://github.com/facebook/jest.git
 │ │ │ │ │ https://github.com/facebook/jest#readme
-│ │ │ │ ├── @jest/environment@26.6.1 deduped
+│ │ │ │ ├── @jest/environment@26.6.2 deduped
 │ │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ │ ├── @jest/fake-timers@26.6.1 deduped
+│ │ │ │ ├── @jest/fake-timers@26.6.2 deduped
 │ │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ │ ├── @jest/types@26.6.1 deduped
-│ │ │ │ │   git+https://github.com/facebook/jest.git
-│ │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ │ ├── @types/node@14.14.6 deduped
+│ │ │ │ ├─┬ @jest/types@26.6.2
+│ │ │ │ │ │ git+https://github.com/facebook/jest.git
+│ │ │ │ │ │ https://github.com/facebook/jest#readme
+│ │ │ │ │ ├── @types/istanbul-lib-coverage@2.0.3 deduped
+│ │ │ │ │ │   TypeScript definitions for istanbul-lib-coverage
+│ │ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ │ ├── @types/istanbul-reports@3.0.0 deduped
+│ │ │ │ │ │   TypeScript definitions for istanbul-reports
+│ │ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ │ ├── @types/node@14.14.7 deduped
+│ │ │ │ │ │   TypeScript definitions for Node.js
+│ │ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ │ ├── @types/yargs@15.0.9 deduped
+│ │ │ │ │ │   TypeScript definitions for yargs
+│ │ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ │ └── chalk@4.1.0 deduped
+│ │ │ │ │     Terminal string styling done right
+│ │ │ │ │     git+https://github.com/chalk/chalk.git
+│ │ │ │ │     https://github.com/chalk/chalk#readme
+│ │ │ │ ├── @types/node@14.14.7 deduped
 │ │ │ │ │   TypeScript definitions for Node.js
 │ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
-│ │ │ │ ├── jest-mock@26.6.1 deduped
+│ │ │ │ ├── jest-mock@26.6.2 deduped
 │ │ │ │ │   ## API
 │ │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ │ ├── jest-util@26.6.1 deduped
+│ │ │ │ ├── jest-util@26.6.2 deduped
 │ │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │ │   https://github.com/facebook/jest#readme
 │ │ │ │ └─┬ jsdom@16.4.0
@@ -3909,7 +4109,7 @@ telm-project@0.0.1
 │ │ │ │   │ │   AWS signing. Originally pulled from LearnBoost/knox, maintained as vendor in request, now a standalone module.
 │ │ │ │   │ │   git+https://github.com/mikeal/aws-sign.git
 │ │ │ │   │ │   https://github.com/mikeal/aws-sign#readme
-│ │ │ │   │ ├── aws4@1.10.1
+│ │ │ │   │ ├── aws4@1.11.0
 │ │ │ │   │ │   Signs and prepares requests using AWS Signature Version 4
 │ │ │ │   │ │   git+https://github.com/mhart/aws4.git
 │ │ │ │   │ │   https://github.com/mhart/aws4#readme
@@ -4237,53 +4437,93 @@ telm-project@0.0.1
 │ │ │ │       Validates whether a string matches the production for an XML name or qualified name
 │ │ │ │       git+https://github.com/jsdom/xml-name-validator.git
 │ │ │ │       https://github.com/jsdom/xml-name-validator#readme
-│ │ │ ├─┬ jest-environment-node@26.6.1
+│ │ │ ├─┬ jest-environment-node@26.6.2
 │ │ │ │ │ git+https://github.com/facebook/jest.git
 │ │ │ │ │ https://github.com/facebook/jest#readme
-│ │ │ │ ├── @jest/environment@26.6.1 deduped
+│ │ │ │ ├── @jest/environment@26.6.2 deduped
 │ │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ │ ├── @jest/fake-timers@26.6.1 deduped
+│ │ │ │ ├── @jest/fake-timers@26.6.2 deduped
 │ │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ │ ├── @jest/types@26.6.1 deduped
-│ │ │ │ │   git+https://github.com/facebook/jest.git
-│ │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ │ ├── @types/node@14.14.6 deduped
+│ │ │ │ ├─┬ @jest/types@26.6.2
+│ │ │ │ │ │ git+https://github.com/facebook/jest.git
+│ │ │ │ │ │ https://github.com/facebook/jest#readme
+│ │ │ │ │ ├── @types/istanbul-lib-coverage@2.0.3 deduped
+│ │ │ │ │ │   TypeScript definitions for istanbul-lib-coverage
+│ │ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ │ ├── @types/istanbul-reports@3.0.0 deduped
+│ │ │ │ │ │   TypeScript definitions for istanbul-reports
+│ │ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ │ ├── @types/node@14.14.7 deduped
+│ │ │ │ │ │   TypeScript definitions for Node.js
+│ │ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ │ ├── @types/yargs@15.0.9 deduped
+│ │ │ │ │ │   TypeScript definitions for yargs
+│ │ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ │ └── chalk@4.1.0 deduped
+│ │ │ │ │     Terminal string styling done right
+│ │ │ │ │     git+https://github.com/chalk/chalk.git
+│ │ │ │ │     https://github.com/chalk/chalk#readme
+│ │ │ │ ├── @types/node@14.14.7 deduped
 │ │ │ │ │   TypeScript definitions for Node.js
 │ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
-│ │ │ │ ├── jest-mock@26.6.1 deduped
+│ │ │ │ ├── jest-mock@26.6.2 deduped
 │ │ │ │ │   ## API
 │ │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ │ └── jest-util@26.6.1 deduped
+│ │ │ │ └── jest-util@26.6.2 deduped
 │ │ │ │     git+https://github.com/facebook/jest.git
 │ │ │ │     https://github.com/facebook/jest#readme
 │ │ │ ├── jest-get-type@26.3.0 deduped
 │ │ │ │   A utility function to get the type of a value
 │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ ├─┬ jest-jasmine2@26.6.1
+│ │ │ ├─┬ jest-jasmine2@26.6.3
 │ │ │ │ │ git+https://github.com/facebook/jest.git
 │ │ │ │ │ https://github.com/facebook/jest#readme
 │ │ │ │ ├── @babel/traverse@7.12.1 deduped
 │ │ │ │ │   The Babel Traverse module maintains the overall tree state, and is responsible for replacing, removing, and adding nodes
 │ │ │ │ │   git+https://github.com/babel/babel.git
 │ │ │ │ │   https://babeljs.io/
-│ │ │ │ ├── @jest/environment@26.6.1 deduped
+│ │ │ │ ├── @jest/environment@26.6.2 deduped
 │ │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ │ ├── @jest/source-map@26.5.0 deduped
+│ │ │ │ ├── @jest/source-map@26.6.2 deduped
 │ │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ │ ├── @jest/test-result@26.6.1 deduped
+│ │ │ │ ├── @jest/test-result@26.6.2 deduped
 │ │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ │ ├── @jest/types@26.6.1 deduped
-│ │ │ │ │   git+https://github.com/facebook/jest.git
-│ │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ │ ├── @types/node@14.14.6 deduped
+│ │ │ │ ├─┬ @jest/types@26.6.2
+│ │ │ │ │ │ git+https://github.com/facebook/jest.git
+│ │ │ │ │ │ https://github.com/facebook/jest#readme
+│ │ │ │ │ ├── @types/istanbul-lib-coverage@2.0.3 deduped
+│ │ │ │ │ │   TypeScript definitions for istanbul-lib-coverage
+│ │ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ │ ├── @types/istanbul-reports@3.0.0 deduped
+│ │ │ │ │ │   TypeScript definitions for istanbul-reports
+│ │ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ │ ├── @types/node@14.14.7 deduped
+│ │ │ │ │ │   TypeScript definitions for Node.js
+│ │ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ │ ├── @types/yargs@15.0.9 deduped
+│ │ │ │ │ │   TypeScript definitions for yargs
+│ │ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ │ └── chalk@4.1.0 deduped
+│ │ │ │ │     Terminal string styling done right
+│ │ │ │ │     git+https://github.com/chalk/chalk.git
+│ │ │ │ │     https://github.com/chalk/chalk#readme
+│ │ │ │ ├── @types/node@14.14.7 deduped
 │ │ │ │ │   TypeScript definitions for Node.js
 │ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
@@ -4295,7 +4535,7 @@ telm-project@0.0.1
 │ │ │ │ │   generator async control flow goodness
 │ │ │ │ │   git+https://github.com/tj/co.git
 │ │ │ │ │   https://github.com/tj/co#readme
-│ │ │ │ ├── expect@26.6.1 deduped
+│ │ │ │ ├── expect@26.6.2 deduped
 │ │ │ │ │   This package exports the `expect` function used in [Jest](https://jestjs.io/). You can find its documentation [on Jest's website](https://jestjs.io/docs/en/expect.html).
 │ │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │ │   https://github.com/facebook/jest#readme
@@ -4303,13 +4543,33 @@ telm-project@0.0.1
 │ │ │ │ │   Check if something is a generator function
 │ │ │ │ │   git+https://github.com/sindresorhus/is-generator-fn.git
 │ │ │ │ │   https://github.com/sindresorhus/is-generator-fn#readme
-│ │ │ │ ├─┬ jest-each@26.6.1
+│ │ │ │ ├─┬ jest-each@26.6.2
 │ │ │ │ │ │ Parameterised tests for Jest
 │ │ │ │ │ │ git+https://github.com/facebook/jest.git
 │ │ │ │ │ │ https://github.com/facebook/jest#readme
-│ │ │ │ │ ├── @jest/types@26.6.1 deduped
-│ │ │ │ │ │   git+https://github.com/facebook/jest.git
-│ │ │ │ │ │   https://github.com/facebook/jest#readme
+│ │ │ │ │ ├─┬ @jest/types@26.6.2
+│ │ │ │ │ │ │ git+https://github.com/facebook/jest.git
+│ │ │ │ │ │ │ https://github.com/facebook/jest#readme
+│ │ │ │ │ │ ├── @types/istanbul-lib-coverage@2.0.3 deduped
+│ │ │ │ │ │ │   TypeScript definitions for istanbul-lib-coverage
+│ │ │ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ │ │ ├── @types/istanbul-reports@3.0.0 deduped
+│ │ │ │ │ │ │   TypeScript definitions for istanbul-reports
+│ │ │ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ │ │ ├── @types/node@14.14.7 deduped
+│ │ │ │ │ │ │   TypeScript definitions for Node.js
+│ │ │ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ │ │ ├── @types/yargs@15.0.9 deduped
+│ │ │ │ │ │ │   TypeScript definitions for yargs
+│ │ │ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ │ │ └── chalk@4.1.0 deduped
+│ │ │ │ │ │     Terminal string styling done right
+│ │ │ │ │ │     git+https://github.com/chalk/chalk.git
+│ │ │ │ │ │     https://github.com/chalk/chalk#readme
 │ │ │ │ │ ├── chalk@4.1.0 deduped
 │ │ │ │ │ │   Terminal string styling done right
 │ │ │ │ │ │   git+https://github.com/chalk/chalk.git
@@ -4318,33 +4578,63 @@ telm-project@0.0.1
 │ │ │ │ │ │   A utility function to get the type of a value
 │ │ │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ │ │ ├── jest-util@26.6.1 deduped
+│ │ │ │ │ ├── jest-util@26.6.2 deduped
 │ │ │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ │ │ └── pretty-format@26.6.1 deduped
-│ │ │ │ │     Stringify any JavaScript value.
-│ │ │ │ │     git+https://github.com/facebook/jest.git
-│ │ │ │ │     https://github.com/facebook/jest#readme
-│ │ │ │ ├── jest-matcher-utils@26.6.1 deduped
+│ │ │ │ │ └─┬ pretty-format@26.6.2
+│ │ │ │ │   │ Stringify any JavaScript value.
+│ │ │ │ │   │ git+https://github.com/facebook/jest.git
+│ │ │ │ │   │ https://github.com/facebook/jest#readme
+│ │ │ │ │   ├── @jest/types@26.6.2 deduped
+│ │ │ │ │   │   git+https://github.com/facebook/jest.git
+│ │ │ │ │   │   https://github.com/facebook/jest#readme
+│ │ │ │ │   ├── ansi-regex@5.0.0 deduped
+│ │ │ │ │   │   Regular expression for matching ANSI escape codes
+│ │ │ │ │   │   git+https://github.com/chalk/ansi-regex.git
+│ │ │ │ │   │   https://github.com/chalk/ansi-regex#readme
+│ │ │ │ │   ├── ansi-styles@4.3.0 deduped
+│ │ │ │ │   │   ANSI escape codes for styling strings in the terminal
+│ │ │ │ │   │   git+https://github.com/chalk/ansi-styles.git
+│ │ │ │ │   │   https://github.com/chalk/ansi-styles#readme
+│ │ │ │ │   └── react-is@17.0.1 deduped
+│ │ │ │ │       Brand checking of React Elements.
+│ │ │ │ │       git+https://github.com/facebook/react.git
+│ │ │ │ │       https://reactjs.org/
+│ │ │ │ ├── jest-matcher-utils@26.6.2 deduped
 │ │ │ │ │   A set of utility functions for expect and related packages
 │ │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ │ ├── jest-message-util@26.6.1 deduped
+│ │ │ │ ├── jest-message-util@26.6.2 deduped
 │ │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ │ ├── jest-runtime@26.6.1 deduped
+│ │ │ │ ├── jest-runtime@26.6.3 deduped
 │ │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ │ ├── jest-snapshot@26.6.1 deduped
+│ │ │ │ ├── jest-snapshot@26.6.2 deduped
 │ │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ │ ├── jest-util@26.6.1 deduped
+│ │ │ │ ├── jest-util@26.6.2 deduped
 │ │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ │ ├── pretty-format@26.6.1 deduped
-│ │ │ │ │   Stringify any JavaScript value.
-│ │ │ │ │   git+https://github.com/facebook/jest.git
-│ │ │ │ │   https://github.com/facebook/jest#readme
+│ │ │ │ ├─┬ pretty-format@26.6.2
+│ │ │ │ │ │ Stringify any JavaScript value.
+│ │ │ │ │ │ git+https://github.com/facebook/jest.git
+│ │ │ │ │ │ https://github.com/facebook/jest#readme
+│ │ │ │ │ ├── @jest/types@26.6.2 deduped
+│ │ │ │ │ │   git+https://github.com/facebook/jest.git
+│ │ │ │ │ │   https://github.com/facebook/jest#readme
+│ │ │ │ │ ├── ansi-regex@5.0.0 deduped
+│ │ │ │ │ │   Regular expression for matching ANSI escape codes
+│ │ │ │ │ │   git+https://github.com/chalk/ansi-regex.git
+│ │ │ │ │ │   https://github.com/chalk/ansi-regex#readme
+│ │ │ │ │ ├── ansi-styles@4.3.0 deduped
+│ │ │ │ │ │   ANSI escape codes for styling strings in the terminal
+│ │ │ │ │ │   git+https://github.com/chalk/ansi-styles.git
+│ │ │ │ │ │   https://github.com/chalk/ansi-styles#readme
+│ │ │ │ │ └── react-is@17.0.1 deduped
+│ │ │ │ │     Brand checking of React Elements.
+│ │ │ │ │     git+https://github.com/facebook/react.git
+│ │ │ │ │     https://reactjs.org/
 │ │ │ │ └── throat@5.0.0 deduped
 │ │ │ │     Throttle the parallelism of an asynchronous (promise returning) function / functions
 │ │ │ │     git+https://github.com/ForbesLindesay/throat.git
@@ -4352,13 +4642,13 @@ telm-project@0.0.1
 │ │ │ ├── jest-regex-util@26.0.0 deduped
 │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ ├── jest-resolve@26.6.1 deduped
+│ │ │ ├── jest-resolve@26.6.2 deduped
 │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ ├── jest-util@26.6.1 deduped
+│ │ │ ├── jest-util@26.6.2 deduped
 │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ ├── jest-validate@26.6.1 deduped
+│ │ │ ├── jest-validate@26.6.2 deduped
 │ │ │ │   Generic configuration validation tool that helps you with warnings, errors and deprecation messages as well as showing users examples of correct configuration.
 │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │   https://github.com/facebook/jest#readme
@@ -4366,25 +4656,60 @@ telm-project@0.0.1
 │ │ │ │   Glob matching for javascript/node.js. A replacement and faster alternative to minimatch and multimatch.
 │ │ │ │   git+https://github.com/micromatch/micromatch.git
 │ │ │ │   https://github.com/micromatch/micromatch
-│ │ │ └── pretty-format@26.6.1 deduped
-│ │ │     Stringify any JavaScript value.
-│ │ │     git+https://github.com/facebook/jest.git
-│ │ │     https://github.com/facebook/jest#readme
-│ │ ├─┬ jest-haste-map@26.6.1
+│ │ │ └─┬ pretty-format@26.6.2
+│ │ │   │ Stringify any JavaScript value.
+│ │ │   │ git+https://github.com/facebook/jest.git
+│ │ │   │ https://github.com/facebook/jest#readme
+│ │ │   ├── @jest/types@26.6.2 deduped
+│ │ │   │   git+https://github.com/facebook/jest.git
+│ │ │   │   https://github.com/facebook/jest#readme
+│ │ │   ├── ansi-regex@5.0.0 deduped
+│ │ │   │   Regular expression for matching ANSI escape codes
+│ │ │   │   git+https://github.com/chalk/ansi-regex.git
+│ │ │   │   https://github.com/chalk/ansi-regex#readme
+│ │ │   ├── ansi-styles@4.3.0 deduped
+│ │ │   │   ANSI escape codes for styling strings in the terminal
+│ │ │   │   git+https://github.com/chalk/ansi-styles.git
+│ │ │   │   https://github.com/chalk/ansi-styles#readme
+│ │ │   └── react-is@17.0.1 deduped
+│ │ │       Brand checking of React Elements.
+│ │ │       git+https://github.com/facebook/react.git
+│ │ │       https://reactjs.org/
+│ │ ├─┬ jest-haste-map@26.6.2
 │ │ │ │ git+https://github.com/facebook/jest.git
 │ │ │ │ https://github.com/facebook/jest#readme
-│ │ │ ├── @jest/types@26.6.1 deduped
-│ │ │ │   git+https://github.com/facebook/jest.git
-│ │ │ │   https://github.com/facebook/jest#readme
+│ │ │ ├─┬ @jest/types@26.6.2
+│ │ │ │ │ git+https://github.com/facebook/jest.git
+│ │ │ │ │ https://github.com/facebook/jest#readme
+│ │ │ │ ├── @types/istanbul-lib-coverage@2.0.3 deduped
+│ │ │ │ │   TypeScript definitions for istanbul-lib-coverage
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ ├── @types/istanbul-reports@3.0.0 deduped
+│ │ │ │ │   TypeScript definitions for istanbul-reports
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ ├── @types/node@14.14.7 deduped
+│ │ │ │ │   TypeScript definitions for Node.js
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ ├── @types/yargs@15.0.9 deduped
+│ │ │ │ │   TypeScript definitions for yargs
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ └── chalk@4.1.0 deduped
+│ │ │ │     Terminal string styling done right
+│ │ │ │     git+https://github.com/chalk/chalk.git
+│ │ │ │     https://github.com/chalk/chalk#readme
 │ │ │ ├─┬ @types/graceful-fs@4.1.4
 │ │ │ │ │ TypeScript definitions for graceful-fs
 │ │ │ │ │ git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │ │ │ │ │ https://github.com/DefinitelyTyped/DefinitelyTyped#readme
-│ │ │ │ └── @types/node@14.14.6 deduped
+│ │ │ │ └── @types/node@14.14.7 deduped
 │ │ │ │     TypeScript definitions for Node.js
 │ │ │ │     git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │ │ │ │     https://github.com/DefinitelyTyped/DefinitelyTyped#readme
-│ │ │ ├── @types/node@14.14.6 deduped
+│ │ │ ├── @types/node@14.14.7 deduped
 │ │ │ │   TypeScript definitions for Node.js
 │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
@@ -4412,11 +4737,11 @@ telm-project@0.0.1
 │ │ │ ├── jest-regex-util@26.0.0 deduped
 │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ ├─┬ jest-serializer@26.5.0
+│ │ │ ├─┬ jest-serializer@26.6.2
 │ │ │ │ │ Module for serializing and deserializing object into memory and disk. By default, the `v8` implementations are used, but if not present, it defaults to `JSON` implementation. Both serializers have the advantage of being able to serialize `Map`, `Set`, `undefined`, `NaN`, etc, although the JSON one does it through a replacer/reviver.
 │ │ │ │ │ git+https://github.com/facebook/jest.git
 │ │ │ │ │ https://github.com/facebook/jest#readme
-│ │ │ │ ├── @types/node@14.14.6 deduped
+│ │ │ │ ├── @types/node@14.14.7 deduped
 │ │ │ │ │   TypeScript definitions for Node.js
 │ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
@@ -4424,10 +4749,10 @@ telm-project@0.0.1
 │ │ │ │     A drop-in replacement for fs, making various improvements.
 │ │ │ │     git+https://github.com/isaacs/node-graceful-fs.git
 │ │ │ │     https://github.com/isaacs/node-graceful-fs#readme
-│ │ │ ├── jest-util@26.6.1 deduped
+│ │ │ ├── jest-util@26.6.2 deduped
 │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ ├── jest-worker@26.6.1 deduped
+│ │ │ ├── jest-worker@26.6.2 deduped
 │ │ │ │   Module for executing heavy tasks under forked processes in parallel, by providing a `Promise` based interface, minimum overhead, and bound workers.
 │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │   https://github.com/facebook/jest#readme
@@ -4707,16 +5032,36 @@ telm-project@0.0.1
 │ │ │         JavaScript micro templates.
 │ │ │         git+https://github.com/daaku/nodejs-tmpl.git
 │ │ │         https://github.com/nshah/nodejs-tmpl
-│ │ ├─┬ jest-message-util@26.6.1
+│ │ ├─┬ jest-message-util@26.6.2
 │ │ │ │ git+https://github.com/facebook/jest.git
 │ │ │ │ https://github.com/facebook/jest#readme
 │ │ │ ├── @babel/code-frame@7.10.4 deduped
 │ │ │ │   Generate errors that contain a code frame that point to source locations.
 │ │ │ │   git+https://github.com/babel/babel.git
 │ │ │ │   https://babeljs.io/
-│ │ │ ├── @jest/types@26.6.1 deduped
-│ │ │ │   git+https://github.com/facebook/jest.git
-│ │ │ │   https://github.com/facebook/jest#readme
+│ │ │ ├─┬ @jest/types@26.6.2
+│ │ │ │ │ git+https://github.com/facebook/jest.git
+│ │ │ │ │ https://github.com/facebook/jest#readme
+│ │ │ │ ├── @types/istanbul-lib-coverage@2.0.3 deduped
+│ │ │ │ │   TypeScript definitions for istanbul-lib-coverage
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ ├── @types/istanbul-reports@3.0.0 deduped
+│ │ │ │ │   TypeScript definitions for istanbul-reports
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ ├── @types/node@14.14.7 deduped
+│ │ │ │ │   TypeScript definitions for Node.js
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ ├── @types/yargs@15.0.9 deduped
+│ │ │ │ │   TypeScript definitions for yargs
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ └── chalk@4.1.0 deduped
+│ │ │ │     Terminal string styling done right
+│ │ │ │     git+https://github.com/chalk/chalk.git
+│ │ │ │     https://github.com/chalk/chalk#readme
 │ │ │ ├── @types/stack-utils@2.0.0
 │ │ │ │   TypeScript definitions for stack-utils
 │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
@@ -4733,6 +5078,25 @@ telm-project@0.0.1
 │ │ │ │   Glob matching for javascript/node.js. A replacement and faster alternative to minimatch and multimatch.
 │ │ │ │   git+https://github.com/micromatch/micromatch.git
 │ │ │ │   https://github.com/micromatch/micromatch
+│ │ │ ├─┬ pretty-format@26.6.2
+│ │ │ │ │ Stringify any JavaScript value.
+│ │ │ │ │ git+https://github.com/facebook/jest.git
+│ │ │ │ │ https://github.com/facebook/jest#readme
+│ │ │ │ ├── @jest/types@26.6.2 deduped
+│ │ │ │ │   git+https://github.com/facebook/jest.git
+│ │ │ │ │   https://github.com/facebook/jest#readme
+│ │ │ │ ├── ansi-regex@5.0.0 deduped
+│ │ │ │ │   Regular expression for matching ANSI escape codes
+│ │ │ │ │   git+https://github.com/chalk/ansi-regex.git
+│ │ │ │ │   https://github.com/chalk/ansi-regex#readme
+│ │ │ │ ├── ansi-styles@4.3.0 deduped
+│ │ │ │ │   ANSI escape codes for styling strings in the terminal
+│ │ │ │ │   git+https://github.com/chalk/ansi-styles.git
+│ │ │ │ │   https://github.com/chalk/ansi-styles#readme
+│ │ │ │ └── react-is@17.0.1 deduped
+│ │ │ │     Brand checking of React Elements.
+│ │ │ │     git+https://github.com/facebook/react.git
+│ │ │ │     https://reactjs.org/
 │ │ │ ├── slash@3.0.0 deduped
 │ │ │ │   Convert Windows backslash paths to slash paths
 │ │ │ │   git+https://github.com/sindresorhus/slash.git
@@ -4748,12 +5112,32 @@ telm-project@0.0.1
 │ │ ├── jest-regex-util@26.0.0
 │ │ │   git+https://github.com/facebook/jest.git
 │ │ │   https://github.com/facebook/jest#readme
-│ │ ├─┬ jest-resolve@26.6.1
+│ │ ├─┬ jest-resolve@26.6.2
 │ │ │ │ git+https://github.com/facebook/jest.git
 │ │ │ │ https://github.com/facebook/jest#readme
-│ │ │ ├── @jest/types@26.6.1 deduped
-│ │ │ │   git+https://github.com/facebook/jest.git
-│ │ │ │   https://github.com/facebook/jest#readme
+│ │ │ ├─┬ @jest/types@26.6.2
+│ │ │ │ │ git+https://github.com/facebook/jest.git
+│ │ │ │ │ https://github.com/facebook/jest#readme
+│ │ │ │ ├── @types/istanbul-lib-coverage@2.0.3 deduped
+│ │ │ │ │   TypeScript definitions for istanbul-lib-coverage
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ ├── @types/istanbul-reports@3.0.0 deduped
+│ │ │ │ │   TypeScript definitions for istanbul-reports
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ ├── @types/node@14.14.7 deduped
+│ │ │ │ │   TypeScript definitions for Node.js
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ ├── @types/yargs@15.0.9 deduped
+│ │ │ │ │   TypeScript definitions for yargs
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ └── chalk@4.1.0 deduped
+│ │ │ │     Terminal string styling done right
+│ │ │ │     git+https://github.com/chalk/chalk.git
+│ │ │ │     https://github.com/chalk/chalk#readme
 │ │ │ ├── chalk@4.1.0 deduped
 │ │ │ │   Terminal string styling done right
 │ │ │ │   git+https://github.com/chalk/chalk.git
@@ -4766,7 +5150,7 @@ telm-project@0.0.1
 │ │ │ │   plug'n'play resolver for Webpack
 │ │ │ │   git+https://github.com/arcanis/jest-pnp-resolver.git
 │ │ │ │   https://github.com/arcanis/jest-pnp-resolver
-│ │ │ ├── jest-util@26.6.1 deduped
+│ │ │ ├── jest-util@26.6.2 deduped
 │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │   https://github.com/facebook/jest#readme
 │ │ │ ├─┬ read-pkg-up@7.0.1
@@ -4869,48 +5253,108 @@ telm-project@0.0.1
 │ │ │     Convert Windows backslash paths to slash paths
 │ │ │     git+https://github.com/sindresorhus/slash.git
 │ │ │     https://github.com/sindresorhus/slash#readme
-│ │ ├─┬ jest-resolve-dependencies@26.6.1
+│ │ ├─┬ jest-resolve-dependencies@26.6.3
 │ │ │ │ git+https://github.com/facebook/jest.git
 │ │ │ │ https://github.com/facebook/jest#readme
-│ │ │ ├── @jest/types@26.6.1 deduped
-│ │ │ │   git+https://github.com/facebook/jest.git
-│ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ ├── jest-regex-util@26.0.0 deduped
-│ │ │ │   git+https://github.com/facebook/jest.git
-│ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ └── jest-snapshot@26.6.1 deduped
-│ │ │     git+https://github.com/facebook/jest.git
-│ │ │     https://github.com/facebook/jest#readme
-│ │ ├─┬ jest-runner@26.6.1
-│ │ │ │ git+https://github.com/facebook/jest.git
-│ │ │ │ https://github.com/facebook/jest#readme
-│ │ │ ├── @jest/console@26.6.1 deduped
-│ │ │ │   git+https://github.com/facebook/jest.git
-│ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ ├─┬ @jest/environment@26.6.1
+│ │ │ ├─┬ @jest/types@26.6.2
 │ │ │ │ │ git+https://github.com/facebook/jest.git
 │ │ │ │ │ https://github.com/facebook/jest#readme
-│ │ │ │ ├── @jest/fake-timers@26.6.1 deduped
-│ │ │ │ │   git+https://github.com/facebook/jest.git
-│ │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ │ ├── @jest/types@26.6.1 deduped
-│ │ │ │ │   git+https://github.com/facebook/jest.git
-│ │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ │ ├── @types/node@14.14.6 deduped
+│ │ │ │ ├── @types/istanbul-lib-coverage@2.0.3 deduped
+│ │ │ │ │   TypeScript definitions for istanbul-lib-coverage
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ ├── @types/istanbul-reports@3.0.0 deduped
+│ │ │ │ │   TypeScript definitions for istanbul-reports
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ ├── @types/node@14.14.7 deduped
 │ │ │ │ │   TypeScript definitions for Node.js
 │ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
-│ │ │ │ └── jest-mock@26.6.1 deduped
+│ │ │ │ ├── @types/yargs@15.0.9 deduped
+│ │ │ │ │   TypeScript definitions for yargs
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ └── chalk@4.1.0 deduped
+│ │ │ │     Terminal string styling done right
+│ │ │ │     git+https://github.com/chalk/chalk.git
+│ │ │ │     https://github.com/chalk/chalk#readme
+│ │ │ ├── jest-regex-util@26.0.0 deduped
+│ │ │ │   git+https://github.com/facebook/jest.git
+│ │ │ │   https://github.com/facebook/jest#readme
+│ │ │ └── jest-snapshot@26.6.2 deduped
+│ │ │     git+https://github.com/facebook/jest.git
+│ │ │     https://github.com/facebook/jest#readme
+│ │ ├─┬ jest-runner@26.6.3
+│ │ │ │ git+https://github.com/facebook/jest.git
+│ │ │ │ https://github.com/facebook/jest#readme
+│ │ │ ├── @jest/console@26.6.2 deduped
+│ │ │ │   git+https://github.com/facebook/jest.git
+│ │ │ │   https://github.com/facebook/jest#readme
+│ │ │ ├─┬ @jest/environment@26.6.2
+│ │ │ │ │ git+https://github.com/facebook/jest.git
+│ │ │ │ │ https://github.com/facebook/jest#readme
+│ │ │ │ ├── @jest/fake-timers@26.6.2 deduped
+│ │ │ │ │   git+https://github.com/facebook/jest.git
+│ │ │ │ │   https://github.com/facebook/jest#readme
+│ │ │ │ ├─┬ @jest/types@26.6.2
+│ │ │ │ │ │ git+https://github.com/facebook/jest.git
+│ │ │ │ │ │ https://github.com/facebook/jest#readme
+│ │ │ │ │ ├── @types/istanbul-lib-coverage@2.0.3 deduped
+│ │ │ │ │ │   TypeScript definitions for istanbul-lib-coverage
+│ │ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ │ ├── @types/istanbul-reports@3.0.0 deduped
+│ │ │ │ │ │   TypeScript definitions for istanbul-reports
+│ │ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ │ ├── @types/node@14.14.7 deduped
+│ │ │ │ │ │   TypeScript definitions for Node.js
+│ │ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ │ ├── @types/yargs@15.0.9 deduped
+│ │ │ │ │ │   TypeScript definitions for yargs
+│ │ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ │ └── chalk@4.1.0 deduped
+│ │ │ │ │     Terminal string styling done right
+│ │ │ │ │     git+https://github.com/chalk/chalk.git
+│ │ │ │ │     https://github.com/chalk/chalk#readme
+│ │ │ │ ├── @types/node@14.14.7 deduped
+│ │ │ │ │   TypeScript definitions for Node.js
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ └── jest-mock@26.6.2 deduped
 │ │ │ │     ## API
 │ │ │ │     git+https://github.com/facebook/jest.git
 │ │ │ │     https://github.com/facebook/jest#readme
-│ │ │ ├── @jest/test-result@26.6.1 deduped
+│ │ │ ├── @jest/test-result@26.6.2 deduped
 │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ ├── @jest/types@26.6.1 deduped
-│ │ │ │   git+https://github.com/facebook/jest.git
-│ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ ├── @types/node@14.14.6 deduped
+│ │ │ ├─┬ @jest/types@26.6.2
+│ │ │ │ │ git+https://github.com/facebook/jest.git
+│ │ │ │ │ https://github.com/facebook/jest#readme
+│ │ │ │ ├── @types/istanbul-lib-coverage@2.0.3 deduped
+│ │ │ │ │   TypeScript definitions for istanbul-lib-coverage
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ ├── @types/istanbul-reports@3.0.0 deduped
+│ │ │ │ │   TypeScript definitions for istanbul-reports
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ ├── @types/node@14.14.7 deduped
+│ │ │ │ │   TypeScript definitions for Node.js
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ ├── @types/yargs@15.0.9 deduped
+│ │ │ │ │   TypeScript definitions for yargs
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ └── chalk@4.1.0 deduped
+│ │ │ │     Terminal string styling done right
+│ │ │ │     git+https://github.com/chalk/chalk.git
+│ │ │ │     https://github.com/chalk/chalk#readme
+│ │ │ ├── @types/node@14.14.7 deduped
 │ │ │ │   TypeScript definitions for Node.js
 │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
@@ -4930,7 +5374,7 @@ telm-project@0.0.1
 │ │ │ │   A drop-in replacement for fs, making various improvements.
 │ │ │ │   git+https://github.com/isaacs/node-graceful-fs.git
 │ │ │ │   https://github.com/isaacs/node-graceful-fs#readme
-│ │ │ ├── jest-config@26.6.1 deduped
+│ │ │ ├── jest-config@26.6.3 deduped
 │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │   https://github.com/facebook/jest#readme
 │ │ │ ├─┬ jest-docblock@26.0.0
@@ -4941,10 +5385,10 @@ telm-project@0.0.1
 │ │ │ │     Detect the dominant newline character of a string
 │ │ │ │     git+https://github.com/sindresorhus/detect-newline.git
 │ │ │ │     https://github.com/sindresorhus/detect-newline#readme
-│ │ │ ├── jest-haste-map@26.6.1 deduped
+│ │ │ ├── jest-haste-map@26.6.2 deduped
 │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ ├─┬ jest-leak-detector@26.6.1
+│ │ │ ├─┬ jest-leak-detector@26.6.2
 │ │ │ │ │ Module for verifying whether an object has been garbage collected or not.
 │ │ │ │ │ git+https://github.com/facebook/jest.git
 │ │ │ │ │ https://github.com/facebook/jest#readme
@@ -4952,23 +5396,58 @@ telm-project@0.0.1
 │ │ │ │ │   A utility function to get the type of a value
 │ │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ │ └── pretty-format@26.6.1 deduped
-│ │ │ │     Stringify any JavaScript value.
-│ │ │ │     git+https://github.com/facebook/jest.git
-│ │ │ │     https://github.com/facebook/jest#readme
-│ │ │ ├── jest-message-util@26.6.1 deduped
+│ │ │ │ └─┬ pretty-format@26.6.2
+│ │ │ │   │ Stringify any JavaScript value.
+│ │ │ │   │ git+https://github.com/facebook/jest.git
+│ │ │ │   │ https://github.com/facebook/jest#readme
+│ │ │ │   ├─┬ @jest/types@26.6.2
+│ │ │ │   │ │ git+https://github.com/facebook/jest.git
+│ │ │ │   │ │ https://github.com/facebook/jest#readme
+│ │ │ │   │ ├── @types/istanbul-lib-coverage@2.0.3 deduped
+│ │ │ │   │ │   TypeScript definitions for istanbul-lib-coverage
+│ │ │ │   │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │   │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │   │ ├── @types/istanbul-reports@3.0.0 deduped
+│ │ │ │   │ │   TypeScript definitions for istanbul-reports
+│ │ │ │   │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │   │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │   │ ├── @types/node@14.14.7 deduped
+│ │ │ │   │ │   TypeScript definitions for Node.js
+│ │ │ │   │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │   │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │   │ ├── @types/yargs@15.0.9 deduped
+│ │ │ │   │ │   TypeScript definitions for yargs
+│ │ │ │   │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │   │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │   │ └── chalk@4.1.0 deduped
+│ │ │ │   │     Terminal string styling done right
+│ │ │ │   │     git+https://github.com/chalk/chalk.git
+│ │ │ │   │     https://github.com/chalk/chalk#readme
+│ │ │ │   ├── ansi-regex@5.0.0 deduped
+│ │ │ │   │   Regular expression for matching ANSI escape codes
+│ │ │ │   │   git+https://github.com/chalk/ansi-regex.git
+│ │ │ │   │   https://github.com/chalk/ansi-regex#readme
+│ │ │ │   ├── ansi-styles@4.3.0 deduped
+│ │ │ │   │   ANSI escape codes for styling strings in the terminal
+│ │ │ │   │   git+https://github.com/chalk/ansi-styles.git
+│ │ │ │   │   https://github.com/chalk/ansi-styles#readme
+│ │ │ │   └── react-is@17.0.1 deduped
+│ │ │ │       Brand checking of React Elements.
+│ │ │ │       git+https://github.com/facebook/react.git
+│ │ │ │       https://reactjs.org/
+│ │ │ ├── jest-message-util@26.6.2 deduped
 │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ ├── jest-resolve@26.6.1 deduped
+│ │ │ ├── jest-resolve@26.6.2 deduped
 │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ ├── jest-runtime@26.6.1 deduped
+│ │ │ ├── jest-runtime@26.6.3 deduped
 │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ ├── jest-util@26.6.1 deduped
+│ │ │ ├── jest-util@26.6.2 deduped
 │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ ├── jest-worker@26.6.1 deduped
+│ │ │ ├── jest-worker@26.6.2 deduped
 │ │ │ │   Module for executing heavy tasks under forked processes in parallel, by providing a `Promise` based interface, minimum overhead, and bound workers.
 │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │   https://github.com/facebook/jest#readme
@@ -4980,21 +5459,41 @@ telm-project@0.0.1
 │ │ │     Throttle the parallelism of an asynchronous (promise returning) function / functions
 │ │ │     git+https://github.com/ForbesLindesay/throat.git
 │ │ │     https://github.com/ForbesLindesay/throat#readme
-│ │ ├─┬ jest-runtime@26.6.1
+│ │ ├─┬ jest-runtime@26.6.3
 │ │ │ │ git+https://github.com/facebook/jest.git
 │ │ │ │ https://github.com/facebook/jest#readme
-│ │ │ ├── @jest/console@26.6.1 deduped
+│ │ │ ├── @jest/console@26.6.2 deduped
 │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ ├── @jest/environment@26.6.1 deduped
+│ │ │ ├── @jest/environment@26.6.2 deduped
 │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ ├─┬ @jest/fake-timers@26.6.1
+│ │ │ ├─┬ @jest/fake-timers@26.6.2
 │ │ │ │ │ git+https://github.com/facebook/jest.git
 │ │ │ │ │ https://github.com/facebook/jest#readme
-│ │ │ │ ├── @jest/types@26.6.1 deduped
-│ │ │ │ │   git+https://github.com/facebook/jest.git
-│ │ │ │ │   https://github.com/facebook/jest#readme
+│ │ │ │ ├─┬ @jest/types@26.6.2
+│ │ │ │ │ │ git+https://github.com/facebook/jest.git
+│ │ │ │ │ │ https://github.com/facebook/jest#readme
+│ │ │ │ │ ├── @types/istanbul-lib-coverage@2.0.3 deduped
+│ │ │ │ │ │   TypeScript definitions for istanbul-lib-coverage
+│ │ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ │ ├── @types/istanbul-reports@3.0.0 deduped
+│ │ │ │ │ │   TypeScript definitions for istanbul-reports
+│ │ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ │ ├── @types/node@14.14.7 deduped
+│ │ │ │ │ │   TypeScript definitions for Node.js
+│ │ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ │ ├── @types/yargs@15.0.9 deduped
+│ │ │ │ │ │   TypeScript definitions for yargs
+│ │ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ │ └── chalk@4.1.0 deduped
+│ │ │ │ │     Terminal string styling done right
+│ │ │ │ │     git+https://github.com/chalk/chalk.git
+│ │ │ │ │     https://github.com/chalk/chalk#readme
 │ │ │ │ ├─┬ @sinonjs/fake-timers@6.0.1
 │ │ │ │ │ │ Fake JavaScript timers
 │ │ │ │ │ │ git+ssh://git@github.com/sinonjs/fake-timers.git
@@ -5007,34 +5506,54 @@ telm-project@0.0.1
 │ │ │ │ │       Improved typeof detection for node.js and the browser.
 │ │ │ │ │       git+ssh://git@github.com/chaijs/type-detect.git
 │ │ │ │ │       https://github.com/chaijs/type-detect#readme
-│ │ │ │ ├── @types/node@14.14.6 deduped
+│ │ │ │ ├── @types/node@14.14.7 deduped
 │ │ │ │ │   TypeScript definitions for Node.js
 │ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
-│ │ │ │ ├── jest-message-util@26.6.1 deduped
+│ │ │ │ ├── jest-message-util@26.6.2 deduped
 │ │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ │ ├── jest-mock@26.6.1 deduped
+│ │ │ │ ├── jest-mock@26.6.2 deduped
 │ │ │ │ │   ## API
 │ │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ │ └── jest-util@26.6.1 deduped
+│ │ │ │ └── jest-util@26.6.2 deduped
 │ │ │ │     git+https://github.com/facebook/jest.git
 │ │ │ │     https://github.com/facebook/jest#readme
-│ │ │ ├─┬ @jest/globals@26.6.1
+│ │ │ ├─┬ @jest/globals@26.6.2
 │ │ │ │ │ git+https://github.com/facebook/jest.git
 │ │ │ │ │ https://github.com/facebook/jest#readme
-│ │ │ │ ├── @jest/environment@26.6.1 deduped
+│ │ │ │ ├── @jest/environment@26.6.2 deduped
 │ │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ │ ├── @jest/types@26.6.1 deduped
-│ │ │ │ │   git+https://github.com/facebook/jest.git
-│ │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ │ └── expect@26.6.1 deduped
+│ │ │ │ ├─┬ @jest/types@26.6.2
+│ │ │ │ │ │ git+https://github.com/facebook/jest.git
+│ │ │ │ │ │ https://github.com/facebook/jest#readme
+│ │ │ │ │ ├── @types/istanbul-lib-coverage@2.0.3 deduped
+│ │ │ │ │ │   TypeScript definitions for istanbul-lib-coverage
+│ │ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ │ ├── @types/istanbul-reports@3.0.0 deduped
+│ │ │ │ │ │   TypeScript definitions for istanbul-reports
+│ │ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ │ ├── @types/node@14.14.7 deduped
+│ │ │ │ │ │   TypeScript definitions for Node.js
+│ │ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ │ ├── @types/yargs@15.0.9 deduped
+│ │ │ │ │ │   TypeScript definitions for yargs
+│ │ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ │ └── chalk@4.1.0 deduped
+│ │ │ │ │     Terminal string styling done right
+│ │ │ │ │     git+https://github.com/chalk/chalk.git
+│ │ │ │ │     https://github.com/chalk/chalk#readme
+│ │ │ │ └── expect@26.6.2 deduped
 │ │ │ │     This package exports the `expect` function used in [Jest](https://jestjs.io/). You can find its documentation [on Jest's website](https://jestjs.io/docs/en/expect.html).
 │ │ │ │     git+https://github.com/facebook/jest.git
 │ │ │ │     https://github.com/facebook/jest#readme
-│ │ │ ├─┬ @jest/source-map@26.5.0
+│ │ │ ├─┬ @jest/source-map@26.6.2
 │ │ │ │ │ git+https://github.com/facebook/jest.git
 │ │ │ │ │ https://github.com/facebook/jest#readme
 │ │ │ │ ├── callsites@3.1.0 deduped
@@ -5049,15 +5568,35 @@ telm-project@0.0.1
 │ │ │ │     Generates and consumes source maps
 │ │ │ │     git+ssh://git@github.com/mozilla/source-map.git
 │ │ │ │     https://github.com/mozilla/source-map
-│ │ │ ├── @jest/test-result@26.6.1 deduped
+│ │ │ ├── @jest/test-result@26.6.2 deduped
 │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ ├── @jest/transform@26.6.1 deduped
+│ │ │ ├── @jest/transform@26.6.2 deduped
 │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ ├── @jest/types@26.6.1 deduped
-│ │ │ │   git+https://github.com/facebook/jest.git
-│ │ │ │   https://github.com/facebook/jest#readme
+│ │ │ ├─┬ @jest/types@26.6.2
+│ │ │ │ │ git+https://github.com/facebook/jest.git
+│ │ │ │ │ https://github.com/facebook/jest#readme
+│ │ │ │ ├── @types/istanbul-lib-coverage@2.0.3 deduped
+│ │ │ │ │   TypeScript definitions for istanbul-lib-coverage
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ ├── @types/istanbul-reports@3.0.0 deduped
+│ │ │ │ │   TypeScript definitions for istanbul-reports
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ ├── @types/node@14.14.7 deduped
+│ │ │ │ │   TypeScript definitions for Node.js
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ ├── @types/yargs@15.0.9 deduped
+│ │ │ │ │   TypeScript definitions for yargs
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ └── chalk@4.1.0 deduped
+│ │ │ │     Terminal string styling done right
+│ │ │ │     git+https://github.com/chalk/chalk.git
+│ │ │ │     https://github.com/chalk/chalk#readme
 │ │ │ ├── @types/yargs@15.0.9 deduped
 │ │ │ │   TypeScript definitions for yargs
 │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
@@ -5066,7 +5605,7 @@ telm-project@0.0.1
 │ │ │ │   Terminal string styling done right
 │ │ │ │   git+https://github.com/chalk/chalk.git
 │ │ │ │   https://github.com/chalk/chalk#readme
-│ │ │ ├── cjs-module-lexer@0.4.3
+│ │ │ ├── cjs-module-lexer@0.6.0
 │ │ │ │   Lexes CommonJS modules, returning their named exports metadata
 │ │ │ │   git+https://github.com/guybedford/cjs-module-lexer.git
 │ │ │ │   https://github.com/guybedford/cjs-module-lexer#readme
@@ -5086,39 +5625,59 @@ telm-project@0.0.1
 │ │ │ │   A drop-in replacement for fs, making various improvements.
 │ │ │ │   git+https://github.com/isaacs/node-graceful-fs.git
 │ │ │ │   https://github.com/isaacs/node-graceful-fs#readme
-│ │ │ ├── jest-config@26.6.1 deduped
+│ │ │ ├── jest-config@26.6.3 deduped
 │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ ├── jest-haste-map@26.6.1 deduped
+│ │ │ ├── jest-haste-map@26.6.2 deduped
 │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ ├── jest-message-util@26.6.1 deduped
+│ │ │ ├── jest-message-util@26.6.2 deduped
 │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ ├─┬ jest-mock@26.6.1
+│ │ │ ├─┬ jest-mock@26.6.2
 │ │ │ │ │ ## API
 │ │ │ │ │ git+https://github.com/facebook/jest.git
 │ │ │ │ │ https://github.com/facebook/jest#readme
-│ │ │ │ ├── @jest/types@26.6.1 deduped
-│ │ │ │ │   git+https://github.com/facebook/jest.git
-│ │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ │ └── @types/node@14.14.6 deduped
+│ │ │ │ ├─┬ @jest/types@26.6.2
+│ │ │ │ │ │ git+https://github.com/facebook/jest.git
+│ │ │ │ │ │ https://github.com/facebook/jest#readme
+│ │ │ │ │ ├── @types/istanbul-lib-coverage@2.0.3 deduped
+│ │ │ │ │ │   TypeScript definitions for istanbul-lib-coverage
+│ │ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ │ ├── @types/istanbul-reports@3.0.0 deduped
+│ │ │ │ │ │   TypeScript definitions for istanbul-reports
+│ │ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ │ ├── @types/node@14.14.7 deduped
+│ │ │ │ │ │   TypeScript definitions for Node.js
+│ │ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ │ ├── @types/yargs@15.0.9 deduped
+│ │ │ │ │ │   TypeScript definitions for yargs
+│ │ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ │ └── chalk@4.1.0 deduped
+│ │ │ │ │     Terminal string styling done right
+│ │ │ │ │     git+https://github.com/chalk/chalk.git
+│ │ │ │ │     https://github.com/chalk/chalk#readme
+│ │ │ │ └── @types/node@14.14.7 deduped
 │ │ │ │     TypeScript definitions for Node.js
 │ │ │ │     git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │ │ │ │     https://github.com/DefinitelyTyped/DefinitelyTyped#readme
 │ │ │ ├── jest-regex-util@26.0.0 deduped
 │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ ├── jest-resolve@26.6.1 deduped
+│ │ │ ├── jest-resolve@26.6.2 deduped
 │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ ├── jest-snapshot@26.6.1 deduped
+│ │ │ ├── jest-snapshot@26.6.2 deduped
 │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ ├── jest-util@26.6.1 deduped
+│ │ │ ├── jest-util@26.6.2 deduped
 │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ ├── jest-validate@26.6.1 deduped
+│ │ │ ├── jest-validate@26.6.2 deduped
 │ │ │ │   Generic configuration validation tool that helps you with warnings, errors and deprecation messages as well as showing users examples of correct configuration.
 │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │   https://github.com/facebook/jest#readme
@@ -5134,16 +5693,36 @@ telm-project@0.0.1
 │ │ │     yargs the modern, pirate-themed, successor to optimist.
 │ │ │     git+https://github.com/yargs/yargs.git
 │ │ │     https://yargs.js.org/
-│ │ ├─┬ jest-snapshot@26.6.1
+│ │ ├─┬ jest-snapshot@26.6.2
 │ │ │ │ git+https://github.com/facebook/jest.git
 │ │ │ │ https://github.com/facebook/jest#readme
 │ │ │ ├── @babel/types@7.12.1 deduped
 │ │ │ │   Babel Types is a Lodash-esque utility library for AST nodes
 │ │ │ │   git+https://github.com/babel/babel.git
 │ │ │ │   https://babeljs.io/
-│ │ │ ├── @jest/types@26.6.1 deduped
-│ │ │ │   git+https://github.com/facebook/jest.git
-│ │ │ │   https://github.com/facebook/jest#readme
+│ │ │ ├─┬ @jest/types@26.6.2
+│ │ │ │ │ git+https://github.com/facebook/jest.git
+│ │ │ │ │ https://github.com/facebook/jest#readme
+│ │ │ │ ├── @types/istanbul-lib-coverage@2.0.3 deduped
+│ │ │ │ │   TypeScript definitions for istanbul-lib-coverage
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ ├── @types/istanbul-reports@3.0.0 deduped
+│ │ │ │ │   TypeScript definitions for istanbul-reports
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ ├── @types/node@14.14.7 deduped
+│ │ │ │ │   TypeScript definitions for Node.js
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ ├── @types/yargs@15.0.9 deduped
+│ │ │ │ │   TypeScript definitions for yargs
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ └── chalk@4.1.0 deduped
+│ │ │ │     Terminal string styling done right
+│ │ │ │     git+https://github.com/chalk/chalk.git
+│ │ │ │     https://github.com/chalk/chalk#readme
 │ │ │ ├─┬ @types/babel__traverse@7.0.15
 │ │ │ │ │ TypeScript definitions for @babel/traverse
 │ │ │ │ │ git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
@@ -5160,13 +5739,33 @@ telm-project@0.0.1
 │ │ │ │   Terminal string styling done right
 │ │ │ │   git+https://github.com/chalk/chalk.git
 │ │ │ │   https://github.com/chalk/chalk#readme
-│ │ │ ├─┬ expect@26.6.1
+│ │ │ ├─┬ expect@26.6.2
 │ │ │ │ │ This package exports the `expect` function used in [Jest](https://jestjs.io/). You can find its documentation [on Jest's website](https://jestjs.io/docs/en/expect.html).
 │ │ │ │ │ git+https://github.com/facebook/jest.git
 │ │ │ │ │ https://github.com/facebook/jest#readme
-│ │ │ │ ├── @jest/types@26.6.1 deduped
-│ │ │ │ │   git+https://github.com/facebook/jest.git
-│ │ │ │ │   https://github.com/facebook/jest#readme
+│ │ │ │ ├─┬ @jest/types@26.6.2
+│ │ │ │ │ │ git+https://github.com/facebook/jest.git
+│ │ │ │ │ │ https://github.com/facebook/jest#readme
+│ │ │ │ │ ├── @types/istanbul-lib-coverage@2.0.3 deduped
+│ │ │ │ │ │   TypeScript definitions for istanbul-lib-coverage
+│ │ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ │ ├── @types/istanbul-reports@3.0.0 deduped
+│ │ │ │ │ │   TypeScript definitions for istanbul-reports
+│ │ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ │ ├── @types/node@14.14.7 deduped
+│ │ │ │ │ │   TypeScript definitions for Node.js
+│ │ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ │ ├── @types/yargs@15.0.9 deduped
+│ │ │ │ │ │   TypeScript definitions for yargs
+│ │ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ │ └── chalk@4.1.0 deduped
+│ │ │ │ │     Terminal string styling done right
+│ │ │ │ │     git+https://github.com/chalk/chalk.git
+│ │ │ │ │     https://github.com/chalk/chalk#readme
 │ │ │ │ ├── ansi-styles@4.3.0 deduped
 │ │ │ │ │   ANSI escape codes for styling strings in the terminal
 │ │ │ │ │   git+https://github.com/chalk/ansi-styles.git
@@ -5175,11 +5774,11 @@ telm-project@0.0.1
 │ │ │ │ │   A utility function to get the type of a value
 │ │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ │ ├── jest-matcher-utils@26.6.1 deduped
+│ │ │ │ ├── jest-matcher-utils@26.6.2 deduped
 │ │ │ │ │   A set of utility functions for expect and related packages
 │ │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ │ ├── jest-message-util@26.6.1 deduped
+│ │ │ │ ├── jest-message-util@26.6.2 deduped
 │ │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │ │   https://github.com/facebook/jest#readme
 │ │ │ │ └── jest-regex-util@26.0.0 deduped
@@ -5189,18 +5788,34 @@ telm-project@0.0.1
 │ │ │ │   A drop-in replacement for fs, making various improvements.
 │ │ │ │   git+https://github.com/isaacs/node-graceful-fs.git
 │ │ │ │   https://github.com/isaacs/node-graceful-fs#readme
-│ │ │ ├── jest-diff@26.6.1 deduped
-│ │ │ │   Display differences clearly so people can review changes confidently.
-│ │ │ │   git+https://github.com/facebook/jest.git
-│ │ │ │   https://github.com/facebook/jest#readme
+│ │ │ ├─┬ jest-diff@26.6.2
+│ │ │ │ │ Display differences clearly so people can review changes confidently.
+│ │ │ │ │ git+https://github.com/facebook/jest.git
+│ │ │ │ │ https://github.com/facebook/jest#readme
+│ │ │ │ ├── chalk@4.1.0 deduped
+│ │ │ │ │   Terminal string styling done right
+│ │ │ │ │   git+https://github.com/chalk/chalk.git
+│ │ │ │ │   https://github.com/chalk/chalk#readme
+│ │ │ │ ├── diff-sequences@26.6.2
+│ │ │ │ │   Compare items in two sequences to find a longest common subsequence
+│ │ │ │ │   git+https://github.com/facebook/jest.git
+│ │ │ │ │   https://github.com/facebook/jest#readme
+│ │ │ │ ├── jest-get-type@26.3.0 deduped
+│ │ │ │ │   A utility function to get the type of a value
+│ │ │ │ │   git+https://github.com/facebook/jest.git
+│ │ │ │ │   https://github.com/facebook/jest#readme
+│ │ │ │ └── pretty-format@26.6.2 deduped
+│ │ │ │     Stringify any JavaScript value.
+│ │ │ │     git+https://github.com/facebook/jest.git
+│ │ │ │     https://github.com/facebook/jest#readme
 │ │ │ ├── jest-get-type@26.3.0 deduped
 │ │ │ │   A utility function to get the type of a value
 │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ ├── jest-haste-map@26.6.1 deduped
+│ │ │ ├── jest-haste-map@26.6.2 deduped
 │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ ├─┬ jest-matcher-utils@26.6.1
+│ │ │ ├─┬ jest-matcher-utils@26.6.2
 │ │ │ │ │ A set of utility functions for expect and related packages
 │ │ │ │ │ git+https://github.com/facebook/jest.git
 │ │ │ │ │ https://github.com/facebook/jest#readme
@@ -5208,46 +5823,132 @@ telm-project@0.0.1
 │ │ │ │ │   Terminal string styling done right
 │ │ │ │ │   git+https://github.com/chalk/chalk.git
 │ │ │ │ │   https://github.com/chalk/chalk#readme
-│ │ │ │ ├── jest-diff@26.6.1 deduped
-│ │ │ │ │   Display differences clearly so people can review changes confidently.
-│ │ │ │ │   git+https://github.com/facebook/jest.git
-│ │ │ │ │   https://github.com/facebook/jest#readme
+│ │ │ │ ├─┬ jest-diff@26.6.2
+│ │ │ │ │ │ Display differences clearly so people can review changes confidently.
+│ │ │ │ │ │ git+https://github.com/facebook/jest.git
+│ │ │ │ │ │ https://github.com/facebook/jest#readme
+│ │ │ │ │ ├── chalk@4.1.0 deduped
+│ │ │ │ │ │   Terminal string styling done right
+│ │ │ │ │ │   git+https://github.com/chalk/chalk.git
+│ │ │ │ │ │   https://github.com/chalk/chalk#readme
+│ │ │ │ │ ├── diff-sequences@26.6.2
+│ │ │ │ │ │   Compare items in two sequences to find a longest common subsequence
+│ │ │ │ │ │   git+https://github.com/facebook/jest.git
+│ │ │ │ │ │   https://github.com/facebook/jest#readme
+│ │ │ │ │ ├── jest-get-type@26.3.0 deduped
+│ │ │ │ │ │   A utility function to get the type of a value
+│ │ │ │ │ │   git+https://github.com/facebook/jest.git
+│ │ │ │ │ │   https://github.com/facebook/jest#readme
+│ │ │ │ │ └── pretty-format@26.6.2 deduped
+│ │ │ │ │     Stringify any JavaScript value.
+│ │ │ │ │     git+https://github.com/facebook/jest.git
+│ │ │ │ │     https://github.com/facebook/jest#readme
 │ │ │ │ ├── jest-get-type@26.3.0 deduped
 │ │ │ │ │   A utility function to get the type of a value
 │ │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ │ └── pretty-format@26.6.1 deduped
-│ │ │ │     Stringify any JavaScript value.
-│ │ │ │     git+https://github.com/facebook/jest.git
-│ │ │ │     https://github.com/facebook/jest#readme
-│ │ │ ├── jest-message-util@26.6.1 deduped
+│ │ │ │ └─┬ pretty-format@26.6.2
+│ │ │ │   │ Stringify any JavaScript value.
+│ │ │ │   │ git+https://github.com/facebook/jest.git
+│ │ │ │   │ https://github.com/facebook/jest#readme
+│ │ │ │   ├─┬ @jest/types@26.6.2
+│ │ │ │   │ │ git+https://github.com/facebook/jest.git
+│ │ │ │   │ │ https://github.com/facebook/jest#readme
+│ │ │ │   │ ├── @types/istanbul-lib-coverage@2.0.3 deduped
+│ │ │ │   │ │   TypeScript definitions for istanbul-lib-coverage
+│ │ │ │   │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │   │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │   │ ├── @types/istanbul-reports@3.0.0 deduped
+│ │ │ │   │ │   TypeScript definitions for istanbul-reports
+│ │ │ │   │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │   │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │   │ ├── @types/node@14.14.7 deduped
+│ │ │ │   │ │   TypeScript definitions for Node.js
+│ │ │ │   │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │   │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │   │ ├── @types/yargs@15.0.9 deduped
+│ │ │ │   │ │   TypeScript definitions for yargs
+│ │ │ │   │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │   │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │   │ └── chalk@4.1.0 deduped
+│ │ │ │   │     Terminal string styling done right
+│ │ │ │   │     git+https://github.com/chalk/chalk.git
+│ │ │ │   │     https://github.com/chalk/chalk#readme
+│ │ │ │   ├── ansi-regex@5.0.0 deduped
+│ │ │ │   │   Regular expression for matching ANSI escape codes
+│ │ │ │   │   git+https://github.com/chalk/ansi-regex.git
+│ │ │ │   │   https://github.com/chalk/ansi-regex#readme
+│ │ │ │   ├── ansi-styles@4.3.0 deduped
+│ │ │ │   │   ANSI escape codes for styling strings in the terminal
+│ │ │ │   │   git+https://github.com/chalk/ansi-styles.git
+│ │ │ │   │   https://github.com/chalk/ansi-styles#readme
+│ │ │ │   └── react-is@17.0.1 deduped
+│ │ │ │       Brand checking of React Elements.
+│ │ │ │       git+https://github.com/facebook/react.git
+│ │ │ │       https://reactjs.org/
+│ │ │ ├── jest-message-util@26.6.2 deduped
 │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ ├── jest-resolve@26.6.1 deduped
+│ │ │ ├── jest-resolve@26.6.2 deduped
 │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │   https://github.com/facebook/jest#readme
 │ │ │ ├── natural-compare@1.4.0 deduped
 │ │ │ │   Compare strings containing a mix of letters and numbers in the way a human being would in sort order.
 │ │ │ │   git://github.com/litejs/natural-compare-lite.git
 │ │ │ │   https://github.com/litejs/natural-compare-lite#readme
-│ │ │ ├── pretty-format@26.6.1 deduped
-│ │ │ │   Stringify any JavaScript value.
-│ │ │ │   git+https://github.com/facebook/jest.git
-│ │ │ │   https://github.com/facebook/jest#readme
+│ │ │ ├─┬ pretty-format@26.6.2
+│ │ │ │ │ Stringify any JavaScript value.
+│ │ │ │ │ git+https://github.com/facebook/jest.git
+│ │ │ │ │ https://github.com/facebook/jest#readme
+│ │ │ │ ├── @jest/types@26.6.2 deduped
+│ │ │ │ │   git+https://github.com/facebook/jest.git
+│ │ │ │ │   https://github.com/facebook/jest#readme
+│ │ │ │ ├── ansi-regex@5.0.0 deduped
+│ │ │ │ │   Regular expression for matching ANSI escape codes
+│ │ │ │ │   git+https://github.com/chalk/ansi-regex.git
+│ │ │ │ │   https://github.com/chalk/ansi-regex#readme
+│ │ │ │ ├── ansi-styles@4.3.0 deduped
+│ │ │ │ │   ANSI escape codes for styling strings in the terminal
+│ │ │ │ │   git+https://github.com/chalk/ansi-styles.git
+│ │ │ │ │   https://github.com/chalk/ansi-styles#readme
+│ │ │ │ └── react-is@17.0.1 deduped
+│ │ │ │     Brand checking of React Elements.
+│ │ │ │     git+https://github.com/facebook/react.git
+│ │ │ │     https://reactjs.org/
 │ │ │ └── semver@7.3.2
 │ │ │     The semantic version parser used by npm.
 │ │ │     git+https://github.com/npm/node-semver.git
 │ │ │     https://github.com/npm/node-semver#readme
-│ │ ├── jest-util@26.6.1 deduped
+│ │ ├── jest-util@26.6.2 deduped
 │ │ │   git+https://github.com/facebook/jest.git
 │ │ │   https://github.com/facebook/jest#readme
-│ │ ├─┬ jest-validate@26.6.1
+│ │ ├─┬ jest-validate@26.6.2
 │ │ │ │ Generic configuration validation tool that helps you with warnings, errors and deprecation messages as well as showing users examples of correct configuration.
 │ │ │ │ git+https://github.com/facebook/jest.git
 │ │ │ │ https://github.com/facebook/jest#readme
-│ │ │ ├── @jest/types@26.6.1 deduped
-│ │ │ │   git+https://github.com/facebook/jest.git
-│ │ │ │   https://github.com/facebook/jest#readme
+│ │ │ ├─┬ @jest/types@26.6.2
+│ │ │ │ │ git+https://github.com/facebook/jest.git
+│ │ │ │ │ https://github.com/facebook/jest#readme
+│ │ │ │ ├── @types/istanbul-lib-coverage@2.0.3 deduped
+│ │ │ │ │   TypeScript definitions for istanbul-lib-coverage
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ ├── @types/istanbul-reports@3.0.0 deduped
+│ │ │ │ │   TypeScript definitions for istanbul-reports
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ ├── @types/node@14.14.7 deduped
+│ │ │ │ │   TypeScript definitions for Node.js
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ ├── @types/yargs@15.0.9 deduped
+│ │ │ │ │   TypeScript definitions for yargs
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ └── chalk@4.1.0 deduped
+│ │ │ │     Terminal string styling done right
+│ │ │ │     git+https://github.com/chalk/chalk.git
+│ │ │ │     https://github.com/chalk/chalk#readme
 │ │ │ ├── camelcase@6.2.0
 │ │ │ │   Convert a dash/dot/underscore/space separated string to camelCase or PascalCase: `foo-bar` → `fooBar`
 │ │ │ │   git+https://github.com/sindresorhus/camelcase.git
@@ -5260,25 +5961,60 @@ telm-project@0.0.1
 │ │ │ │   A utility function to get the type of a value
 │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ ├── leven@3.1.0
+│ │ │ ├── leven@3.1.0 deduped
 │ │ │ │   Measure the difference between two strings using the fastest JS implementation of the Levenshtein distance algorithm
 │ │ │ │   git+https://github.com/sindresorhus/leven.git
 │ │ │ │   https://github.com/sindresorhus/leven#readme
-│ │ │ └── pretty-format@26.6.1 deduped
-│ │ │     Stringify any JavaScript value.
-│ │ │     git+https://github.com/facebook/jest.git
-│ │ │     https://github.com/facebook/jest#readme
-│ │ ├─┬ jest-watcher@26.6.1
+│ │ │ └─┬ pretty-format@26.6.2
+│ │ │   │ Stringify any JavaScript value.
+│ │ │   │ git+https://github.com/facebook/jest.git
+│ │ │   │ https://github.com/facebook/jest#readme
+│ │ │   ├── @jest/types@26.6.2 deduped
+│ │ │   │   git+https://github.com/facebook/jest.git
+│ │ │   │   https://github.com/facebook/jest#readme
+│ │ │   ├── ansi-regex@5.0.0 deduped
+│ │ │   │   Regular expression for matching ANSI escape codes
+│ │ │   │   git+https://github.com/chalk/ansi-regex.git
+│ │ │   │   https://github.com/chalk/ansi-regex#readme
+│ │ │   ├── ansi-styles@4.3.0 deduped
+│ │ │   │   ANSI escape codes for styling strings in the terminal
+│ │ │   │   git+https://github.com/chalk/ansi-styles.git
+│ │ │   │   https://github.com/chalk/ansi-styles#readme
+│ │ │   └── react-is@17.0.1 deduped
+│ │ │       Brand checking of React Elements.
+│ │ │       git+https://github.com/facebook/react.git
+│ │ │       https://reactjs.org/
+│ │ ├─┬ jest-watcher@26.6.2
 │ │ │ │ Delightful JavaScript Testing.
 │ │ │ │ git+https://github.com/facebook/jest.git
 │ │ │ │ https://jestjs.io/
-│ │ │ ├── @jest/test-result@26.6.1 deduped
+│ │ │ ├── @jest/test-result@26.6.2 deduped
 │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ ├── @jest/types@26.6.1 deduped
-│ │ │ │   git+https://github.com/facebook/jest.git
-│ │ │ │   https://github.com/facebook/jest#readme
-│ │ │ ├── @types/node@14.14.6 deduped
+│ │ │ ├─┬ @jest/types@26.6.2
+│ │ │ │ │ git+https://github.com/facebook/jest.git
+│ │ │ │ │ https://github.com/facebook/jest#readme
+│ │ │ │ ├── @types/istanbul-lib-coverage@2.0.3 deduped
+│ │ │ │ │   TypeScript definitions for istanbul-lib-coverage
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ ├── @types/istanbul-reports@3.0.0 deduped
+│ │ │ │ │   TypeScript definitions for istanbul-reports
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ ├── @types/node@14.14.7 deduped
+│ │ │ │ │   TypeScript definitions for Node.js
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ ├── @types/yargs@15.0.9 deduped
+│ │ │ │ │   TypeScript definitions for yargs
+│ │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ │ └── chalk@4.1.0 deduped
+│ │ │ │     Terminal string styling done right
+│ │ │ │     git+https://github.com/chalk/chalk.git
+│ │ │ │     https://github.com/chalk/chalk#readme
+│ │ │ ├── @types/node@14.14.7 deduped
 │ │ │ │   TypeScript definitions for Node.js
 │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
@@ -5290,7 +6026,7 @@ telm-project@0.0.1
 │ │ │ │   Terminal string styling done right
 │ │ │ │   git+https://github.com/chalk/chalk.git
 │ │ │ │   https://github.com/chalk/chalk#readme
-│ │ │ ├── jest-util@26.6.1 deduped
+│ │ │ ├── jest-util@26.6.2 deduped
 │ │ │ │   git+https://github.com/facebook/jest.git
 │ │ │ │   https://github.com/facebook/jest#readme
 │ │ │ └── string-length@4.0.1 deduped
@@ -5337,20 +6073,40 @@ telm-project@0.0.1
 │ │       Resolve the path of a module like `require.resolve()` but from a given path
 │ │       git+https://github.com/sindresorhus/resolve-from.git
 │ │       https://github.com/sindresorhus/resolve-from#readme
-│ └─┬ jest-cli@26.6.1
+│ └─┬ jest-cli@26.6.3
 │   │ Delightful JavaScript Testing.
 │   │ git+https://github.com/facebook/jest.git
 │   │ https://jestjs.io/
-│   ├── @jest/core@26.6.1 deduped
+│   ├── @jest/core@26.6.3 deduped
 │   │   Delightful JavaScript Testing.
 │   │   git+https://github.com/facebook/jest.git
 │   │   https://jestjs.io/
-│   ├── @jest/test-result@26.6.1 deduped
+│   ├── @jest/test-result@26.6.2 deduped
 │   │   git+https://github.com/facebook/jest.git
 │   │   https://github.com/facebook/jest#readme
-│   ├── @jest/types@26.6.1 deduped
-│   │   git+https://github.com/facebook/jest.git
-│   │   https://github.com/facebook/jest#readme
+│   ├─┬ @jest/types@26.6.2
+│   │ │ git+https://github.com/facebook/jest.git
+│   │ │ https://github.com/facebook/jest#readme
+│   │ ├── @types/istanbul-lib-coverage@2.0.3 deduped
+│   │ │   TypeScript definitions for istanbul-lib-coverage
+│   │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│   │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│   │ ├── @types/istanbul-reports@3.0.0 deduped
+│   │ │   TypeScript definitions for istanbul-reports
+│   │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│   │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│   │ ├── @types/node@14.14.7 deduped
+│   │ │   TypeScript definitions for Node.js
+│   │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│   │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│   │ ├── @types/yargs@15.0.9 deduped
+│   │ │   TypeScript definitions for yargs
+│   │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│   │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│   │ └── chalk@4.1.0 deduped
+│   │     Terminal string styling done right
+│   │     git+https://github.com/chalk/chalk.git
+│   │     https://github.com/chalk/chalk#readme
 │   ├── chalk@4.1.0 deduped
 │   │   Terminal string styling done right
 │   │   git+https://github.com/chalk/chalk.git
@@ -5375,13 +6131,13 @@ telm-project@0.0.1
 │   │     Get details about the current Continuous Integration environment
 │   │     git+https://github.com/watson/ci-info.git
 │   │     https://github.com/watson/ci-info
-│   ├── jest-config@26.6.1 deduped
+│   ├── jest-config@26.6.3 deduped
 │   │   git+https://github.com/facebook/jest.git
 │   │   https://github.com/facebook/jest#readme
-│   ├── jest-util@26.6.1 deduped
+│   ├── jest-util@26.6.2 deduped
 │   │   git+https://github.com/facebook/jest.git
 │   │   https://github.com/facebook/jest#readme
-│   ├── jest-validate@26.6.1 deduped
+│   ├── jest-validate@26.6.2 deduped
 │   │   Generic configuration validation tool that helps you with warnings, errors and deprecation messages as well as showing users examples of correct configuration.
 │   │   git+https://github.com/facebook/jest.git
 │   │   https://github.com/facebook/jest#readme
@@ -6964,7 +7720,7 @@ telm-project@0.0.1
 │     An abstract class implementing Passport's strategy API.
 │     git://github.com/jaredhanson/passport-strategy.git
 │     https://github.com/jaredhanson/passport-strategy#readme
-├─┬ pg@8.4.2
+├─┬ pg@8.5.1
 │ │ PostgreSQL client - pure javascript & libpq with the same API
 │ │ git://github.com/brianc/node-postgres.git
 │ │ https://github.com/brianc/node-postgres
@@ -6984,7 +7740,7 @@ telm-project@0.0.1
 │ │   Connection pool for node-postgres
 │ │   git://github.com/brianc/node-postgres.git
 │ │   https://github.com/brianc/node-pg-pool#readme
-│ ├── pg-protocol@1.3.0
+│ ├── pg-protocol@1.4.0
 │ │   The postgres client/server binary protocol, implemented in TypeScript
 │ ├─┬ pg-types@2.2.0
 │ │ │ Query result type converters for node-postgres
@@ -7062,7 +7818,7 @@ telm-project@0.0.1
 │       A stricter URI encode adhering to RFC 3986
 │       git+https://github.com/kevva/strict-uri-encode.git
 │       https://github.com/kevva/strict-uri-encode#readme
-├─┬ react@16.14.0
+├─┬ UNMET PEER DEPENDENCY react@17.0.1
 │ │ React is a JavaScript library for building user interfaces.
 │ │ git+https://github.com/facebook/react.git
 │ │ https://reactjs.org/
@@ -7074,15 +7830,11 @@ telm-project@0.0.1
 │ │     A regex that tokenizes JavaScript.
 │ │     git+https://github.com/lydell/js-tokens.git
 │ │     https://github.com/lydell/js-tokens#readme
-│ ├── object-assign@4.1.1
-│ │   ES2015 `Object.assign()` ponyfill
-│ │   git+https://github.com/sindresorhus/object-assign.git
-│ │   https://github.com/sindresorhus/object-assign#readme
-│ └── prop-types@15.7.2 deduped
-│     Runtime type checking for React props and similar objects.
-│     git+https://github.com/facebook/prop-types.git
-│     https://facebook.github.io/react/
-├─┬ react-admin@3.9.6
+│ └── object-assign@4.1.1
+│     ES2015 `Object.assign()` ponyfill
+│     git+https://github.com/sindresorhus/object-assign.git
+│     https://github.com/sindresorhus/object-assign#readme
+├─┬ react-admin@3.10.1
 │ │ A frontend Framework for building admin applications on top of REST services, using ES6, React and Material UI
 │ │ git+https://github.com/marmelab/react-admin.git
 │ │ https://github.com/marmelab/react-admin#readme
@@ -7120,7 +7872,7 @@ telm-project@0.0.1
 │ │   https://github.com/final-form/final-form-arrays#readme
 │ ├── UNMET PEER DEPENDENCY immutable@^3.8.1 || ^4.0.0-rc.1
 │ │   
-│ ├─┬ ra-core@3.9.6
+│ ├─┬ ra-core@3.10.1
 │ │ │ Core components of react-admin, a frontend Framework for building admin applications on top of REST services, using ES6, React
 │ │ │ git+https://github.com/marmelab/react-admin.git
 │ │ │ https://github.com/marmelab/react-admin#readme
@@ -7151,7 +7903,7 @@ telm-project@0.0.1
 │ │ │   │ │   Flow types for the Javascript AST
 │ │ │   │ │   git+https://github.com/kyldvs/ast-types-flow.git
 │ │ │   │ │   https://github.com/kyldvs/ast-types-flow#readme
-│ │ │   │ └── commander@2.20.3 deduped
+│ │ │   │ └── commander@2.20.3
 │ │ │   │     the complete solution for node.js command-line programs
 │ │ │   │     git+https://github.com/tj/commander.js.git
 │ │ │   │     https://github.com/tj/commander.js#readme
@@ -7254,7 +8006,7 @@ telm-project@0.0.1
 │ │     Selectors for Redux.
 │ │     git+https://github.com/reactjs/reselect.git
 │ │     https://github.com/reactjs/reselect#readme
-│ ├─┬ ra-i18n-polyglot@3.9.6
+│ ├─┬ ra-i18n-polyglot@3.10.1
 │ │ │ Polyglot i18n provider for react-admin
 │ │ │ git+https://github.com/marmelab/react-admin.git
 │ │ │ https://github.com/marmelab/react-admin#readme
@@ -7342,19 +8094,19 @@ telm-project@0.0.1
 │ │ │       Fast (and loose) selective `process.env` replacer using js-tokens instead of an AST
 │ │ │       git://github.com/zertosh/loose-envify.git
 │ │ │       https://github.com/zertosh/loose-envify
-│ │ └── ra-core@3.9.6 deduped
+│ │ └── ra-core@3.10.1 deduped
 │ │     Core components of react-admin, a frontend Framework for building admin applications on top of REST services, using ES6, React
 │ │     git+https://github.com/marmelab/react-admin.git
 │ │     https://github.com/marmelab/react-admin#readme
-│ ├─┬ ra-language-english@3.9.6
+│ ├─┬ ra-language-english@3.10.1
 │ │ │ English messages for react-admin, the frontend framework for building admin applications on top of REST/GraphQL services
 │ │ │ git+https://github.com/marmelab/react-admin.git
 │ │ │ https://github.com/marmelab/react-admin#readme
-│ │ └── ra-core@3.9.6 deduped
+│ │ └── ra-core@3.10.1 deduped
 │ │     Core components of react-admin, a frontend Framework for building admin applications on top of REST services, using ES6, React
 │ │     git+https://github.com/marmelab/react-admin.git
 │ │     https://github.com/marmelab/react-admin#readme
-│ ├─┬ ra-ui-materialui@3.9.6
+│ ├─┬ ra-ui-materialui@3.10.1
 │ │ │ UI Components for react-admin with MaterialUI
 │ │ │ git+https://github.com/marmelab/react-admin.git
 │ │ │ https://github.com/marmelab/react-admin#readme
@@ -7416,22 +8168,12 @@ telm-project@0.0.1
 │ │ │   Runtime type checking for React props and similar objects.
 │ │ │   git+https://github.com/facebook/prop-types.git
 │ │ │   https://facebook.github.io/react/
-│ │ ├─┬ query-string@5.1.1
-│ │ │ │ Parse and stringify URL query strings
-│ │ │ │ git+https://github.com/sindresorhus/query-string.git
-│ │ │ │ https://github.com/sindresorhus/query-string#readme
-│ │ │ ├── decode-uri-component@0.2.0 deduped
-│ │ │ │   A better decodeURIComponent
-│ │ │ │   git+https://github.com/SamVerschueren/decode-uri-component.git
-│ │ │ │   https://github.com/SamVerschueren/decode-uri-component#readme
-│ │ │ ├── object-assign@4.1.1 deduped
-│ │ │ │   ES2015 `Object.assign()` ponyfill
-│ │ │ │   git+https://github.com/sindresorhus/object-assign.git
-│ │ │ │   https://github.com/sindresorhus/object-assign#readme
-│ │ │ └── strict-uri-encode@1.1.0
-│ │ │     A stricter URI encode adhering to RFC 3986
-│ │ │     git+https://github.com/kevva/strict-uri-encode.git
-│ │ │     https://github.com/kevva/strict-uri-encode#readme
+│ │ ├── query-string@5.1.1 deduped
+│ │ │   Parse and stringify URL query strings
+│ │ │   git+https://github.com/sindresorhus/query-string.git
+│ │ │   https://github.com/sindresorhus/query-string#readme
+│ │ ├── UNMET PEER DEPENDENCY react@^16.4.0
+│ │ │   
 │ │ ├─┬ react-dropzone@10.2.2
 │ │ │ │ Simple HTML5 drag-drop zone with React.js
 │ │ │ │ git+https://github.com/react-dropzone/react-dropzone.git
@@ -7440,7 +8182,7 @@ telm-project@0.0.1
 │ │ │ │   JavaScript implementation of the "accept" attribute for HTML5 <input type="file">
 │ │ │ │   git+https://github.com/react-dropzone/attr-accept.git
 │ │ │ │   https://github.com/react-dropzone/attr-accept#readme
-│ │ │ ├─┬ file-selector@0.1.17
+│ │ │ ├─┬ file-selector@0.1.18
 │ │ │ │ │ Convert DataTransfer object to a list of File objects
 │ │ │ │ │ git+https://github.com/react-dropzone/file-selector.git
 │ │ │ │ │ https://github.com/react-dropzone/file-selector
@@ -7458,6 +8200,10 @@ telm-project@0.0.1
 │ │ │   https://github.com/reactjs/react-transition-group#readme
 │ │ └── UNMET PEER DEPENDENCY seamless-immutable@^7.1.3
 │ │     
+│ ├── UNMET PEER DEPENDENCY react@^16.8.0
+│ │   
+│ ├── UNMET PEER DEPENDENCY react-dom@^16.8.0
+│ │   
 │ ├── react-final-form@6.5.2 deduped
 │ │   🏁 High performance subscription-based form state management for React
 │ │   git+https://github.com/final-form/react-final-form.git
@@ -7620,7 +8366,7 @@ telm-project@0.0.1
 │ │           https://github.com/ksxnodemodules/typescript-logic#readme
 │ └── UNMET PEER DEPENDENCY seamless-immutable@^7.1.3
 │     
-├─┬ react-dom@16.14.0
+├─┬ UNMET PEER DEPENDENCY react-dom@17.0.1
 │ │ React package for working with the DOM.
 │ │ git+https://github.com/facebook/react.git
 │ │ https://reactjs.org/
@@ -7632,11 +8378,7 @@ telm-project@0.0.1
 │ │   ES2015 `Object.assign()` ponyfill
 │ │   git+https://github.com/sindresorhus/object-assign.git
 │ │   https://github.com/sindresorhus/object-assign#readme
-│ ├── prop-types@15.7.2 deduped
-│ │   Runtime type checking for React props and similar objects.
-│ │   git+https://github.com/facebook/prop-types.git
-│ │   https://facebook.github.io/react/
-│ └─┬ scheduler@0.19.1
+│ └─┬ scheduler@0.20.1
 │   │ Cooperative scheduler for the browser environment.
 │   │ git+https://github.com/facebook/react.git
 │   │ https://reactjs.org/
@@ -7780,6 +8522,10 @@ telm-project@0.0.1
 │ │   Runtime type checking for React props and similar objects.
 │ │   git+https://github.com/facebook/prop-types.git
 │ │   https://facebook.github.io/react/
+│ ├── UNMET PEER DEPENDENCY react@^0.14.7 || ^15.0.0 || ^16.0.0
+│ │   
+│ ├── UNMET PEER DEPENDENCY react-dom@^15.0.0 || ^16.0.0
+│ │   
 │ ├─┬ react-resize-detector@2.3.0
 │ │ │ React resize detector
 │ │ │ git+https://github.com/maslianok/react-resize-detector.git
@@ -7896,13 +8642,10 @@ telm-project@0.0.1
 │       Error classes used in node_redis
 │       git+https://github.com/NodeRedis/redis-errors.git
 │       https://github.com/NodeRedis/redis-errors#readme
-├─┬ ts-jest@26.4.3
+├─┬ ts-jest@26.4.4
 │ │ A preprocessor with source maps support to help use TypeScript with Jest
 │ │ git+https://github.com/kulshekhar/ts-jest.git
 │ │ https://kulshekhar.github.io/ts-jest
-│ ├── @jest/create-cache-key-function@26.5.0
-│ │   git+https://github.com/facebook/jest.git
-│ │   https://github.com/facebook/jest#readme
 │ ├── @types/jest@26.0.15 deduped
 │ │   TypeScript definitions for Jest
 │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
@@ -7923,13 +8666,33 @@ telm-project@0.0.1
 │ │   deterministic `JSON.stringify()` - a faster version of substack's json-stable-strigify without jsonify
 │ │   git://github.com/epoberezkin/fast-json-stable-stringify.git
 │ │   https://github.com/epoberezkin/fast-json-stable-stringify
-│ ├─┬ jest-util@26.6.1
+│ ├─┬ jest-util@26.6.2
 │ │ │ git+https://github.com/facebook/jest.git
 │ │ │ https://github.com/facebook/jest#readme
-│ │ ├── @jest/types@26.6.1 deduped
-│ │ │   git+https://github.com/facebook/jest.git
-│ │ │   https://github.com/facebook/jest#readme
-│ │ ├── @types/node@14.14.6 deduped
+│ │ ├─┬ @jest/types@26.6.2
+│ │ │ │ git+https://github.com/facebook/jest.git
+│ │ │ │ https://github.com/facebook/jest#readme
+│ │ │ ├── @types/istanbul-lib-coverage@2.0.3 deduped
+│ │ │ │   TypeScript definitions for istanbul-lib-coverage
+│ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ ├── @types/istanbul-reports@3.0.0 deduped
+│ │ │ │   TypeScript definitions for istanbul-reports
+│ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ ├── @types/node@14.14.7 deduped
+│ │ │ │   TypeScript definitions for Node.js
+│ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ ├── @types/yargs@15.0.9 deduped
+│ │ │ │   TypeScript definitions for yargs
+│ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
+│ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
+│ │ │ └── chalk@4.1.0 deduped
+│ │ │     Terminal string styling done right
+│ │ │     git+https://github.com/chalk/chalk.git
+│ │ │     https://github.com/chalk/chalk#readme
+│ │ ├── @types/node@14.14.7 deduped
 │ │ │   TypeScript definitions for Node.js
 │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
@@ -7969,11 +8732,11 @@ telm-project@0.0.1
 │ │   The semantic version parser used by npm.
 │ │   git+https://github.com/npm/node-semver.git
 │ │   https://github.com/npm/node-semver#readme
-│ └── yargs-parser@20.2.3
+│ └── yargs-parser@20.2.4
 │     the mighty option parser used by yargs
 │     git+https://github.com/yargs/yargs-parser.git
 │     https://github.com/yargs/yargs-parser#readme
-├─┬ ts-loader@8.0.7
+├─┬ ts-loader@8.0.11
 │ │ TypeScript loader for webpack
 │ │ git+https://github.com/TypeStrong/ts-loader.git
 │ │ https://github.com/TypeStrong/ts-loader
@@ -8089,7 +8852,7 @@ telm-project@0.0.1
 │   TypeScript is a language for application scale JavaScript development
 │   git+https://github.com/Microsoft/TypeScript.git
 │   https://www.typescriptlang.org/
-├─┬ webpack@5.3.1
+├─┬ webpack@5.4.0
 │ │ Packs CommonJs/AMD modules for the browser. Allows to split your codebase into multiple bundles, which can be loaded on demand. Support loaders to preprocess files, i.e. json, jsx, es7, css, less, ... and your custom stuff.
 │ │ git+https://github.com/webpack/webpack.git
 │ │ https://github.com/webpack/webpack
@@ -8290,15 +9053,19 @@ telm-project@0.0.1
 │ │   ECMAScript parser
 │ │   git+https://github.com/acornjs/acorn.git
 │ │   https://github.com/acornjs/acorn
-│ ├─┬ browserslist@4.14.5
+│ ├─┬ browserslist@4.14.7
 │ │ │ Share target browsers between different front-end tools, like Autoprefixer, Stylelint and babel-env-preset
 │ │ │ git+https://github.com/browserslist/browserslist.git
 │ │ │ https://github.com/browserslist/browserslist#readme
-│ │ ├── caniuse-lite@1.0.30001151
+│ │ ├── caniuse-lite@1.0.30001157
 │ │ │   A smaller version of caniuse-db, with only the essentials!
 │ │ │   git+https://github.com/ben-eb/caniuse-lite.git
 │ │ │   https://github.com/ben-eb/caniuse-lite#readme
-│ │ ├── electron-to-chromium@1.3.584
+│ │ ├── colorette@1.2.1 deduped
+│ │ │   Color your terminal using pure idiomatic JavaScript.
+│ │ │   git+https://github.com/jorgebucaran/colorette.git
+│ │ │   https://github.com/jorgebucaran/colorette
+│ │ ├── electron-to-chromium@1.3.595
 │ │ │   Provides a list of electron-to-chromium version mappings
 │ │ │   git+https://github.com/kilian/electron-to-chromium.git
 │ │ │   https://github.com/kilian/electron-to-chromium#readme
@@ -8306,7 +9073,7 @@ telm-project@0.0.1
 │ │ │   A tiny (183B to 210B) and fast utility to ascend parent directories
 │ │ │   git+https://github.com/lukeed/escalade.git
 │ │ │   https://github.com/lukeed/escalade#readme
-│ │ └── node-releases@1.1.64
+│ │ └── node-releases@1.1.66
 │ │     Node.js releases data
 │ │     git+https://github.com/chicoxyzzy/node-releases.git
 │ │     https://github.com/chicoxyzzy/node-releases#readme
@@ -8325,7 +9092,7 @@ telm-project@0.0.1
 │ │ │   A drop-in replacement for fs, making various improvements.
 │ │ │   git+https://github.com/isaacs/node-graceful-fs.git
 │ │ │   https://github.com/isaacs/node-graceful-fs#readme
-│ │ └── tapable@2.0.0 deduped
+│ │ └── tapable@2.1.1 deduped
 │ │     Just a little module for plugins.
 │ │     git+ssh://git@github.com/webpack/tapable.git
 │ │     https://github.com/webpack/tapable
@@ -8409,7 +9176,7 @@ telm-project@0.0.1
 │ │     Custom JSON-Schema keywords for Ajv validator
 │ │     git+https://github.com/epoberezkin/ajv-keywords.git
 │ │     https://github.com/epoberezkin/ajv-keywords#readme
-│ ├── tapable@2.0.0
+│ ├── tapable@2.1.1
 │ │   Just a little module for plugins.
 │ │   git+ssh://git@github.com/webpack/tapable.git
 │ │   https://github.com/webpack/tapable
@@ -8417,11 +9184,11 @@ telm-project@0.0.1
 │ │ │ Terser plugin for webpack
 │ │ │ git+https://github.com/webpack-contrib/terser-webpack-plugin.git
 │ │ │ https://github.com/webpack-contrib/terser-webpack-plugin
-│ │ ├─┬ jest-worker@26.6.1
+│ │ ├─┬ jest-worker@26.6.2
 │ │ │ │ Module for executing heavy tasks under forked processes in parallel, by providing a `Promise` based interface, minimum overhead, and bound workers.
 │ │ │ │ git+https://github.com/facebook/jest.git
 │ │ │ │ https://github.com/facebook/jest#readme
-│ │ │ ├── @types/node@14.14.6 deduped
+│ │ │ ├── @types/node@14.14.7 deduped
 │ │ │ │   TypeScript definitions for Node.js
 │ │ │ │   git+https://github.com/DefinitelyTyped/DefinitelyTyped.git
 │ │ │ │   https://github.com/DefinitelyTyped/DefinitelyTyped#readme
@@ -8477,7 +9244,7 @@ telm-project@0.0.1
 │ │       Fixes stack traces for files with source maps
 │ │       git+https://github.com/evanw/node-source-map-support.git
 │ │       https://github.com/evanw/node-source-map-support#readme
-│ ├─┬ watchpack@2.0.0
+│ ├─┬ watchpack@2.0.1
 │ │ │ Wrapper library for directory and file watching.
 │ │ │ git+https://github.com/webpack/watchpack.git
 │ │ │ https://github.com/webpack/watchpack
@@ -8489,7 +9256,7 @@ telm-project@0.0.1
 │ │     A drop-in replacement for fs, making various improvements.
 │ │     git+https://github.com/isaacs/node-graceful-fs.git
 │ │     https://github.com/isaacs/node-graceful-fs#readme
-│ └─┬ webpack-sources@2.1.1
+│ └─┬ webpack-sources@2.2.0
 │   │ Source code handling classes for webpack
 │   │ git+https://github.com/webpack/webpack-sources.git
 │   │ https://github.com/webpack/webpack-sources#readme
@@ -8609,31 +9376,23 @@ telm-project@0.0.1
 │     Simple to use, blazing fast and thoroughly tested websocket client and server for Node.js
 │     git+https://github.com/websockets/ws.git
 │     https://github.com/websockets/ws
-├─┬ webpack-cli@4.1.0
+├─┬ webpack-cli@4.2.0
 │ │ CLI for webpack & friends
 │ │ git+https://github.com/webpack/webpack-cli.git
 │ │ https://github.com/webpack/webpack-cli#readme
-│ ├─┬ @webpack-cli/info@1.0.2
+│ ├─┬ @webpack-cli/info@1.1.0
 │ │ │ Outputs info about system and webpack config
 │ │ └── envinfo@7.7.3
 │ │     Info about your dev environment for debugging purposes
 │ │     git+https://github.com/tabrindle/envinfo.git
 │ │     https://github.com/tabrindle/envinfo#readme
-│ ├── @webpack-cli/serve@1.0.1
+│ ├── @webpack-cli/serve@1.1.0
 │ │   [![NPM Downloads][downloads]][downloads-url]
-│ ├─┬ ansi-escapes@4.3.1
-│ │ │ ANSI escape codes for manipulating the terminal
-│ │ │ git+https://github.com/sindresorhus/ansi-escapes.git
-│ │ │ https://github.com/sindresorhus/ansi-escapes#readme
-│ │ └── type-fest@0.11.0
-│ │     A collection of essential TypeScript types
-│ │     git+https://github.com/sindresorhus/type-fest.git
-│ │     https://github.com/sindresorhus/type-fest#readme
 │ ├── colorette@1.2.1 deduped
 │ │   Color your terminal using pure idiomatic JavaScript.
 │ │   git+https://github.com/jorgebucaran/colorette.git
 │ │   https://github.com/jorgebucaran/colorette
-│ ├─┬ command-line-usage@6.1.0
+│ ├─┬ command-line-usage@6.1.1
 │ │ │ Generates command-line usage information
 │ │ │ git+https://github.com/75lb/command-line-usage.git
 │ │ │ https://github.com/75lb/command-line-usage#readme
@@ -8801,6 +9560,10 @@ telm-project@0.0.1
 │ │   A dictionary of file extensions and associated module loaders.
 │ │   git+https://github.com/gulpjs/interpret.git
 │ │   https://github.com/gulpjs/interpret#readme
+│ ├── leven@3.1.0
+│ │   Measure the difference between two strings using the fastest JS implementation of the Levenshtein distance algorithm
+│ │   git+https://github.com/sindresorhus/leven.git
+│ │   https://github.com/sindresorhus/leven#readme
 │ ├─┬ rechoir@0.7.0
 │ │ │ Prepare a node environment to require files with different extensions.
 │ │ │ git+https://github.com/gulpjs/rechoir.git
