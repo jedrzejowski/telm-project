@@ -1,0 +1,9 @@
+[book]
+authors = ["Adam Jędrzejowski", "Ewelina Drelich"]
+language = "pl"
+multilingual = false
+src = "docs"
+title = "TELM - eKarta Gorączkowa"
+
+[build]
+build-dir = "dist/docs"

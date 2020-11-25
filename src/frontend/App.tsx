@@ -3,6 +3,7 @@ import {Admin, Resource} from "react-admin";
 import dataProvider from "./dataProvider";
 import i18nProvider from "./i18nProvider";
 import authProvider from "./authProvider";
+import customRoutes from "./customRoutes";
 import type {AppPermissions} from "../types";
 
 import PatientsList from "./components/patients/PatientsList";
@@ -29,6 +30,7 @@ export default function App() {
             dataProvider={dataProvider}
             authProvider={authProvider}
             i18nProvider={i18nProvider}
+            customRoutes={customRoutes}
         >
             {(permissions: AppPermissions) => [
 

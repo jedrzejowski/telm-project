@@ -41,5 +41,7 @@ app.use(express.static("./dist/public"));
 
 app.use("/api", api);
 
+app.use("/docs", express.static("./dist/docs"));
+
 app.listen(env.APP_PORT);
 
