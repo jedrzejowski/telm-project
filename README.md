@@ -1,19 +1,4 @@
-# telm-project
-
-## Zmienne środowiskowe
-
-Całą aplikacją można sterować za pomocą zmiennych środowiskowych.
-
-| Nazwa | Wartość | Opis |
-| --- | --- | --- |
-| APP_SECRET | string | używany do podpisywania pliku cookie z identyfikatorem sesji |
-| APP_PORT | number | port na którym zostanie uruchomiona aplikacja |
-| APP_REDISURL | string | uri serwera Redis |
-| APP_PGHOST | string | adres serwera PostgreSQL |
-| APP_PGPORT | number | port serwera PostgreSQL |
-| APP_PGDATABASE | string | nazwa bazy danych |
-| APP_PGUSER | string | użytkownik do serwera PostgreSQL |
-| APP_PGPASSWD | string | hasło do serwera PostgreSQL |
+# TELM - eKarta Gorączkowa
 
 ## Jak uruchomić aplikację
 
@@ -105,10 +90,67 @@ Uruchamiając `npm run build`, uruchamia `webpack`'a, który pakuje cały projek
 └── package.json
 ```
 
+## Zmienne środowiskowe
+
+Całą aplikacją można sterować za pomocą zmiennych środowiskowych.
+
+| Nazwa | Wartość | Opis |
+| --- | --- | --- |
+| APP_SECRET | string | używany do podpisywania pliku cookie z identyfikatorem sesji |
+| APP_PORT | number | port na którym zostanie uruchomiona aplikacja |
+| APP_REDISURL | string | uri serwera Redis |
+| APP_PGHOST | string | adres serwera PostgreSQL |
+| APP_PGPORT | number | port serwera PostgreSQL |
+| APP_PGDATABASE | string | nazwa bazy danych |
+| APP_PGUSER | string | użytkownik do serwera PostgreSQL |
+| APP_PGPASSWD | string | hasło do serwera PostgreSQL |
+
+## Jak działa aplikacja
+
+Aplikacja składa się z 4 procesów:
+ - PostgreSQL - server z danymi aplikacji
+ - Redis - serwer z sesjiami użytkowników
+ - Nginz - tak zawany load balancer
+ - Serwer NodeJS - serwer napisany przez nas
+
+![schema](docs/img/schema.png)
 
 ## Serwer backendowy
 
+Serwer backendowy jest postawiony na NodeJS.
+RestAPI zostało wykonane, przy użyciu biblioteki `express`.
+
 ## Interfejs graficzny strony
+
+Interfejs graficzny został wykonany w React'cie.
+Wykorzystano takrze bibliotekę `react-admin`, która uławia pisanie aplikacji do administrowania danymi.
+
+
+![screen01](docs/img/screen01.png)
+Rys: Strona logowania
+
+![screen02](docs/img/screen02.png)
+Rys: Lista pacjentów
+
+![screen03](docs/img/screen03.png)
+Rys: Lista hospitalizacji
+
+![screen04](docs/img/screen04.png)
+Rys: Lista pomiarów
+
+![screen05](docs/img/screen05.png)
+Rys: Lista personelu
+
+![screen06](docs/img/screen06.png)
+Rys: Widok hospitaliacji
+
+![screen07](docs/img/screen07.png)
+Rys: Widok hospitaliacji, dane tabelaryczne
+
+![screen08](docs/img/screen08.png)
+Rys: Widok hospitaliacji, ciśnienie krwi
+
+
 
 ## Baza danych
 
@@ -138,12 +180,13 @@ Baza danych składa się z 6 tabel:
    - `backend` - część serwerowa
    - `frontend` - część przeglądarkowa
    - `data` - część danych, ich definicje i walidatory
- - `docker-compose.*.yml` - pliki orkiestratora
+ - `docker-compose.dev.yml` - pliki orkiestratora (wersja deweloperska)
+ - `docker-compose.yml` - pliki orkiestratora 
    
 ## Użyte biblioteki
 
-Sumaryczna użyta ilość bibliotek to: ( ͡° ͜ʖ ͡° )つ──☆*:・ﾟ **1229**.
-Liczbę można uzyskać uruchamiając `npm audit`.
+Sumaryczna użyta ilość bibliotek to: ( ͡° ͜ʖ ͡° )つ──☆*:・ﾟ **1257**.
+Liczbę można uzyskać uruchamiając `npm ls --parseable | wc -l`.
 
 ![node_modules](https://img.devrant.com/devrant/rant/r_1030841_w7Mq9.jpg)
 
@@ -151,7 +194,7 @@ A na poważnie: użyliśmy narzędzia `npm` do zorwiązywania zależności.
 Sprawia to, że podczas instalowania bibliotek w katalogu `node_modules` są instalowane zależności do tych bibliotek i tak w kółko.
 Pełny wykaz bibliotek znajduje się w pliku `dependencies.txt`, a biblioteki faktynie żyte przez nas są w pliku `package.json` w sekcjach dependencies i `devDependencies`.
 
-Najważniejsze biblitoki:
+Najważniejsze biblitoki JavaScript:
 
  - `react` - główna biblioteka graficzna
  - `react-admin` - biblioteka do tworzenia stron typu dashboard z danymi 
@@ -169,4 +212,4 @@ Najważniejsze biblitoki:
 ## Autorzy
 
  - Adam Jędrzejowski <a.jedrzejowski@gmail.com>
- - Ewelina Drelich <???>
+ - Ewelina Drelich <ewe.drelich@gmail.com>

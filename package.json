@@ -7,10 +7,8 @@
         "clean": "rm -rf dist/*",
         "serve": "node dist/private/main.js",
         "build": "webpack --mode production",
-        "docs": "mdbook build",
         "build-docker": "docker build --file node.dockerfile --tag telm-project-node:$(jq .version package.json -r) .",
         "dev-build": "webpack --mode development --watch",
-        "dev-serve": "env-cmd -f .dev.env nodemon dist/private/main.js",
         "dev-docs": "mdbook serve",
         "test": "jest",
         "eslint": "eslint src/"
