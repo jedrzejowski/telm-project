@@ -84,8 +84,8 @@ function ExaminationsChart(props: {
 
         // wytworzenie linii czasu
 
-        let half_day_ticks: number[] = [];
-        let full_day_ticks: number[] = [];
+        const half_day_ticks: number[] = [];
+        const full_day_ticks: number[] = [];
 
         let half_day = dayjs(min_time);
         half_day = half_day.set("hour", 20);

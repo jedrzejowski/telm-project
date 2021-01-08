@@ -38,8 +38,8 @@ export default function App() {
                     <Resource
                         name="patients"
                         list={PatientsList}
-                        edit={permissions.patients?.edit ? PatientsEdit : undefined}
-                        create={permissions.patients?.edit ? PatientCreate : undefined}
+                        edit={permissions.patients.edit ? PatientsEdit : undefined}
+                        create={permissions.patients.edit ? PatientCreate : undefined}
                         icon={PatientIcon}
                     />
                 ) : null,
@@ -48,8 +48,8 @@ export default function App() {
                     <Resource
                         name="hospitalizations"
                         list={HospitalizationsList}
-                        edit={permissions.patients?.edit ? HospitalizationsEdit : undefined}
-                        create={permissions.patients?.edit ? HospitalizationsCreate : undefined}
+                        edit={permissions.hospitalizations.edit ? HospitalizationsEdit : undefined}
+                        create={permissions.hospitalizations.edit ? HospitalizationsCreate : undefined}
                         show={HospitalizationShow}
                         icon={HospitalizationIcon}
                     />
@@ -59,8 +59,8 @@ export default function App() {
                     <Resource
                         name="examinations"
                         list={ExaminationList}
-                        edit={permissions.patients?.edit ? ExaminationEdit : undefined}
-                        create={permissions.patients?.edit ? ExaminationCreate : undefined}
+                        edit={permissions.examinations.edit ? ExaminationEdit : undefined}
+                        create={permissions.examinations.edit ? ExaminationCreate : undefined}
                         icon={ExaminationIcon}
                     />
                 ) : null,
@@ -69,8 +69,8 @@ export default function App() {
                     <Resource
                         name="personel"
                         list={PersonelList}
-                        edit={permissions.patients?.edit ? PersonelEdit : undefined}
-                        create={permissions.patients?.edit ? PersonelCreate : undefined}
+                        edit={permissions.personel.edit ? PersonelEdit : undefined}
+                        create={permissions.personel.edit ? PersonelCreate : undefined}
                         icon={PersonelIcon}
                     />
                 ) : null

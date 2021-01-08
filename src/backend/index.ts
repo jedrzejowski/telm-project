@@ -37,6 +37,8 @@ passport.use(new BasicStrategy(
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.use(logReqRes);
+
 app.use(express.static("./dist/public"));
 
 app.use("/api", api);
