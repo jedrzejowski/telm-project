@@ -1,10 +1,10 @@
-import React from "react";
+import React, {FC} from "react";
 import {
     Create,
     TextInput,
     DateTimeInput,
     Edit,
-    SimpleForm
+    SimpleForm, Toolbar, SaveButton
 } from "react-admin";
 import {makeRequired, makeValidate} from "../../lib/yup-frm-utils";
 import {HospitalizationY} from "../../../data/hospitalizations";
@@ -21,7 +21,11 @@ const useStyles = makeStyles(theme => ({
     gridItem: {
         paddingTop: '0!important',
         paddingBottom: '0!important',
-    }
+    },
+    toolbar: {
+        display: 'flex',
+        justifyContent: 'space-between',
+    },
 }))
 
 function Forms(props: {
@@ -100,7 +104,7 @@ export default function HospitalizationsEdit(props: Parameters<typeof Create>[0]
 
     return (
         <Edit {...props} >
-            <SimpleForm validate={validate}>
+            <SimpleForm validate={validate} toolbar={<CustomEditToolbar />}>
                 <Forms/>
             </SimpleForm>
         </Edit>
@@ -127,3 +131,10 @@ export function HospitalizationsCreate(props: Parameters<typeof Create>[0]) {
         </Create>
     )
 }
+
+const CustomEditToolbar: FC<any> = props => (
+    <Toolbar {...props} classes={useStyles()}>
+        <SaveButton/>
+    </Toolbar>
+);
+

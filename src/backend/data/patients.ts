@@ -11,7 +11,7 @@ export async function querySelectPatient(patient_id: string): Promise<PatientT |
             "patient_id as id",
             "name1",
             "name2",
-            "name4",
+            "name3",
             "pesel",
             "sex",
             "date_of_birth",

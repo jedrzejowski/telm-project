@@ -177,7 +177,7 @@ c009c5ab-38ba-429c-9e7d-02b629d44248	Herkulan	Domin	Mamert	60051813956	F	1960-05
 
 
 COPY public.personel (personel_id, username, name1, name2, name3, pwz, is_admin) FROM stdin;
-224e99a3-616b-43ca-806e-d6b9554cb7ba	ltomczak	Lutomir	Tomczak	Bożymierz	9001032	f
+224e99a3-616b-43ca-806e-d6b9554cb7ba	ltomczak	Lutomir	Tomczak	Bożymierz	9001032	t
 af437641-a6bc-4f18-be57-3c89b7848d5c	aszymura	Adolfina	Szymura	Sulimierz	8804116	f
 9cae8300-73db-4706-a105-0975ebbd2647	tborzcki	Trzebisława	Borzęcki	\N	9303252	f
 a2788583-9a16-47d8-9039-e9c18b58821f	iparzych	Ireneusz	Parzych	Szczęsny	5409014	f

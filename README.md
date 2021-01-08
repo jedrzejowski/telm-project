@@ -41,13 +41,14 @@ Aby go zakończyć, wciśnij `Ctrl+C`, co zakończy działanie aplikacji.
 
 Zainicjuj bazy danych:
 ```shell script
-docker-compose exec postgresql psql telm telm < database/schema.sql
-docker-compose exec postgresql psql telm telm < database/example_data.sql
+docker-compose exec -T postgresql psql telm telm < database/extensions.sql
+docker-compose exec -T postgresql psql telm telm < database/schema.sql
+docker-compose exec -T postgresql psql telm telm < database/example_data.sql
 ```
 
 Wejdź na stronę [localhost:8080](http://localhost:8080/).
 
-Zaloguj się jako `xxx` z hasłem `xxx`;
+Zaloguj się jako `ltomczak` z hasłem `qwerty123`;
 
 ### Uruchomianie testowych baz danych
 

@@ -5,6 +5,7 @@ import i18nProvider from "./i18nProvider";
 import authProvider from "./authProvider";
 import customRoutes from "./customRoutes";
 import type {AppPermissions} from "../types";
+// import {MyLayout} from "./myLayout";
 
 import PatientsList from "./components/patients/PatientsList";
 import PatientsEdit, {PatientCreate} from "./components/patients/PatientsEdit";
@@ -31,6 +32,7 @@ export default function App() {
             authProvider={authProvider}
             i18nProvider={i18nProvider}
             customRoutes={customRoutes}
+            // layout={MyLayout}
         >
             {(permissions: AppPermissions) => [
 

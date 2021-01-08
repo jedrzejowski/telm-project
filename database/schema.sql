@@ -15,6 +15,7 @@
 -- 
 -- -- Appended SQL commands --
 -- 
+-- create extension if not exists "uuid-ossp";
 -- 
 -- -- ddl-end --
 -- 

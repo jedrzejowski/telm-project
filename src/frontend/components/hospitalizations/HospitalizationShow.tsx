@@ -115,7 +115,7 @@ function HeaderField(props: Omit<RaFieldProps<HospitalizationRa>, "source">) {
     </Grid>
 }
 
-function ExaminationsField(props: Omit<RaFieldProps<HospitalizationT>, "source">) {
+function ExaminationsField(props: Omit<RaFieldProps<HospitalizationRa>, "source">) {
     const {record: hospitalization} = props;
     const [tab, setTab] = React.useState("charts");
     const classes = useStyles();
@@ -181,7 +181,7 @@ function ExaminationsField(props: Omit<RaFieldProps<HospitalizationT>, "source">
 
         <Box display={tab === "tables" ? "block" : "none"} className={classes.expand}>
             <ReferenceManyField
-                basePath={props.basePath}
+                {...props}
                 reference="examinations"
                 target="hospitalization_id"
                 sort={{field: "timestamp", order: "desc"}}

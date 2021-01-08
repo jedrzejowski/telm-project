@@ -1,23 +1,36 @@
-import React from "react";
+import React, {FC} from "react";
 import {
     Edit,
     SimpleForm,
     TextInput,
     DateInput,
     SelectInput,
-    Create
+    Create,
+    SaveButton,
+    Toolbar
 } from "react-admin";
 import {makeRequired, makeValidate} from "../../lib/yup-frm-utils";
 import {PatientT, PatientY} from "../../../data/patients";
+import {makeStyles} from "@material-ui/core/styles";
+
+
+const useStyles = makeStyles({
+    toolbar: {
+        display: 'flex',
+        justifyContent: 'space-between',
+    },
+});
+
 
 const validate = makeValidate(PatientY);
 const required = makeRequired(PatientY);
+
 
 export default function PatientsEdit(props: Parameters<typeof Edit>[0]) {
 
     return (
         <Edit {...props}>
-            <SimpleForm validate={validate}>
+            <SimpleForm validate={validate} toolbar={<CustomEditToolbar />}>
                 <TextInput source="name1" required={required.name1}/>
                 <TextInput source="name2" required={required.name2}/>
                 <TextInput source="name3" required={required.name3}/>
@@ -65,3 +78,9 @@ export function PatientCreate(props: Parameters<typeof Create>[0]) {
         </Create>
     )
 }
+
+const CustomEditToolbar: FC<any> = props => (
+    <Toolbar {...props} classes={useStyles()}>
+        <SaveButton/>
+    </Toolbar>
+);

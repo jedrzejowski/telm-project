@@ -3,7 +3,6 @@ import {oneOrDbErr, oneOrNull} from "../../lib/one_or";
 import {ExaminationT, ExaminationY} from "../../data/examinations";
 import {AppQueryFilter, AppQueryResult} from "../../lib/query";
 import {yupMap} from "../../lib/yup-utils";
-import {HospitalizationY} from "../../data/hospitalizations";
 import {InferType, object, string} from "yup";
 
 export async function querySelectExamination(examination_id: string): Promise<ExaminationT | null> {
@@ -72,7 +71,7 @@ export async function querySelectExaminations(
 
     builder.offset(query.offset);
     builder.limit(query.limit);
-    builder.orderBy("examination." + query.sortField, query.sortOrder);
+    builder.orderBy("" + query.sortField, query.sortOrder);
 
     const rows = await builder.then();
 
@@ -105,7 +104,7 @@ export async function queryCreateExamination(
             "hospitalization_id",
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
-            knex.raw(`timestamp"::text`),
+            knex.raw(`"timestamp"::text`),
             "pulse",
             "temperature",
             "blood_pressure1",
@@ -126,7 +125,7 @@ export async function queryUpdateExamination(
 ): Promise<ExaminationT> {
 
     const rows = await knex("examinations")
-        .where("examinations_id", "=", examination_id)
+        .where("examination_id", "=", examination_id)
         .update({
             pulse: examination.pulse,
             temperature: examination.temperature,
@@ -142,7 +141,7 @@ export async function queryUpdateExamination(
             "hospitalization_id",
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
-            knex.raw(`timestamp"::text`),
+            knex.raw(`"timestamp"::text`),
             "pulse",
             "temperature",
             "blood_pressure1",
@@ -153,5 +152,5 @@ export async function queryUpdateExamination(
             "comment",
         ]).then();
 
-    return await oneOrDbErr(rows, HospitalizationY);
+    return await oneOrDbErr(rows, ExaminationY);
 }
