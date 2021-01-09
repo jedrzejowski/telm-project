@@ -9,7 +9,7 @@
         "build": "webpack --mode production",
         "build-docker": "docker build --file node.dockerfile --tag telm-project-node:$(jq .version package.json -r) .",
         "dev-build": "webpack --mode development --watch",
-        "dev-docs": "mdbook serve",
+        "dev-serve": "env-cmd -f .dev.env nodemon dist/private/main.js",
         "test": "jest",
         "eslint": "eslint src/"
     },
