@@ -272,5 +272,5 @@ COPY public.logs ("timestamp", method, url, request_data, response_data, ip, hea
 \.
 
 COPY public.basic_auth (password, personel_id) FROM stdin;
-qwerty123	224e99a3-616b-43ca-806e-d6b9554cb7ba
+5889029e641f402201496fb52a08b0fd:ad0247b7c58f43b145873261304451a374888d4b5a1b110f09e57bf24fb67722f8f6cba492e7c82aafc83ea4fde9e7cbc56de91c7c6f03b6d155e2b2c67e50e2	224e99a3-616b-43ca-806e-d6b9554cb7ba
 \.
