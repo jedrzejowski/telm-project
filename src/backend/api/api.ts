@@ -8,6 +8,7 @@ import {querySelectPersona} from "../data/personel";
 import {AppPermissions, WhoAmI} from "../../types";
 import {personel2str} from "../../data/personel";
 import logReqRes from "../logReqRes";
+import ensureLoggedIn from "../lib/ensureLogin";
 
 const api = express.Router();
 
@@ -59,9 +60,9 @@ api.get("/whoami",
         res.status(200).json(body);
     });
 
-api.use("/patients", patients)
-api.use("/personel", personel)
-api.use("/hospitalizations", hospitalizations)
-api.use("/examinations", examinations)
+api.use("/patients", ensureLoggedIn(), patients)
+api.use("/personel", ensureLoggedIn(), personel)
+api.use("/hospitalizations", ensureLoggedIn(), hospitalizations)
+api.use("/examinations", ensureLoggedIn(), examinations)
 
 export default api;
